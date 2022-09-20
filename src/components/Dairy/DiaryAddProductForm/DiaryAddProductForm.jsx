@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 
 import styles from './DiaryAddProductForm.module.scss';
@@ -6,7 +6,7 @@ import Button from '../../Shared/Button/Button';
 import TextField from 'components/Shared/TextField';
 
 const DiaryAddProductForm = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const { register, handleSubmit, reset } = useForm({
     defaultValues: {
@@ -17,7 +17,7 @@ const DiaryAddProductForm = () => {
 
   const onSubmit = (data, e) => {
     e.preventDefault();
-    dispatch();
+    // dispatch();
     reset();
   };
 
