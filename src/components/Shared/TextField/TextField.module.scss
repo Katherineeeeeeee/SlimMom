@@ -1,0 +1,41 @@
+.wpap {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  align-items: center;
+  gap: 20px;
+}
+
+.input {
+  display: inline-block;
+  margin-bottom: 40px;
+  width: 280px; //mobile
+  height: 48px;
+  color: #9b9faa;
+  box-shadow: none;
+  border-radius: 0;
+
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-top-color: transparent;
+  border-bottom: 1px solid #e0e0e0;
+  letter-spacing: 1px;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+
+  font-weight: 400;
+  line-height: 1.5;
+
+  //   @include mq(tablet) {
+  //     width: 240px;
+  //   }
+}
+
+.input:focus {
+  //   color: $accent-color;
+
+  //   border-color: #fc842d;
+  border-bottom: 1px solid #fc842d;
+  outline: none;
+  background: transparent;
+}
