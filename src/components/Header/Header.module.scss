@@ -7,6 +7,30 @@
   width: 100%;
   border-bottom: 2px solid #e0e0e0;
   padding: 20px;
+
+  @media screen and (min-width: 1280px) {
+    justify-content: start;
+    border: none;
+    align-items: end;
+    padding-top: 80px;
+    
+    & .wrap {
+      padding-bottom: 3px;
+      margin-left: 42px;
+      position: relative;
+
+      &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: -7px;
+        left: -20px;
+        height: 32px;
+        width: 2px;
+        background-color: #E0E0E0;
+      }
+    }
+  }
 }
 
 .header a {
