@@ -1,5 +1,10 @@
+import TextField from 'components/Shared/TextField';
 const HomePage = () => {
-  return <div></div>;
+  return (
+    <div>
+      <TextField />
+    </div>
+  );
 };
 
 export default HomePage;
