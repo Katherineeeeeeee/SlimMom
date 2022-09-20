@@ -1,37 +1,49 @@
 import { Link } from 'react-router-dom';
-import { isRetina, isDesctop, isTablet, isMobile } from 'helpers/screen-sizes';
+import { useMediaQuery } from 'react-responsive';
+
+import ld from '../../../images/logo/logo-desc.png';
+import ld2x from '../../../images/logo/logo-desc@2x.png';
+import lt from '../../../images/logo/logo-tab.png';
+import lt2x from '../../../images/logo/logo-tab@2x.png';
+import lm from '../../../images/logo/logo-mob.png';
+import lm2x from '../../../images/logo/logo-mob@2x.png';
 
 const Logo = () => {
+  const isDesctop = useMediaQuery({ minWidth: 1280 });
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1279 });
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+  const isRetina = useMediaQuery({ query: '(min-resolution: 2dppx)' });
+
   return (
     <>
-      {isMobile && (
-        <Link>
-          <img src="" alt="" />
+      {isMobile && !isRetina && (
+        <Link to="/dairy">
+          <img src={lm} alt="web-site logo" width="46" />
         </Link>
       )}
-      {isTablet && (
-        <Link>
-          <img src="" alt="" />
+      {isTablet && !isRetina && (
+        <Link to="/dairy">
+          <img src={lt} alt="web-site logo" width="162" />
         </Link>
       )}
-      {isDesctop && (
-        <Link>
-          <img src="" alt="" />
+      {isDesctop && !isRetina && (
+        <Link to="/dairy">
+          <img src={ld} alt="web-site logo" width="167" />
         </Link>
       )}
       {isMobile && isRetina && (
-        <Link>
-          <img src="" alt="" />
+        <Link to="/dairy">
+          <img src={lm2x} alt="web-site logo" width="46" />
         </Link>
       )}
       {isTablet && isRetina && (
-        <Link>
-          <img src="" alt="" />
+        <Link to="/dairy">
+          <img src={lt2x} alt="web-site logo" width="162" />
         </Link>
       )}
       {isDesctop && isRetina && (
-        <Link>
-          <img src="" alt="" />
+        <Link to="/dairy">
+          <img src={ld2x} alt="web-site logo" width="167" />
         </Link>
       )}
     </>
