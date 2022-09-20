@@ -4,9 +4,11 @@ import Header from './Header';
 
 export const App = () => {
   return (
-    <Container>
+    <>
       <Header />
-      <UserRoutes />
-    </Container>
+      <Container>
+        <UserRoutes />
+      </Container>
+    </>
   );
 };
