@@ -3,19 +3,17 @@ import s from './TextField.module.scss';
 
 const TextField = ({ type, name, value, onChange, placeholder, required }) => {
   return (
-    <>
-      <label>
-        <input
-          className={s.input}
-          type={type}
-          name={name}
-          value={value}
-          onChange={onChange}
-          placeholder={placeholder}
-          required={required}
-        />
-      </label>
-    </>
+    <label>
+      <input
+        className={s.input}
+        type={type}
+        name={name}
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder}
+        required={required}
+      />
+    </label>
   );
 };
 export default TextField;
