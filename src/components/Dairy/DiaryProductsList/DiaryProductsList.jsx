@@ -1,5 +1,11 @@
+import DiaryProductsListItem from '../DiaryProductsListItem/DiaryProductsListItem';
+
 const DiaryProductsList = () => {
-  return <div></div>;
+  return (
+    <ul>
+      <DiaryProductsListItem />
+    </ul>
+  );
 };
 
 export default DiaryProductsList;
