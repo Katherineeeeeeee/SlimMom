@@ -1,3 +1,5 @@
+import UserRoutes from './Routes/UserRoutes';
+
 export const App = () => {
-  return <div>React homework template</div>;
+  return <UserRoutes />;
 };
