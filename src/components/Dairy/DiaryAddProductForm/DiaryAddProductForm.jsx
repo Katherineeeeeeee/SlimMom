@@ -16,7 +16,7 @@ const DiaryAddProductForm = () => {
 
   return (
     <>
-      <form action="">
+      <form action="" className={styles.form}>
         <label htmlFor="">
           <input
             type="text"
@@ -27,7 +27,9 @@ const DiaryAddProductForm = () => {
         <label htmlFor="">
           <input type="text" placeholder="Grams" className={styles.field} />
         </label>
-        <Button text={'Add'} />
+        <div className={styles.btn}>
+          <Button text={'Add'} btnClass={'btn'} />
+        </div>
       </form>
     </>
   );
