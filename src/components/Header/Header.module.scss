@@ -1,0 +1,24 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 16px;
+  width: 100%;
+  border-bottom: 2px solid #e0e0e0;
+  padding: 20px;
+}
+
+.header a {
+  font-family: 'GothamPro';
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #212121;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.header a:nth-child(even) {
+  color: #9b9faa;
+  margin-left: 16px;
+}
