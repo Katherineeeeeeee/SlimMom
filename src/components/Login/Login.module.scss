@@ -1,0 +1,45 @@
+@use '../../styles/mixins';
+
+.title {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+
+  color: var(--accent-color);
+
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 60px;
+
+  @include mixins.mq(tablet) {
+    margin-top: 160px;
+    text-align: left;
+  }
+}
+
+.form {
+  @include mixins.mq(tablet) {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+.wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 60px;
+  & button:first-child {
+    margin-bottom: 20px;
+  }
+
+  @include mixins.mq(tablet) {
+    display: block;
+    & button:first-child {
+      margin-right: 32px;
+    }
+  }
+}
