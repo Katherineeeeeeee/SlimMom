@@ -3,8 +3,7 @@ import s from './TextField.module.scss';
 
 const TextField = ({ type, name, value, onChange, placeholder, required }) => {
   return (
-    <div className={s.wrap}>
-      <label></label>
+    <label>
       <input
         className={s.input}
         type={type}
@@ -14,7 +13,7 @@ const TextField = ({ type, name, value, onChange, placeholder, required }) => {
         placeholder={placeholder}
         required={required}
       />
-    </div>
+    </label>
   );
 };
 export default TextField;
