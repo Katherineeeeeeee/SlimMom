@@ -10,7 +10,7 @@
 
 .btnLight {
   composes: btn;
-  color: $accent-color;
+  color: var(--accent-color);
   background-color: var(--main-color);
 }
 
@@ -21,6 +21,6 @@
   color: var(--main-color);
   font-size: 24px;
   border-radius: 100%;
-  background-color: $accent-color;
+  background-color: var(--accent-color);
   box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
 }
