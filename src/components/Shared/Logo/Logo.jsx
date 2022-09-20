@@ -1,43 +1,49 @@
 import { Link } from 'react-router-dom';
-// import { isRetina, isDesctop, isTablet, isMobile } from 'helpers/screen-sizes';
 import { useMediaQuery } from 'react-responsive';
 
+import ld from '../../../images/logo/logo-desc.png';
+import ld2x from '../../../images/logo/logo-desc@2x.png';
+import lt from '../../../images/logo/logo-tab.png';
+import lt2x from '../../../images/logo/logo-tab@2x.png';
+import lm from '../../../images/logo/logo-mob.png';
+import lm2x from '../../../images/logo/logo-mob@2x.png';
+
 const Logo = () => {
-  const isDesctop = useMediaQuery({ query: '(max-width: 1280px)' });
-  const isTablet = useMediaQuery({ query: '(max-width: 768px)' });
-  const isMobile = useMediaQuery({ query: '(max-width: 480px)' });
+  const isDesctop = useMediaQuery({ minWidth: 1280 });
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1279 });
+  const isMobile = useMediaQuery({ maxWidth: 767 });
   const isRetina = useMediaQuery({ query: '(min-resolution: 2dppx)' });
 
   return (
     <>
-      {isMobile && (
+      {isMobile && !isRetina && (
         <Link to="/dairy">
-          <img src="../../../images/logo/logo-mob.png" alt="web-site logo" />
+          <img src={lm} alt="web-site logo" />
         </Link>
       )}
-      {isTablet && (
+      {isTablet && !isRetina && (
         <Link to="/dairy">
-          <img src="" alt="web-site logo" />
+          <img src={lt} alt="web-site logo" />
         </Link>
       )}
-      {isDesctop && (
+      {isDesctop && !isRetina && (
         <Link to="/dairy">
-          <img src="" alt="web-site logo" />
+          <img src={ld} alt="web-site logo" />
         </Link>
       )}
       {isMobile && isRetina && (
         <Link to="/dairy">
-          <img src="" alt="web-site logo" />
+          <img src={lm2x} alt="web-site logo" />
         </Link>
       )}
       {isTablet && isRetina && (
         <Link to="/dairy">
-          <img src="" alt="web-site logo" />
+          <img src={lt2x} alt="web-site logo" />
         </Link>
       )}
       {isDesctop && isRetina && (
         <Link to="/dairy">
-          <img src="" alt="web-site logo" />
+          <img src={ld2x} alt="web-site logo" />
         </Link>
       )}
     </>
