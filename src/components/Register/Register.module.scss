@@ -44,9 +44,6 @@
   }
 }
 
-// Container додає непотрібний padding-left: 32px;
-// Ден закінчить - розібратися з Container. Можна прибрати Container і огорнути все div, в якому задати свої padding
-
 //img in RegisterPage.jsx
 .imgTablet {
   display: none;
@@ -66,6 +63,7 @@
     display: block;
     position: absolute;
     top: 0;
+    width: 100%;
     z-index: -1;
   }
 }
