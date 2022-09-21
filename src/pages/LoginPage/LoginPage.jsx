@@ -1,7 +1,9 @@
+
 import s from '../../components/Login/Login.module.scss';
 import Login from 'components/Login';
 import bcgDesktop from '../../images/desktop/bcgD.png';
 import bcgTablet from '../../images/tablet/bcg.png';
+
 
 const LoginPage = () => {
   return (

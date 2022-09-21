@@ -1,7 +1,14 @@
 // import PropTypes from 'prop-types';
 import s from './TextField.module.scss';
 
-const TextField = ({ type, name, value, onChange, placeholder, required }) => {
+const TextField = ({
+  type,
+  name,
+  value,
+  handleChange,
+  placeholder,
+  required,
+}) => {
   return (
     <label>
       <input
@@ -9,7 +16,7 @@ const TextField = ({ type, name, value, onChange, placeholder, required }) => {
         type={type}
         name={name}
         value={value}
-        onChange={onChange}
+        onChange={handleChange}
         placeholder={placeholder}
         required={required}
       />
