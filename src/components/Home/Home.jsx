@@ -15,8 +15,8 @@ const HomeForm = ({onSubmit, onClick}) => {
 
     const [bloodType, setActiveCheckbox] = React.useState("");
 
-    const {height, age, currentWeight, desiredWeight} = state;
-    console.log(state)
+    const {height, age, weight, desiredWeight} = state;
+
     return (
         <form onSubmit={handleSubmit} className={s.form}>
           <h1 className={s.title}>Calculate your daily calorie intake right now</h1>
@@ -24,7 +24,7 @@ const HomeForm = ({onSubmit, onClick}) => {
           <div className={s.formPart}>
             <TextField value={height} handleChange={handleChange} {...field.height} />
             <TextField value={age} handleChange={handleChange} {...field.age} />
-            <TextField value={currentWeight} handleChange={handleChange} {...field.currentWeight} />
+            <TextField value={weight} handleChange={handleChange} {...field.weight} />
           </div>
           <div className={s.formPart}>
             <TextField value={desiredWeight} handleChange={handleChange} {...field.desiredWeight} />

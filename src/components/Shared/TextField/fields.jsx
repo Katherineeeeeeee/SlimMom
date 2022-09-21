@@ -5,7 +5,6 @@ export const field = {
     placeholder: 'Name',
     required: true,
   },
-
   email: {
     name: 'email',
     type: 'email',
@@ -30,8 +29,8 @@ export const field = {
     placeholder: 'Age',
     required: true,
   },
-  currentWeight: {
-    name: 'currentWeight',
+  weight: {
+    name: 'weight',
     type: 'text',
     placeholder: 'Current weight',
     required: true,
