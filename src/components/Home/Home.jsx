@@ -24,6 +24,7 @@ const Home = ({ onSubmit }) => {
   const { height, age, weight, desiredWeight } = state;
 
   const handleClick = () => {
+    if(Object.values(state).some(el => el === '')) {return}
     setModalOpen(true);
   };
 
