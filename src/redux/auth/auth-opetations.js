@@ -5,6 +5,7 @@ export const register = createAsyncThunk(
   'auth/register',
   async (userData, { rejectWithValue }) => {
     try {
+      console.log(userData);
       const data = await axiosRegister(userData);
       return data;
     } catch (error) {
@@ -42,10 +43,12 @@ export const logout = createAsyncThunk(
 
 export const refresh = createAsyncThunk(
   'auth/refresh',
-  async (_, { rejectWithValue, getState }) => {
+  async (sid, { rejectWithValue, getState }) => {
     try {
-      const { auth } = getState();
-      const data = await axiosRefresh(auth.sid);
+      const {
+        auth: { refreshToken },
+      } = getState();
+      const data = await axiosRefresh(sid, refreshToken);
       return data;
     } catch (error) {
       const { data, status } = error.response;
