@@ -121,7 +121,7 @@
 .userInfoDesct {
   composes: userInfoTablet;
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   margin: 0;
   height: 150px;
   width: 740px;
