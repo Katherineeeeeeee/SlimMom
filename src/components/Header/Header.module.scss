@@ -7,6 +7,8 @@
   width: 100%;
   border-bottom: 2px solid #e0e0e0;
   padding: 20px;
+  max-width: 1280px;
+  margin: 0 auto;
 
   @media screen and (min-width: 1280px) {
     justify-content: start;
@@ -124,4 +126,9 @@
   height: 150px;
   width: 740px;
   background: #f0f1f3;
+}
+
+.headerIsLogin {
+  max-width: 1280px;
+  margin: 0 auto;
 }
