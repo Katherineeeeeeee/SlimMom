@@ -11,7 +11,9 @@ import style from '../Shared/TextField/TextField.module.scss';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 
-const Home = ({ onSubmit, onClick }) => {
+const Home = ({ onSubmit }) => {
+  const [modalOpen, setModalOpen] = useState(false);
+
   const { state, handleChange, handleSubmit } = useForm({
     initialState,
     onSubmit,
@@ -22,7 +24,7 @@ const Home = ({ onSubmit, onClick }) => {
   const { height, age, weight, desiredWeight } = state;
 
   const handleClick = () => {
-    console.log('hello');
+    setModalOpen(true);
   };
 
   return (
@@ -83,7 +85,7 @@ const Home = ({ onSubmit, onClick }) => {
           />
         </div>
       </form>
-      {/* <Modal /> */}
+      {modalOpen && <Modal setModalOpen={setModalOpen} />}
     </>
   );
 };
