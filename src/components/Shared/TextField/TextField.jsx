@@ -10,6 +10,8 @@ const TextField = ({
   handleChange,
   placeholder,
   required,
+  pattern,
+  title,
 }) => {
   return (
     <label>
@@ -21,6 +23,8 @@ const TextField = ({
         onChange={handleChange}
         placeholder={placeholder}
         required={required}
+        pattern={pattern}
+        title={title}
       />
     </label>
   );

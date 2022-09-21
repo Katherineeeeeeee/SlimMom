@@ -1,5 +1,4 @@
 @use '../../styles/mixins';
-
 .title {
   font-weight: 700;
   font-size: 14px;
@@ -41,5 +40,28 @@
     & button:first-child {
       margin-right: 32px;
     }
+  }
+}
+
+//img in LoginPage.jsx
+.imgTablet {
+  display: none;
+  @include mixins.mq(tablet) {
+    display: block;
+    position: absolute;
+    top: 124px;
+    z-index: -1;
+  }
+  @include mixins.mq(desktop) {
+    display: none;
+  }
+}
+.imgDesktop {
+  display: none;
+  @include mixins.mq(desktop) {
+    display: block;
+    position: absolute;
+    top: 0;
+    z-index: -1;
   }
 }

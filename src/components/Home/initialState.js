@@ -1,8 +1,8 @@
 const initialState = {
     height: "",
     age: "",
-    currentWeight: "",
     desiredWeight: "",
+    weight: "",
     bloodType: "",
 }
 

@@ -32,7 +32,10 @@ const auth = createSlice({
       store.error = null;
     },
 
-    [register.fulfilled]: (store, { payload }) => accessAuth(store, payload),
+    [register.fulfilled]: (store, { payload }) => {
+      accessAuth(store, payload);
+      store.isLogin = false;
+    },
 
     [register.rejected]: (store, { payload }) => {
       store.loading = false;
