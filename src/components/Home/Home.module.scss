@@ -1,77 +1,81 @@
 .form {
-    width: 608px;
-    height: 345px;
+  width: 608px;
+  height: 345px;
 }
 .formParts {
-    margin-bottom: 60px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 .label {
-    display:flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .title {
-    margin-bottom: 68.4px;
-    width: 608px;
-    height: 85.5px;
-    font-weight: 700;
-    font-size: 34px;
-    line-height: 41px;
-    color: #212121;     
+  margin-bottom: 68.4px;
+  width: 608px;
+  height: 85.5px;
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 41px;
+  color: #212121;
 }
 .checkbox {
-    display: none;
+  display: none;
 }
 .fake {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    border: 1px solid #E0E0E0;
-    position: relative;
-    border-radius: 50%;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #e0e0e0;
+  position: relative;
+  border-radius: 50%;
 }
+
 .fake::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: block;
-    width: 10px;
-    height: 10px;
-    background-color: #FC842D;
-    opacity: 0;
-    transition: .2s;
-    border-radius: 50%;
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  width: 10px;
+  height: 10px;
+  background-color: #fc842d;
+  opacity: 0;
+  transition: 0.2s;
+  border-radius: 50%;
 }
 .text {
-    padding-left: 10px;
-    color: black;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 1.649;
-    letter-spacing: 0.04em;
+  padding-left: 10px;
+  color: black;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.649;
+  letter-spacing: 0.04em;
 }
+
 .checkbox:checked + .fake::before {
-    opacity: 1;
+  opacity: 1;
 }
-.checkbox:checked + label span {
-    color: #FC842D;
+
+.checkbox:checked ~ .text {
+  color: var(--accent-color);
 }
+
 .radioBlock {
-    margin-top: -30px;
-    display: flex;
-    flex-direction: row;
+  margin-top: -30px;
+  display: flex;
+  flex-direction: row;
 }
 .listRadio {
-    margin-right: 35px;
-    display:flex;
-    align-items: center;
-    justify-content: center;
+  margin-right: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .buttonPosition {
-    margin-left: 323px;
+  margin-left: 323px;
 }
