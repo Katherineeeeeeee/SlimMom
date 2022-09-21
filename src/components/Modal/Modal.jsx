@@ -1,5 +1,6 @@
 import { Component } from "react";
 import PropTypes from 'prop-types';
+import Button from "components/Shared/Button";
 
 import s from "./Modal.module.scss"
 
@@ -32,8 +33,20 @@ class Modal extends Component {
         return (
             <div className={s.overlay} onClick={closeModal}>
                 <div className={s.modal}>
-                    <span onClick={closeModal} className={s.close}>X</span>
+                    <div className={s.mobileClose}>
+                        <span onClick={closeModal} className={s.closeM}></span>
+                    </div>
+                    <span onClick={closeModal} className={s.closeOther}></span>
                     <h2 className={s.modalTitle}>Your recommended daily calorie intake is</h2>
+                    <p className={s.modalText}>2800<span className={s.textDescription}> kcal</span></p>
+                    <div className={s.menuGroup}>
+                        <p className={s.menuGroupTitle}>Foods you should not eat</p>
+                        <ol className={s.menuGroupList}>
+                            <li className={s.menuGroupItems}>Flour products</li>
+                            <li className={s.menuGroupItems}>Milk</li>
+                        </ol>
+                    </div>
+                    <Button text='Start losing weight' type='submit' btnClass='btn' />
                 </div>
             </div>
         )
@@ -47,11 +60,5 @@ Modal.defaultProps = {
 }
 
 Modal.propTypes = {
-    status: PropTypes.bool.isRequired,
-    data: PropTypes.object,
-    content: PropTypes.shape({
-        largeImageURL: PropTypes.string.isRequired,
-        id: PropTypes.number.isRequired,
-        tags: PropTypes.string.isRequired,
-}),
+
 }
