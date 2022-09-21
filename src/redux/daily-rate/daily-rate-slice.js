@@ -1,9 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { dailyRateInfo } from './daily-rate-operations';
+import { dailyRateInfo, dailyRateUser } from './daily-rate-operations';
 
 const initialState = {
-  notAllowedProducts: [],
+  id: '',
   dailyRate: null,
+  summaries: [],
+  notAllowedProducts: [],
   loading: false,
   error: null,
 };
@@ -22,6 +24,21 @@ const dailyRateSlice = createSlice({
       store.notAllowedProducts = payload.notAllowedProducts;
     },
     [dailyRateInfo.rejected]: (store, { payload }) => {
+      store.loading = false;
+      store.error = payload;
+    },
+    [dailyRateUser.pending]: store => {
+      store.loading = true;
+      store.error = null;
+    },
+    [dailyRateUser.fulfilled]: (store, { payload }) => {
+      store.loading = false;
+      store.id = payload.id;
+      store.dailyRate = payload.dailyRate;
+      store.summaries = payload.summaries;
+      store.notAllowedProducts = payload.notAllowedProducts;
+    },
+    [dailyRateUser.rejected]: (store, { payload }) => {
       store.loading = false;
       store.error = payload;
     },

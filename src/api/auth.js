@@ -4,11 +4,6 @@ export const instance = axios.create({
   baseURL: 'https://slimmom-backend.goit.global',
 });
 
-export const axiosGetDailyRate = async userData => {
-  const { data } = await instance.post('/daily-rate', userData);
-  return data;
-};
-
 export const axiosRegister = async userData => {
   const { data } = await instance.post('/auth/register', userData);
   instance.defaults.headers.Authorization = `Bearer ${data.accessToken}`;
@@ -31,6 +26,7 @@ export const axiosLogout = async () => {
 export const axiosRefresh = async (sid, refreshToken) => {
   instance.defaults.headers.Authorization = `Bearer ${refreshToken}`;
   const { data } = await instance.post('/auth/refresh', sid);
+  console.log(data);
   return data;
 };
 

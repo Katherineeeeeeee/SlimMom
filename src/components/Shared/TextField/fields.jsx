@@ -14,7 +14,7 @@ export const field = {
     type: 'email',
     placeholder: 'Email',
     required: true,
-    pattern: '/^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$/',
+    // pattern: '/^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$/',
     // pattern:"[^@\s]+@[^@\s]+\.[^@\s]+",
     title: '',
   },
@@ -23,8 +23,8 @@ export const field = {
     type: 'password',
     placeholder: 'Password',
     required: true,
-    pattern:
-      '^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|]).{8,32}$',
+    // pattern:
+    //   '^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|]).{8,32}$',
     title: '',
   },
   height: {
@@ -39,7 +39,7 @@ export const field = {
     type: 'text',
     placeholder: 'Age',
     required: true,
-    pattern: '[0-1]{1}[0-9]{0,2}',
+    // pattern: '[0-1]{1}[0-9]{0,2}',
     title: 'Please enter a valid number between 0 and 200.',
   },
   weight: {
