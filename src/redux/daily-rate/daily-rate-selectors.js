@@ -1,4 +1,4 @@
-const getStateError = state => state.dailyRate.error;
+const getStateError = state => state.auth.error;
 const dailyRate = state => state.dailyRate.dailyRate;
 
 const dailyRateSelectors = {
