@@ -1,11 +1,11 @@
 import Home from 'components/Home';
-// import Modal from '../../components/Modal/Modal';
+import Modal from '../../components/Modal/Modal';
 
 const HomePage = () => {
   return (
     <div>
       <Home />
-      {/* <Modal /> */}
+      <Modal />
     </div>
   );
 };
