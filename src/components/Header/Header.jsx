@@ -1,4 +1,7 @@
 import { useMediaQuery } from 'react-responsive';
+import { useSelector } from 'react-redux';
+
+import { getLogin } from 'redux/auth/auth-selectors';
 
 import Logo from 'components/Shared/Logo';
 import UserInfo from 'components/UserInfo';
@@ -8,14 +11,13 @@ import { useLocation } from 'react-router-dom';
 
 import s from './Header.module.scss';
 
-const isUserLogin = 0;
-
 const Header = () => {
   const isDesctop = useMediaQuery({ minWidth: 1280 });
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1279 });
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const { pathname } = useLocation();
   const isRender = pathname === '/login' || pathname === '/registration';
+  const isUserLogin = useSelector(getLogin);
 
   if (!isUserLogin) {
     if (isDesctop && isRender) {
