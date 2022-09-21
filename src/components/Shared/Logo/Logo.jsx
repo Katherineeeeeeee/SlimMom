@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
+import { useSelector } from 'react-redux';
+
+import { getLogin } from 'redux/auth/auth-selectors';
 
 import ld from '../../../images/logo/logo-desc.png';
 import ld2x from '../../../images/logo/logo-desc@2x.png';
@@ -13,6 +16,8 @@ const Logo = () => {
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1279 });
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const isRetina = useMediaQuery({ query: '(min-resolution: 2dppx)' });
+
+  const isLogin = useSelector(getLogin);
 
   return (
     <>
@@ -44,6 +49,16 @@ const Logo = () => {
       {isDesctop && isRetina && (
         <Link to="/dairy">
           <img src={ld2x} alt="web-site logo" width="167" />
+        </Link>
+      )}
+      {isMobile && !isRetina && isLogin && (
+        <Link to="/dairy">
+          <img src={lt} alt="web-site logo" width="46" />
+        </Link>
+      )}
+      {isMobile && isRetina && isLogin && (
+        <Link to="/dairy">
+          <img src={lt2x} alt="web-site logo" width="46" />
         </Link>
       )}
     </>
