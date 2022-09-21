@@ -1,6 +1,7 @@
 import { Component } from "react";
 import PropTypes from 'prop-types';
 import Button from "components/Shared/Button";
+import dailyRateSelectors from "../../redux/daily-rate/daily-rate-selectors"
 
 import s from "./Modal.module.scss"
 
@@ -30,6 +31,7 @@ class Modal extends Component {
 
     render(){
         const {closeModal} = this;
+        const dailyRate = useSelector(dailyRateSelectors.getStateError);
         return (
             <div className={s.overlay} onClick={closeModal}>
                 <div className={s.modal}>
