@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 
-import s from './UserInfo.module.scss';
+// import s from './UserInfo.module.scss';
 
 const UserInfo = () => {
   return (
