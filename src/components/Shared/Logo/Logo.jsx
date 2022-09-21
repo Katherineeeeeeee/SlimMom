@@ -21,7 +21,7 @@ const Logo = () => {
 
   return (
     <>
-      {isMobile && !isRetina && (
+      {isMobile && !isRetina && !isLogin && (
         <Link to="/dairy">
           <img src={lm} alt="web-site logo" width="46" />
         </Link>
@@ -36,7 +36,7 @@ const Logo = () => {
           <img src={ld} alt="web-site logo" width="167" />
         </Link>
       )}
-      {isMobile && isRetina && (
+      {isMobile && isRetina && isLogin && (
         <Link to="/dairy">
           <img src={lm2x} alt="web-site logo" width="46" />
         </Link>
@@ -53,12 +53,12 @@ const Logo = () => {
       )}
       {isMobile && !isRetina && isLogin && (
         <Link to="/dairy">
-          <img src={lt} alt="web-site logo" width="46" />
+          <img src={lt} alt="web-site logo" width="160" />
         </Link>
       )}
       {isMobile && isRetina && isLogin && (
         <Link to="/dairy">
-          <img src={lt2x} alt="web-site logo" width="46" />
+          <img src={lt2x} alt="web-site logo" width="160" />
         </Link>
       )}
     </>

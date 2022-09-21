@@ -76,8 +76,8 @@ const auth = createSlice({
       store.isLogin = true;
       store.loading = false;
       store.sid = payload.sid;
-      store.accessToken = payload.accessToken;
-      store.refreshToken = payload.refreshToken;
+      store.accessToken = payload.newAccessToken;
+      store.refreshToken = payload.newRefreshToken;
     },
 
     [refresh.rejected]: (store, { payload }) => {
