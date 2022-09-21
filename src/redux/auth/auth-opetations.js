@@ -20,6 +20,7 @@ export const login = createAsyncThunk(
   async (userData, { rejectWithValue }) => {
     try {
       const data = await axiosLogin(userData);
+      console.log(data);
       return data;
     } catch (error) {
       const { data, status } = error.response;

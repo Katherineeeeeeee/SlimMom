@@ -1,12 +1,18 @@
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 
 import styles from './DiaryAddProductForm.module.scss';
 import Button from '../../Shared/Button/Button';
 import TextField from 'components/Shared/TextField';
+import { getProductOperations } from '../../../redux/product-search/search-operations';
 
 const DiaryAddProductForm = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   dispatch(getProductOperations());
+  // }, [dispatch]);
 
   const { control, handleSubmit, reset } = useForm({
     defaultValues: {
@@ -17,8 +23,7 @@ const DiaryAddProductForm = () => {
 
   const onSubmit = (data, e) => {
     e.preventDefault();
-    // dispatch();
-    console.log(data);
+    dispatch(getProductOperations(data.query));
     reset();
   };
 

@@ -13,6 +13,7 @@ export const axiosRegister = async userData => {
 export const axiosLogin = async userData => {
   const { data } = await instance.post('/auth/login', userData);
   instance.defaults.headers.Authorization = `Bearer ${data.accessToken}`;
+  console.log(data);
   return data;
 };
 
@@ -27,3 +28,5 @@ export const axiosRefresh = async (sid, refreshToken) => {
   const { data } = await instance.post('/auth/refresh', sid);
   return data;
 };
+
+export default instance;
