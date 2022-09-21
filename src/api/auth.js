@@ -13,7 +13,6 @@ export const axiosRegister = async userData => {
 export const axiosLogin = async userData => {
   const { data } = await instance.post('/auth/login', userData);
   instance.defaults.headers.Authorization = `Bearer ${data.accessToken}`;
-  console.log(data);
   return data;
 };
 
