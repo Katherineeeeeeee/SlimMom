@@ -16,6 +16,7 @@
     "react-hook-form": "^7.36.0",
     "react-loader-spinner": "^5.3.4",
     "react-moment": "^1.1.2",
+    "react-redux": "^8.0.2",
     "react-responsive": "^9.0.0",
     "react-router-dom": "^6.4.0",
     "react-scripts": "5.0.1",
