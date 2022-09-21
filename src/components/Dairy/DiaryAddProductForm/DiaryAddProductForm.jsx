@@ -1,5 +1,5 @@
 // import { useDispatch } from 'react-redux';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 
 import styles from './DiaryAddProductForm.module.scss';
 import Button from '../../Shared/Button/Button';
@@ -8,7 +8,7 @@ import TextField from 'components/Shared/TextField';
 const DiaryAddProductForm = () => {
   // const dispatch = useDispatch();
 
-  const { register, handleSubmit, reset } = useForm({
+  const { control, handleSubmit, reset } = useForm({
     defaultValues: {
       query: '',
       weight: '',
@@ -18,22 +18,40 @@ const DiaryAddProductForm = () => {
   const onSubmit = (data, e) => {
     e.preventDefault();
     // dispatch();
+    console.log(data);
     reset();
   };
 
   return (
     <>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-        <TextField
-          placeholder={'Enter product name'}
-          name={'query'}
-          {...register('query', { required: true })}
+        <Controller
+          control={control}
+          name="query"
+          render={({ field: { onChange, value } }) => (
+            <TextField
+              value={value}
+              placeholder={'Enter product name'}
+              name={'query'}
+              control={control}
+              handleChange={onChange}
+            />
+          )}
         />
-        <TextField
-          placeholder={'Grams'}
-          name={'weight'}
-          {...register('weight', { required: true })}
+        <Controller
+          control={control}
+          name="weight"
+          render={({ field: { onChange, value } }) => (
+            <TextField
+              value={value}
+              placeholder={'Grams'}
+              name={'weight'}
+              control={control}
+              handleChange={onChange}
+            />
+          )}
         />
+
         <div className={styles.btn}>
           <Button text={'Add'} btnClass={'btn'} />
         </div>

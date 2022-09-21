@@ -1,26 +1,39 @@
 import React, { useState } from 'react';
-import Calendar from 'react-calendar';
-import Moment from 'react-moment';
 
-import 'react-calendar/dist/Calendar.css';
+// import Calendar from 'react-calendar';
+// import Moment from 'react-moment';
+import ReactDatePicker from 'react-datepicker';
+// import { useForm, Controller } from 'react-hook-form';
+
+import 'react-datepicker/dist/react-datepicker.css';
 import { ReactComponent as CalendarIcon } from '../../../images/calendar.svg';
 import styles from './DiaryDateСalendar.module.scss';
 
 const DiaryDateСalendar = () => {
-  const [date, onChange] = useState(new Date());
-  const [isActive, setActive] = useState('false');
+  // const { handleSubmit, control } = useForm();
+  const [startDate, setStartDate] = useState(new Date());
+  const [isOpen, setIsOpen] = useState(false);
 
-  const handleToggleCalendar = () => {
-    setActive(!isActive);
+  const handleChange = e => {
+    setIsOpen(!isOpen);
+    setStartDate(e);
+  };
+
+  const handleClick = e => {
+    e.preventDefault();
+    setIsOpen(!isOpen);
   };
 
   return (
     <>
-      <Moment format="DD.MM.YYYY" className={styles.dateFormat}>
-        {date.toString()}
-      </Moment>
-      <CalendarIcon onClick={handleToggleCalendar} />
-      {!isActive && <Calendar onChange={onChange} value={date} locale="en" />}
+      <ReactDatePicker
+        className={styles.ReactDatePicker}
+        onChange={handleChange}
+        // onBlur={onBlur}
+        selected={startDate}
+        dateFormat="dd.MM.yyyy"
+      />
+      <CalendarIcon onClick={handleClick} />
     </>
   );
 };
