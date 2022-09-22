@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import { useForm, Controller } from 'react-hook-form';
 import { useMediaQuery } from 'react-responsive';
 
-import styles from './DiaryAddProductForm.module.scss';
+import s from './DiaryAddProductForm.module.scss';
 import Button from '../../Shared/Button/Button';
 import TextField from 'components/Shared/TextField';
 import { getProductOperations } from '../../../redux/product-search/search-operations';
@@ -11,7 +11,7 @@ const DiaryAddProductForm = () => {
   const dispatch = useDispatch();
 
   const isMobile = useMediaQuery({ maxWidth: 767 });
-  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1279 });
+  const isTabletDesktop = useMediaQuery({ minWidth: 768 });
 
   const { control, handleSubmit, reset } = useForm({
     defaultValues: {
@@ -28,7 +28,7 @@ const DiaryAddProductForm = () => {
 
   return (
     <>
-      <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+      <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
         <Controller
           control={control}
           name="query"
@@ -56,9 +56,9 @@ const DiaryAddProductForm = () => {
           )}
         />
 
-        <div className={styles.btn}>
+        <div className={s.btn}>
           {isMobile && <Button text={'Add'} btnClass={'btn'} />}
-          {isTablet && <Button text={'+'} btnClass={'btnPlus'} />}
+          {isTabletDesktop && <Button text={'+'} btnClass={'btnPlus'} />}
         </div>
       </form>
     </>

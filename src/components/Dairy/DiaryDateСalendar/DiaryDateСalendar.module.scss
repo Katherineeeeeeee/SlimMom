@@ -42,9 +42,21 @@
     width: 20px;
     height: 20px;
     background-image: url(/images/svg/calendar.svg);
+
+    @include mixins.mq(tablet) {
+      top: 25%;
+    }
   }
 
   @include mixins.mq(tablet) {
     margin-top: 100px;
+
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 1.20;
+  }
+
+  @include mixins.mq(desktop) {
+    margin-top: 150px;
   }
 }

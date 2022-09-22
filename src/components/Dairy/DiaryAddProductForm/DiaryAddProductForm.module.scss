@@ -21,4 +21,16 @@
     margin-top: 0px;
     margin-left: 65px;
   }
+
+  @include mixins.mq(desktop) {
+    margin-left: 38px;
+  }
+}
+
+.form input[name='weight'] {
+  @include mixins.mq(tablet) {
+    width: 105px;
+
+    text-align: right;
+  }
 }
