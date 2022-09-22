@@ -22,28 +22,35 @@ export const field = {
     type: 'text',
     placeholder: 'Height',
     required: true,
+
   },
   age: {
     name: 'age',
     type: 'text',
     placeholder: 'Age',
     required: true,
+
   },
   weight: {
     name: 'weight',
     type: 'text',
     placeholder: 'Current weight',
     required: true,
+    pattern: '[0-9]{2,3}',
+    title: 'Please enter a valid number between 0 and 200.',
   },
   desiredWeight: {
     name: 'desiredWeight',
     type: 'text',
     placeholder: 'Desired weight',
     required: true,
+    pattern: '[0-9]{2,3}',
+    title: 'Please enter a valid number between 0 and 200.',
   },
   bloodType: {
     name: 'blodtype',
     type: '',
     placeholder: 'Blood Type',
+
   },
 };
