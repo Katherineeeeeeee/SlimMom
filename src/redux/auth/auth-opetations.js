@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { axiosLogin, axiosLogout, axiosRegister, axiosRefresh } from 'api/auth';
-import { getUser } from 'redux/user/user-operations';
+import { axiosGetUser } from 'api/user';
+// import { getUser } from 'redux/user/user-operations';
 
 export const register = createAsyncThunk(
   'auth/register',
@@ -44,15 +45,29 @@ export const logout = createAsyncThunk(
   }
 );
 
+export const getUser = createAsyncThunk(
+  'auth/get/user',
+  async (accessToken, { rejectWithValue }) => {
+    try {
+      const data = await axiosGetUser(accessToken);
+      return data;
+    } catch (error) {
+      const { data, status } = error.response;
+      return rejectWithValue({ data, status });
+    }
+  }
+);
+
 export const refresh = createAsyncThunk(
   'auth/refresh',
   async (sid, { rejectWithValue, getState, dispatch }) => {
     try {
       const {
-        auth: { refreshToken, accessToken },
+        auth: { refreshToken },
       } = getState();
       const data = await axiosRefresh(sid, refreshToken);
-      dispatch(getUser(accessToken));
+      const { newAccessToken } = data;
+      dispatch(getUser(newAccessToken));
       return data;
     } catch (error) {
       const { data, status } = error.response;
