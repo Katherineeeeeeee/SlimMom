@@ -2,14 +2,17 @@ import s from './Login.module.scss';
 import TextField from 'components/Shared/TextField';
 import { field } from 'components/Shared/TextField/fields';
 import Button from 'components/Shared/Button';
-
 import { useForm, Controller } from 'react-hook-form';
 
 import { login } from 'redux/auth/auth-opetations';
 import { useDispatch } from 'react-redux';
 
+import { useNavigate } from 'react-router-dom';
+
 const Login = () => {
   const dispatch = useDispatch();
+
+  const navigate = useNavigate();
 
   const { control, handleSubmit, reset } = useForm({
     defaultValues: {
@@ -22,6 +25,7 @@ const Login = () => {
     e.preventDefault();
     dispatch(login(data));
     reset();
+    navigate('/dairy');
   };
 
   return (
