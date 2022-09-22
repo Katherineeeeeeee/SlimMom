@@ -1,14 +1,19 @@
-// import { useDispatch } from 'react-redux';
-import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+import { useForm, Controller } from 'react-hook-form';
+import { useMediaQuery } from 'react-responsive';
 
-import styles from './DiaryAddProductForm.module.scss';
+import s from './DiaryAddProductForm.module.scss';
 import Button from '../../Shared/Button/Button';
 import TextField from 'components/Shared/TextField';
+import { getProductOperations } from '../../../redux/product-search/search-operations';
 
 const DiaryAddProductForm = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  const { register, handleSubmit, reset } = useForm({
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+  const isTabletDesktop = useMediaQuery({ minWidth: 768 });
+
+  const { control, handleSubmit, reset } = useForm({
     defaultValues: {
       query: '',
       weight: '',
@@ -17,25 +22,43 @@ const DiaryAddProductForm = () => {
 
   const onSubmit = (data, e) => {
     e.preventDefault();
-    // dispatch();
+    dispatch(getProductOperations(data.query));
     reset();
   };
 
   return (
     <>
-      <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-        <TextField
-          placeholder={'Enter product name'}
-          name={'query'}
-          {...register('query', { required: true })}
+      <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
+        <Controller
+          control={control}
+          name="query"
+          render={({ field: { onChange, value } }) => (
+            <TextField
+              value={value}
+              placeholder={'Enter product name'}
+              name={'query'}
+              control={control}
+              handleChange={onChange}
+            />
+          )}
         />
-        <TextField
-          placeholder={'Grams'}
-          name={'weight'}
-          {...register('weight', { required: true })}
+        <Controller
+          control={control}
+          name="weight"
+          render={({ field: { onChange, value } }) => (
+            <TextField
+              value={value}
+              placeholder={'Grams'}
+              name={'weight'}
+              control={control}
+              handleChange={onChange}
+            />
+          )}
         />
-        <div className={styles.btn}>
-          <Button text={'Add'} btnClass={'btn'} />
+
+        <div className={s.btn}>
+          {isMobile && <Button text={'Add'} btnClass={'btn'} />}
+          {isTabletDesktop && <Button text={'+'} btnClass={'btnPlus'} />}
         </div>
       </form>
     </>

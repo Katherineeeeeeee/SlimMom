@@ -22,14 +22,12 @@ export const field = {
     type: 'text',
     placeholder: 'Height',
     required: true,
-
   },
   age: {
     name: 'age',
     type: 'text',
     placeholder: 'Age',
     required: true,
-
   },
   weight: {
     name: 'weight',
@@ -51,6 +49,5 @@ export const field = {
     name: 'blodtype',
     type: '',
     placeholder: 'Blood Type',
-
   },
 };

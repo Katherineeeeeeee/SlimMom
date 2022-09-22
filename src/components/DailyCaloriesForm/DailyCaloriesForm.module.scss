@@ -26,7 +26,7 @@
     }
     @include mixins.mq(desktop) {
         justify-content: space-between;
-    } 
+    }
 }
 .formPart {
     width: 240px;
@@ -44,7 +44,7 @@
     font-weight: 700;
     font-size: 18px;
     line-height: 1.444;
-    color: #212121; 
+    color: #212121;
     @include mixins.mq(tablet) {
         margin-bottom: 68px;
         width: 640px;
@@ -55,7 +55,7 @@
     @include mixins.mq(desktop) {
         width: 608px;
         height: 85.5px;
-    }   
+    }
 }
 .checkbox {
     display: none;
