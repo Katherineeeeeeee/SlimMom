@@ -35,7 +35,6 @@ const DailyCaloriesForm = ({ onSubmit }) => {
   let { height, age, weight, desiredWeight, bloodType } = state;
 
   const handleClick = () => {
-
     setActiveCheckbox('');
     if(!dailyRateDate) {return}
 

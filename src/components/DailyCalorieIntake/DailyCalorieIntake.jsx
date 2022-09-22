@@ -14,9 +14,7 @@ const DailyCalorieIntake = () => {
 
   let itemsList = [];
   if (notAllowedProducts.length === 0) {
-    console.log('God');
     itemsList = items;
-    console.log(itemsList);
   } else {
     itemsList = notAllowedProducts;
   }
