@@ -1,21 +1,27 @@
 import { useState, useEffect } from 'react';
-
-// import Calendar from 'react-calendar';
+import { useDispatch } from 'react-redux';
 import Moment from 'react-moment';
 import DatePicker from 'react-datepicker';
+import moment from 'moment';
 // import { useForm, Controller } from 'react-hook-form';
 
 import 'react-datepicker/dist/react-datepicker.css';
-// import { ReactComponent as CalendarIcon } from '../../../images/calendar.svg';
 import s from './DiaryDateСalendar.module.scss';
+import { getInfoByDay } from 'redux/day/day-operations';
 
 const DiaryDateСalendar = ({ getDateCalendar }) => {
+  const dispatch = useDispatch();
+
   // const { handleSubmit, control } = useForm();
   const [startDate, setStartDate] = useState(new Date());
   const [isOpen, setIsOpen] = useState(false);
 
+  const formatDate = { date: moment(startDate).format('yyyy-MM-DD') };
+
   useEffect(() => {
+    console.log(formatDate);
     getDateCalendar(startDate);
+    dispatch(getInfoByDay(formatDate));
   }, [startDate]);
 
   const handleChange = e => {

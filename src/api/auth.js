@@ -26,7 +26,6 @@ export const axiosLogout = async accessToken => {
 export const axiosRefresh = async (sid, refreshToken) => {
   instance.defaults.headers.Authorization = `Bearer ${refreshToken}`;
   const { data } = await instance.post('/auth/refresh', sid);
-  console.log(data);
   return data;
 };
 

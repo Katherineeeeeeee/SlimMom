@@ -1,21 +1,29 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
 
 import { getProduct } from 'redux/product-search/search-selectors';
 import s from './DiaryChooseProductList.module.scss';
+import { postEatenProduct } from 'redux/day/day-operations';
 
-export default function DiaryChooseProductList({ getIdProduct }) {
-  const [idProduct, setIdProduct] = useState('');
+export default function DiaryChooseProductList({ getIdProduct, day }) {
+  const dispatch = useDispatch();
+
+  // const [idProduct, setIdProduct] = useState('');
   const [isOpen, setIsOpen] = useState(true);
-
-  useEffect(() => {
-    getIdProduct(idProduct);
-  }, [idProduct]);
-
   const searchProduct = useSelector(getProduct);
 
+  // useEffect(() => {
+  //   getIdProduct(idProduct);
+  // }, [idProduct]);
+
+  const dayFull = day;
+  console.log(dayFull);
+
   const handleClick = ({ currentTarget }) => {
-    setIdProduct(currentTarget.dataset.id);
+    // setIdProduct(currentTarget.dataset.id);
+    dispatch(
+      postEatenProduct({ ...dayFull, productId: currentTarget.dataset.id })
+    );
     setIsOpen(!isOpen);
   };
 

@@ -1,39 +1,16 @@
 .item {
   display: flex;
-  gap: 8px;
-
+    justify-content: space-between;
+    gap: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
-.textTitle {
-  width: 130px;
-  padding-bottom: 8px;
-
-  font-size: 14px;
-  line-height: 1.21;
-  letter-spacing: 0.04em;
-  color: #212121;
-
-  border-bottom: 1px solid #E0E0E0;
+.wrapper {
+  display: flex;
+  gap: 10px;
 }
 
-.textWeight {
-  padding-bottom: 8px;
-
-  font-size: 14px;
-  line-height: 1.21;
-  letter-spacing: 0.04em;
-  color: #212121;
-
-  border-bottom: 1px solid #E0E0E0;
-}
-
-.textKcal {
-  padding-bottom: 8px;
-
-  font-size: 14px;
-  line-height: 1.21;
-  letter-spacing: 0.04em;
-  color: #212121;
-
-  border-bottom: 1px solid #E0E0E0;
+.title {
+  width: 400px;
 }

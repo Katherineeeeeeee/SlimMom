@@ -1,28 +1,34 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getDay, deleteDay, getInfoAboutDay } from './day-operations';
+import { postEatenProduct, deleteDay, getInfoByDay } from './day-operations';
 
 const initialState = {
-  summary: [],
-  aboutDay: {},
+  day: {},
+  daySummary: {},
+  eatenProduct: {},
+  eatenProducts: [],
   loading: false,
   error: null,
 };
 
-const day = createSlice({
+const daySlice = createSlice({
   name: 'day',
   initialState,
   extraReducers: {
     //* getDay
 
-    [getDay.pending]: store => {
+    [postEatenProduct.pending]: store => {
       store.loading = true;
       store.error = null;
     },
-    [getDay.fulfilled]: (store, { payload }) => {
+    [postEatenProduct.fulfilled]: (store, { payload }) => {
+      console.log(payload);
+      store.day = payload.day;
+      store.daySummary = payload.daySummary;
+      store.eatenProduct = payload.eatenProduct;
       store.loading = false;
       store.summary = payload;
     },
-    [getDay.rejected]: (store, { payload }) => {
+    [postEatenProduct.rejected]: (store, { payload }) => {
       store.loading = false;
       store.error = payload;
     },
@@ -43,19 +49,21 @@ const day = createSlice({
 
     //* getInfoAboutDay
 
-    [getInfoAboutDay.pending]: store => {
+    [getInfoByDay.pending]: store => {
       store.loading = true;
       store.error = null;
     },
-    [getInfoAboutDay.fulfilled]: (store, { payload }) => {
+    [getInfoByDay.fulfilled]: (store, { payload }) => {
+      console.log(payload);
+      store.eatenProducts = payload.eatenProducts;
       store.loading = false;
       store.aboutDay = payload;
     },
-    [getInfoAboutDay.rejected]: (store, { payload }) => {
+    [getInfoByDay.rejected]: (store, { payload }) => {
       store.loading = false;
       store.error = payload;
     },
   },
 });
 
-export default day.reducer;
+export default daySlice.reducer;

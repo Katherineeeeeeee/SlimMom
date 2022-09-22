@@ -1,6 +1,10 @@
 // import { useDispatch } from 'react-redux';
 
-import styles from './DiaryProductsListItem.module.scss';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+
+import s from './DiaryProductsListItem.module.scss';
+import { eatenProducts } from 'redux/day/day-selectors';
 
 const DiaryProductsListItem = () => {
   // const dispatch = useDispatch();
@@ -9,30 +13,29 @@ const DiaryProductsListItem = () => {
   //   dispatch(removeProductOperation(id));
   // }
 
+  const eatenProductsList = useSelector(eatenProducts);
+
   return (
     <>
-      {/* {eatenProducts.map(({ id, title, weight, kcal }) => {
-      return (
-      <li key={id}>
-        <p>{title}</p>
-        <p>{weight}</p>
-        <p>{kcal}</p>
-        <button
-          className="btnRemove"
-          type="button"
-          onClick={() => {
-            removeProduct && removeProduct(id);
-          }}
-        ></button>
-      </li>
-      );
-      })} */}
-      <li className={styles.item}>
-        <p className={styles.textTitle}>Eggplant</p>
-        <p className={styles.textWeight}>100 g</p>
-        <p className={styles.textKcal}>320 kcal</p>
-        <button className="btnRemove"></button>
-      </li>
+      {eatenProductsList &&
+        eatenProductsList.map(({ id, title, weight, kcal }) => {
+          return (
+            <li key={id} className={s.item}>
+              <p className={s.title}>{title}</p>
+              <div className={s.wrapper}>
+                <p>{weight} gr</p>
+                <p>{Math.round(kcal)} kcal</p>
+              </div>
+              <button
+                className="btnRemove"
+                type="button"
+                // onClick={() => {
+                //   removeProduct && removeProduct(id);
+                // }}
+              ></button>
+            </li>
+          );
+        })}
     </>
   );
 };

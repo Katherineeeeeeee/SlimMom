@@ -6,7 +6,6 @@ export const postEatenProduct = createAsyncThunk(
   async (data, { rejectWithValue }) => {
     try {
       const result = await axiosDay(data);
-      console.log(result);
       return result;
     } catch (error) {
       const { data, status } = error.response;
@@ -27,12 +26,12 @@ export const deleteDay = createAsyncThunk(
   }
 );
 
-export const getInfoAboutDay = createAsyncThunk(
+export const getInfoByDay = createAsyncThunk(
   'day/info',
   async (date, { rejectWithValue }) => {
     try {
-      const data = await axiosDayInfo(date);
-      return data;
+      const result = await axiosDayInfo(date);
+      return result;
     } catch (error) {
       const { data, status } = error.response;
       return rejectWithValue({ data, status });

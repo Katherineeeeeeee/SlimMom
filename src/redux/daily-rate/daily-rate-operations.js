@@ -6,7 +6,6 @@ export const dailyRateInfo = createAsyncThunk(
   async (data, { rejectWithValue }) => {
     try {
       const result = await axiosGetDailyRate(data);
-      console.log(result);
       return result;
     } catch ({ response }) {
       const error = {
