@@ -1,5 +1,6 @@
 import { useMediaQuery } from 'react-responsive';
 import { useSelector } from 'react-redux';
+import { Link, useLocation } from 'react-router-dom';
 
 import { getLogin } from 'redux/auth/auth-selectors';
 
@@ -7,7 +8,7 @@ import Logo from 'components/Shared/Logo';
 import UserInfo from 'components/UserInfo';
 import Navigation from 'components/Navigation';
 
-import { useLocation } from 'react-router-dom';
+import arrow from '../../images/header/arrow.svg';
 
 import s from './Header.module.scss';
 
@@ -17,6 +18,7 @@ const Header = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const { pathname } = useLocation();
   const isRender = pathname === '/login' || pathname === '/registration';
+  const isPathcalculate = pathname === '/calculator-calories';
   const isUserLogin = useSelector(getLogin);
 
   if (!isUserLogin) {
@@ -47,8 +49,12 @@ const Header = () => {
             <Navigation />
           </div>
           <div className={s.userInfo}>
-            --
             <UserInfo />
+            {!isPathcalculate && (
+              <Link to="/calculator-calories">
+                <img src={arrow} alt="arrow"/>
+              </Link>
+            )}
           </div>
         </header>
       );
@@ -78,7 +84,7 @@ const Header = () => {
             <div className={s.headerNavDesc}>
               <div className={s.logoNavWrap}>
                 <Logo />
-                <Navigation/>
+                <Navigation />
               </div>
 
               <div className={s.userInfoDesct}>
