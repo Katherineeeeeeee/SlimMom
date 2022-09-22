@@ -1,12 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { axiosGetDailyRate } from 'api/auth';
+import { axiosGetDailyRate } from '../../api/daily';
 
 export const dailyRateInfo = createAsyncThunk(
     'daily-rate',
     async (data, { rejectWithValue }) => {
     try {
         const result = await axiosGetDailyRate(data);
-        console.log(result)
         return result;
     } catch ({response}) {
         const error = {
