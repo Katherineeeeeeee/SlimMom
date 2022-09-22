@@ -33,7 +33,7 @@ const Register = () => {
         <Controller
           control={control}
           name="username"
-          rules={{ required: true }}
+          rules={{ required: true, maxLength: 16 }}
           render={({ field: { onChange, value } }) => (
             <TextField
               value={value}

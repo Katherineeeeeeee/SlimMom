@@ -26,39 +26,46 @@ const Logo = () => {
           <img src={lm} alt="web-site logo" width="46" />
         </Link>
       )}
-      {isTablet && !isRetina && (
-        <Link to="/dairy">
-          <img src={lt} alt="web-site logo" width="162" />
-        </Link>
-      )}
-      {isDesctop && !isRetina && (
-        <Link to="/dairy">
-          <img src={ld} alt="web-site logo" width="167" />
-        </Link>
-      )}
-      {isMobile && isRetina && isLogin && (
+
+      {isMobile && isRetina && !isLogin && (
         <Link to="/dairy">
           <img src={lm2x} alt="web-site logo" width="46" />
         </Link>
       )}
-      {isTablet && isRetina && (
-        <Link to="/dairy">
-          <img src={lt2x} alt="web-site logo" width="162" />
-        </Link>
-      )}
-      {isDesctop && isRetina && (
-        <Link to="/dairy">
-          <img src={ld2x} alt="web-site logo" width="167" />
-        </Link>
-      )}
+
       {isMobile && !isRetina && isLogin && (
         <Link to="/dairy">
           <img src={lt} alt="web-site logo" width="160" />
         </Link>
       )}
+
       {isMobile && isRetina && isLogin && (
         <Link to="/dairy">
           <img src={lt2x} alt="web-site logo" width="160" />
+        </Link>
+      )}
+
+      {isTablet && !isRetina && (
+        <Link to="/dairy">
+          <img src={lt} alt="web-site logo" width="162" />
+        </Link>
+      )}
+
+      {isTablet && isRetina && (
+        <Link to="/dairy">
+          <img src={lt2x} alt="web-site logo" width="162" />
+        </Link>
+      )}
+
+      {isDesctop && !isRetina && (
+        <Link to="/dairy">
+          <img src={ld} alt="web-site logo" width="167" />
+        </Link>
+      )}
+
+      {isDesctop && isRetina && (
+        <Link to="/dairy">
+          <img src={ld2x} alt="web-site logo" width="167" />
         </Link>
       )}
     </>

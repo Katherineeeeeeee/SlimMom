@@ -11,8 +11,9 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import dailyRateReducer from './daily-rate/daily-rate-slice'
+import dailyRateReducer from './daily-rate/daily-rate-slice';
 import auth from './auth/auth-slice';
+import user from './user/user-slice';
 
 const persistConfig = {
   key: 'auth-sid',
@@ -26,6 +27,7 @@ export const store = configureStore({
   reducer: {
     auth: persistedReducer,
     dailyRate: dailyRateReducer,
+    user,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
