@@ -5,7 +5,6 @@ export const register = createAsyncThunk(
   'auth/register',
   async (userData, { rejectWithValue }) => {
     try {
-      console.log(userData);
       const data = await axiosRegister(userData);
       return data;
     } catch (error) {
@@ -31,9 +30,13 @@ export const login = createAsyncThunk(
 
 export const logout = createAsyncThunk(
   'auth/logout',
-  async (_, { rejectWithValue }) => {
+  async (_, { rejectWithValue, getState }) => {
     try {
-      const data = await axiosLogout();
+      const {
+        auth: { accessToken },
+      } = getState();
+
+      const data = await axiosLogout(accessToken);
       return data;
     } catch (error) {
       const { data, status } = error.response;

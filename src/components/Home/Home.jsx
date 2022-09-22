@@ -1,11 +1,17 @@
-import DailyCaloriesForm from 'components/DailyCaloriesForm/DailyCaloriesForm';
+import DailyCaloriesForm from '../DailyCaloriesForm/DailyCaloriesForm';
+import { dailyRateInfo } from '../../redux/daily-rate/daily-rate-operations';
+// import dailyRateSelectors from '../../redux/daily-rate/daily-rate-selectors';
+import { useDispatch } from 'react-redux';
 
-const HomeForm = () => {
-  return (
-    <>
-      <DailyCaloriesForm />
-    </>
-  );
+const Home = () => {
+  const dispatch = useDispatch();
+
+  const onGetDailyRate = store => {
+    const action = dailyRateInfo(store);
+    dispatch(action);
+  };
+
+  return <DailyCaloriesForm onSubmit={onGetDailyRate} />;
 };
 
-export default HomeForm;
+export default Home;

@@ -1,11 +1,12 @@
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { getLogin } from 'redux/auth/auth-selectors';
+import { getLogin, getUserName } from 'redux/auth/auth-selectors';
 import { logout } from 'redux/auth/auth-opetations';
 
 const UserInfo = () => {
 const isUserLogin = useSelector(getLogin);
+const userName = useSelector(getUserName);
 const dispatch = useDispatch();
 
 const onLogout = () => {
@@ -24,7 +25,7 @@ const onLogout = () => {
   if (isUserLogin) {
     return (
       <div className="wrap">
-        <p>Nic</p>
+        <p>{userName}</p>
         <p onClick={onLogout}>Exit</p>
       </div>
     );
