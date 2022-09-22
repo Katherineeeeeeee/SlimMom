@@ -1,24 +1,5 @@
 @use '../../../styles/mixins';
 
-.dateFormat {
-  margin-right: 20px;
-
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 1.22;
-}
-
-.ReactDatePicker {
-  margin-right: 20px;
-  width: 100px;
-
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 1.22;
-
-  border: none;
-}
-
 .btnInput {
   position: relative;
 
@@ -58,5 +39,28 @@
 
   @include mixins.mq(desktop) {
     margin-top: 150px;
+  }
+}
+
+.dateOverlay {
+  position: absolute;
+  margin-top: 10px;
+
+  &::before {
+    box-sizing: content-box;
+    position: absolute;
+    top: -7px;
+    left: 48%;
+    height: 0;
+    width: 1px;
+    content: "";
+    z-index: 2;
+    border: 8px solid transparent;
+    border-top: none;
+    border-bottom-color: #aeaeae;
+
+    @include mixins.mq(tablet) {
+      left: 81%;
+    }
   }
 }
