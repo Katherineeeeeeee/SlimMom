@@ -13,7 +13,6 @@ import Modal from '../../components/Modal/Modal';
 import DailyCalorieIntake from 'components/DailyCalorieIntake';
 
 import s from './DailyCaloriesForm.module.scss';
-import style from '../Shared/TextField/TextField.module.scss';
 import PropTypes from 'prop-types';
 
 const DailyCaloriesForm = ({ onSubmit }) => {
@@ -31,16 +30,22 @@ const DailyCaloriesForm = ({ onSubmit }) => {
     onSubmit,
   });
 
-  const [bloodType, setActiveCheckbox] = useState('');
+  const [radioResult, setActiveCheckbox] = useState('');
 
-  const { height, age, weight, desiredWeight } = state;
+  let { height, age, weight, desiredWeight, bloodType } = state;
 
   const handleClick = () => {
+    setActiveCheckbox('');
     if(!dailyRateDate) {return}
 
     setModalOpen(true);
   };
 
+  if(radioResult === "") {
+    bloodType = '';
+} else {
+    bloodType = radioResult + 1;
+}
   return (
     <>
       <form onSubmit={handleSubmit} className={s.form}>
@@ -67,7 +72,11 @@ const DailyCaloriesForm = ({ onSubmit }) => {
               handleChange={handleChange}
               {...field.desiredWeight}
             />
-            <input placeholder="Blood type" className={style.input}></input>
+            <TextField 
+              value={bloodType} 
+              handleChange={handleChange} 
+              {...field.bloodType} 
+            />
             <div className={s.radioBlock}>
               {[...Array(4)].map((_, idx) => (
                 <div key={idx} className={s.listRadio}>
@@ -77,7 +86,7 @@ const DailyCaloriesForm = ({ onSubmit }) => {
                       className={s.checkbox}
                       type="radio"
                       name="bloodType"
-                      checked={idx === bloodType}
+                      checked={idx === radioResult}
                       onClick={() => setActiveCheckbox(idx)}
                       value={idx + 1}
                       placeholder="Blood type"
