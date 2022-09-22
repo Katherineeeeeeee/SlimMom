@@ -1,14 +1,20 @@
 import { useDispatch } from 'react-redux';
 import { useForm, Controller } from 'react-hook-form';
 import { useMediaQuery } from 'react-responsive';
+import { useState, useEffect } from 'react';
 
 import s from './DiaryAddProductForm.module.scss';
 import Button from '../../Shared/Button/Button';
 import TextField from 'components/Shared/TextField';
 import { getProductOperations } from '../../../redux/product-search/search-operations';
 
-const DiaryAddProductForm = () => {
+const DiaryAddProductForm = ({ getWeight }) => {
   const dispatch = useDispatch();
+  const [weight, setWeight] = useState('');
+
+  useEffect(() => {
+    getWeight(weight);
+  }, [weight]);
 
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const isTabletDesktop = useMediaQuery({ minWidth: 768 });
@@ -22,6 +28,7 @@ const DiaryAddProductForm = () => {
 
   const onSubmit = (data, e) => {
     e.preventDefault();
+    setWeight(data.weight);
     dispatch(getProductOperations(data.query));
     reset();
   };

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // import Calendar from 'react-calendar';
 import Moment from 'react-moment';
@@ -9,10 +9,14 @@ import 'react-datepicker/dist/react-datepicker.css';
 // import { ReactComponent as CalendarIcon } from '../../../images/calendar.svg';
 import s from './DiaryDateСalendar.module.scss';
 
-const DiaryDateСalendar = () => {
+const DiaryDateСalendar = ({ getDateCalendar }) => {
   // const { handleSubmit, control } = useForm();
   const [startDate, setStartDate] = useState(new Date());
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    getDateCalendar(startDate);
+  }, [startDate]);
 
   const handleChange = e => {
     setIsOpen(!isOpen);

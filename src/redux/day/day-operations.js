@@ -1,12 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { axiosDay, axiosDeleteDay, axiosDayInfo } from 'api/day';
 
-export const getDay = createAsyncThunk(
-  'day/product',
-  async (userData, { rejectWithValue }) => {
+export const postEatenProduct = createAsyncThunk(
+  'day',
+  async (data, { rejectWithValue }) => {
     try {
-      const data = await axiosDay(userData);
-      return data;
+      const result = await axiosDay(data);
+      console.log(result);
+      return result;
     } catch (error) {
       const { data, status } = error.response;
       return rejectWithValue({ data, status });
