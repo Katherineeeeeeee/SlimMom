@@ -2,6 +2,9 @@ import Loader from 'components/Loader';
 import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
+import PublicRoute from './PublicRoutes';
+import PrivateRoute from './PrivateRoutes';
+
 const CalcPage = lazy(() => import('pages/CalcPage'));
 const DairyPage = lazy(() => import('pages/DairyPage'));
 const HomePage = lazy(() => import('pages/HomePage'));
@@ -12,11 +15,15 @@ const UserRoutes = () => {
   return (
     <Suspense fallback={<Loader />}>
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/registration" element={<RegisterPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/dairy" element={<DairyPage />} />
-        <Route path="/calculator-calories" element={<CalcPage />} />
+        <Route element={<PublicRoute />}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/registration" element={<RegisterPage />} />
+          <Route path="/login" element={<LoginPage />} />
+        </Route>
+        <Route element={<PrivateRoute />}>
+          <Route path="/dairy" element={<DairyPage />} />
+          <Route path="/calculator-calories" element={<CalcPage />} />
+        </Route>
       </Routes>
     </Suspense>
   );
