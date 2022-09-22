@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
 import { useForm, Controller } from 'react-hook-form';
+import { useMediaQuery } from 'react-responsive';
 
 import styles from './DiaryAddProductForm.module.scss';
 import Button from '../../Shared/Button/Button';
@@ -10,9 +10,8 @@ import { getProductOperations } from '../../../redux/product-search/search-opera
 const DiaryAddProductForm = () => {
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(getProductOperations());
-  // }, [dispatch]);
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1279 });
 
   const { control, handleSubmit, reset } = useForm({
     defaultValues: {
@@ -58,7 +57,8 @@ const DiaryAddProductForm = () => {
         />
 
         <div className={styles.btn}>
-          <Button text={'Add'} btnClass={'btn'} />
+          {isMobile && <Button text={'Add'} btnClass={'btn'} />}
+          {isTablet && <Button text={'+'} btnClass={'btnPlus'} />}
         </div>
       </form>
     </>

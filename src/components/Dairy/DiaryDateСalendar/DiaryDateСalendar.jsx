@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 
 // import Calendar from 'react-calendar';
-// import Moment from 'react-moment';
+import Moment from 'react-moment';
 import ReactDatePicker from 'react-datepicker';
 // import { useForm, Controller } from 'react-hook-form';
 
 import 'react-datepicker/dist/react-datepicker.css';
-import { ReactComponent as CalendarIcon } from '../../../images/calendar.svg';
+// import { ReactComponent as CalendarIcon } from '../../../images/calendar.svg';
 import styles from './DiaryDateСalendar.module.scss';
 
 const DiaryDateСalendar = () => {
@@ -26,14 +26,12 @@ const DiaryDateСalendar = () => {
 
   return (
     <>
-      <ReactDatePicker
-        className={styles.ReactDatePicker}
-        onChange={handleChange}
-        // onBlur={onBlur}
-        selected={startDate}
-        dateFormat="dd.MM.yyyy"
-      />
-      <CalendarIcon onClick={handleClick} />
+      <button className={styles.btnInput} onClick={handleClick}>
+        <Moment format="DD.MM.yyyy">{startDate}</Moment>
+      </button>
+      {isOpen && (
+        <ReactDatePicker selected={startDate} onChange={handleChange} inline />
+      )}
     </>
   );
 };

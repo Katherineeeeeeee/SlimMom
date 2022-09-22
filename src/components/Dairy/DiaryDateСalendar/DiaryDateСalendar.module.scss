@@ -1,3 +1,5 @@
+@use '../../../styles/mixins';
+
 .dateFormat {
   margin-right: 20px;
 
@@ -8,10 +10,41 @@
 
 .ReactDatePicker {
   margin-right: 20px;
+  width: 100px;
 
   font-weight: 700;
   font-size: 18px;
   line-height: 1.22;
 
   border: none;
+}
+
+.btnInput {
+  position: relative;
+
+  margin-top: 40px;
+  padding-right: 20px;
+
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.22;
+
+  background-color: var(--main-color);
+
+  border: none;
+
+  &:after {
+    content: '';
+    position: absolute;
+
+    margin-left: 20px;
+
+    width: 20px;
+    height: 20px;
+    background-image: url(/images/svg/calendar.svg);
+  }
+
+  @include mixins.mq(tablet) {
+    margin-top: 100px;
+  }
 }

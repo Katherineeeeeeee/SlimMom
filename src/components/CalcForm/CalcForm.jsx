@@ -29,7 +29,6 @@ const CalcForm = () => {
 
   const onSubmit = (data, e) => {
     e.preventDefault();
-
     dispatch(dailyRateUser({ id, ...data }));
     reset();
   };

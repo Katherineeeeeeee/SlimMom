@@ -1,12 +1,24 @@
+@use '../../../styles/mixins';
 
 .form {
   display: flex;
   flex-direction: column;
   gap: 32px;
   margin-top: 80px;
+
+  @include mixins.mq(tablet) {
+    margin-top: 60px;
+    flex-direction: row;
+    gap: 22px;
+  }
 }
 
 .btn {
   text-align: center;
   margin-top: 28px;
+
+  @include mixins.mq(tablet) {
+    margin-top: 0px;
+    margin-left: 65px;
+  }
 }
