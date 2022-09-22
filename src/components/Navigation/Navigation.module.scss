@@ -26,10 +26,16 @@
   line-height: 13px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: #212121;
 
   &:last-child {
     margin-left: 16px;
-    color: #9b9faa;
   }
+}
+
+.link {
+  color: #9b9faa;
+}
+
+.active {
+  color: #212121;
 }

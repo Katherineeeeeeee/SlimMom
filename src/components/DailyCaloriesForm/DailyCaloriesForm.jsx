@@ -25,6 +25,7 @@ const DailyCaloriesForm = () => {
 
   const dailyRateDate = useSelector(daily.dailyRate);
 
+
   const { control, handleSubmit, reset, register } = useForm({
     defaultValues: {
       weight: '',
