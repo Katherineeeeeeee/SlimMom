@@ -3,6 +3,8 @@ import TextField from 'components/Shared/TextField';
 import { field } from 'components/Shared/TextField/fields';
 import Button from 'components/Shared/Button';
 
+import { useNavigate } from 'react-router-dom';
+
 import { useForm, Controller } from 'react-hook-form';
 
 import { register } from 'redux/auth/auth-opetations';
@@ -11,6 +13,7 @@ import { useDispatch } from 'react-redux';
 
 const Register = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const { control, handleSubmit, reset } = useForm({
     defaultValues: {
@@ -24,6 +27,7 @@ const Register = () => {
     e.preventDefault();
     dispatch(register(data));
     reset();
+    navigate('/login');
   };
 
   return (
