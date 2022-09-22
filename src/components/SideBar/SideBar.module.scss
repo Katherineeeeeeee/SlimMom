@@ -1,0 +1,105 @@
+@use '../../styles/mixins';
+.container_sidebar {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 100%;
+  height: 360px;
+  left: 0;
+  bottom: 0;
+  background: var(--background-color);
+
+  @include mixins.mq(tablet) {
+    flex-direction: row;
+    height: 326px;
+    background-image: url(../../images/tablet/layer411.png);
+    background-position: top calc(50% + 66px) right calc(50% - 399px), center;
+    background-repeat: no-repeat;
+  }
+  @include mixins.mq(desktop) {
+    background-image: url(../../images/desktop/layer2.png);
+    background-position: top calc(50% - 55px) right calc(50% - 80px), center;
+    background-repeat: no-repeat;
+    flex-direction: column;
+    width: 40%;
+    height: 100%;
+    right: 0;
+    left: auto;
+  }
+}
+.sum {
+  @include mixins.mq(desktop) {
+    margin-top: 212px;
+    margin-right: 120px;
+  }
+}
+.title_sidebar {
+  margin-left: 20px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.21;
+  letter-spacing: 0.04em;
+  @include mixins.mq(tablet) {
+    margin-top: 80px;
+    margin-left: 32px;
+    margin-right: 97px;
+  }
+  @include mixins.mq(desktop) {
+    margin-top: 80px;
+    margin-left: 106px;
+    margin-right: 97px;
+  }
+}
+
+.list_sidebar {
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+
+  @include mixins.mq(tablet) {
+    margin-left: 32px;
+    margin-right: 97px;
+  }
+  @include mixins.mq(desktop) {
+    margin-left: 106px;
+  }
+}
+.item_sidebar {
+  display: flex;
+  justify-content: space-between;
+  height: 28px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.21;
+  letter-spacing: 0.04em;
+
+  color: var(--second-text-color);
+}
+
+.data {
+  @include mixins.mq(desktop) {
+    margin-left: 40px;
+  }
+}
+
+.text_sidebar_food {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 24px;
+
+  height: 64px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.21;
+  letter-spacing: 0.04em;
+
+  color: var(--second-text-color);
+  @include mixins.mq(desktop) {
+    margin-left: 106px;
+  }
+}
