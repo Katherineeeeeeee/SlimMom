@@ -1,14 +1,26 @@
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { nanoid } from 'nanoid'
 
 import daily from 'redux/daily-rate/daily-rate-selectors';
 import Button from 'components/Shared/Button';
+import {items} from './items'
 
 import s from './DailyCalorieIntake.module.scss';
 
 const DailyCalorieIntake = () => {
   const notAllowedProducts = useSelector(daily.notAllowedProducts);
   const dailyRate = useSelector(daily.dailyRate);
+
+  let itemsList = [];
+  if(notAllowedProducts.length === 0) {
+    console.log("God")
+    itemsList = items;
+    console.log(itemsList)
+  } else {
+    itemsList = notAllowedProducts;
+  }
+
   return (
     <>
       <h2 className={s.modalTitle}>Your recommended daily calorie intake is</h2>
@@ -17,12 +29,12 @@ const DailyCalorieIntake = () => {
         <span className={s.textDescription}> kcal</span>
       </p>
       <div className={s.menuGroup}>
-        {notAllowedProducts.length > 0 && (
+        {itemsList.length > 0 && (
           <>
             <p className={s.menuGroupTitle}>Foods you should not eat</p>
             <ol className={s.menuGroupList}>
-              {notAllowedProducts.map(el => (
-                <li className={s.menuGroupItems}>{el}</li>
+              {itemsList.map(el => (
+                <li key={nanoid()} className={s.menuGroupItems}>{el}</li>
               ))}
             </ol>
           </>
