@@ -1,11 +1,13 @@
-import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useForm, Controller } from 'react-hook-form';
+// import { Radio } from 'antd';
 
 import daily from 'redux/daily-rate/daily-rate-selectors';
+import { dailyRateInfo } from 'redux/daily-rate/daily-rate-operations';
 
-import useForm from '../Hooks/useForm';
 import TextField from '../Shared/TextField/TextField';
-import initialState from './initialState';
+// import RadioField from './radioField';
 import { field } from '../Shared/TextField/fields';
 import Button from '../Shared/Button/Button';
 
@@ -13,77 +15,147 @@ import Modal from '../../components/Modal/Modal';
 import DailyCalorieIntake from 'components/DailyCalorieIntake';
 
 import s from './DailyCaloriesForm.module.scss';
-import PropTypes from 'prop-types';
 
-const DailyCaloriesForm = ({ onSubmit }) => {
+const DailyCaloriesForm = () => {
+  const dispatch = useDispatch();
+
   const [modalOpen, setModalOpen] = useState(false);
-  const dailyRateDate = useSelector(daily.dailyRate);
-
-  useEffect(() => {
-    if (dailyRateDate) {
-      setModalOpen(true);
-    }
-  }, [dailyRateDate]);
-
-  const { state, handleChange, handleSubmit } = useForm({
-    initialState,
-    onSubmit,
-  });
-
+  // const [radioResult, setActiveCheckbox] = useState('');
   const [radioResult, setActiveCheckbox] = useState('');
 
-  let { height, age, weight, desiredWeight, bloodType } = state;
-
-  const handleClick = () => {
-    setActiveCheckbox('');
-    if(!dailyRateDate) {return}
+  const dailyRateDate = useSelector(daily.dailyRate);
 
 
+  const { control, handleSubmit, reset, register } = useForm({
+    defaultValues: {
+      weight: '',
+      height: '',
+      age: '',
+      desiredWeight: '',
+      bloodType: '',
+    },
+  });
+
+  const onSubmit = (data, e) => {
+    console.log(data);
+    e.preventDefault();
+    dispatch(dailyRateInfo(data));
+    // setActiveCheckbox('');
     setModalOpen(true);
+    reset();
   };
 
-  if(radioResult === "") {
-    bloodType = '';
-} else {
-    bloodType = radioResult + 1;
-}
+  // const getTypeBlood = typeBlood => {
+  //   return typeBlood;
+  // };
+  // getTypeBlood();
+
   return (
     <>
-      <form onSubmit={handleSubmit} className={s.form}>
+      <form onSubmit={handleSubmit(onSubmit)} className={s.form}>
         <h1 className={s.title}>
           Calculate your daily calorie intake right now
         </h1>
         <div className={s.formParts}>
           <div className={s.formPart}>
-            <TextField
-              value={height}
-              handleChange={handleChange}
-              {...field.height}
+            <Controller
+              control={control}
+              name="height"
+              render={({ field: { onChange, value } }) => (
+                <TextField
+                  value={value}
+                  control={control}
+                  handleChange={onChange}
+                  {...field.height}
+                />
+              )}
             />
-            <TextField value={age} handleChange={handleChange} {...field.age} />
-            <TextField
-              value={weight}
-              handleChange={handleChange}
-              {...field.weight}
+            <Controller
+              control={control}
+              name="age"
+              render={({ field: { onChange, value } }) => (
+                <TextField
+                  value={value}
+                  control={control}
+                  handleChange={onChange}
+                  {...field.age}
+                />
+              )}
+            />
+            <Controller
+              control={control}
+              name="weight"
+              render={({ field: { onChange, value } }) => (
+                <TextField
+                  value={value}
+                  control={control}
+                  handleChange={onChange}
+                  {...field.weight}
+                />
+              )}
             />
           </div>
           <div className={s.formPart}>
-            <TextField
-              value={desiredWeight}
-              handleChange={handleChange}
-              {...field.desiredWeight}
+            <Controller
+              control={control}
+              name="desiredWeight"
+              render={({ field: { onChange, value } }) => (
+                <TextField
+                  value={value}
+                  control={control}
+                  handleChange={onChange}
+                  {...field.desiredWeight}
+                />
+              )}
             />
-            <TextField 
-              value={bloodType} 
-              handleChange={handleChange} 
-              {...field.bloodType} 
+            <Controller
+              control={control}
+              name="bloodType"
+              render={({ field: { onChange, value } }) => (
+                <TextField
+                  value={value}
+                  control={control}
+                  handleChange={onChange}
+                  {...field.bloodType}
+                />
+              )}
             />
+            {/* <Controller
+              control={control}
+              name="bloodType"
+              render={({ field: { onChange, value } }) => (
+                <Radio.Group
+                  className={s.radioBlock}
+                  value={value}
+                  onChange={e => onChange(e.target.value)}
+                >
+                  <Radio value={1}>1</Radio>
+                  <Radio value={2}>2</Radio>
+                  <Radio value={3}>3</Radio>
+                  <Radio value={4}>4</Radio>
+                </Radio.Group>
+              )}
+            /> */}
+            {/* <Controller
+              control={control}
+              name="bloodType"
+              render={({ field: { onChange, value } }) => (
+                <RadioField
+                  onChange={e => onChange(e.target.value)}
+                  getTypeBlood={getTypeBlood}
+                  value={value}
+                  control={control}
+                  // handleChange={onChange}
+                  {...field.bloodType}
+                />
+              )}
+            /> */}
             <div className={s.radioBlock}>
               {[...Array(4)].map((_, idx) => (
                 <div key={idx} className={s.listRadio}>
                   <label className={s.label}>
                     <input
-                      onChange={handleChange}
+                      {...register('bloodType', { required: true })}
                       className={s.checkbox}
                       type="radio"
                       name="bloodType"
@@ -101,15 +173,10 @@ const DailyCaloriesForm = ({ onSubmit }) => {
           </div>
         </div>
         <div className={s.buttonPosition}>
-          <Button
-            text="Start losing weight"
-            type="submit"
-            btnClass="btn"
-            handleClick={handleClick}
-          />
+          <Button text="Start losing weight" type="submit" btnClass="btn" />
         </div>
       </form>
-      {modalOpen && (
+      {modalOpen && dailyRateDate && (
         <Modal setModalOpen={setModalOpen} children={<DailyCalorieIntake />} />
       )}
     </>
@@ -117,11 +184,3 @@ const DailyCaloriesForm = ({ onSubmit }) => {
 };
 
 export default DailyCaloriesForm;
-
-DailyCaloriesForm.defaultProps = {
-  onSubmit: () => {},
-};
-
-DailyCaloriesForm.propTypes = {
-  onSubmit: PropTypes.func,
-};
