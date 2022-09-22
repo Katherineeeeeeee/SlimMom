@@ -1,5 +1,11 @@
+import CalculatorСalorieForm from 'components/CalcForm/CalcForm';
+
 const CalcPage = () => {
-  return <div></div>;
+  return (
+    <>
+      <CalculatorСalorieForm />
+    </>
+  );
 };
 
 export default CalcPage;
