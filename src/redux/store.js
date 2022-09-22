@@ -11,7 +11,6 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import dailyRateReducer from './daily-rate/daily-rate-slice';
 import auth from './auth/auth-slice';
 import getProductSlice from './product-search/search-slice';
 import dailyRateSlice from './daily-rate/daily-rate-slice';

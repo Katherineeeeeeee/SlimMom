@@ -36,7 +36,9 @@ const DailyCaloriesForm = ({ onSubmit }) => {
   const { height, age, weight, desiredWeight } = state;
 
   const handleClick = () => {
-    if(!dailyRateDate) {return}
+    if (!dailyRateDate) {
+      return;
+    }
 
     setModalOpen(true);
   };
