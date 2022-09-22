@@ -35,8 +35,9 @@
     cursor: pointer;
     width: 20px;
     height: 20px;
-    background-image:url("../../images/modal/back.png");
-    top: 10px;
+    background-image: url("../../images/modal/back.svg");
+    background-repeat: no-repeat;
+    top: 18px;
     left: 20px;
 }
 .closeOther {
@@ -45,7 +46,8 @@
         cursor: pointer;
         width: 20px;
         height: 20px;
-        background-image:url("../../images/modal/close.png");
+        background-image: url("../../images/modal/close.svg");
+        background-repeat: no-repeat;
         top: 20px;
         right: 20px;
     }
