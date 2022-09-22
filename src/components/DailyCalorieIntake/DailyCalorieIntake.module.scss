@@ -21,7 +21,7 @@
   }
 }
 .modalText {
-  margin-bottom: 32px;
+  margin-bottom: 20px;
   width: 280px;
   height: 62px;
   font-weight: 700;
@@ -41,10 +41,16 @@
   margin-bottom: 40px;
   display: flex;
   flex-direction: column;
-  width: 280px;
+  height: 230px;
+  width: 300px;
   border-top: 1px solid #e0e0e0;
+  overflow:hidden;
   @include mixins.mq(tablet) {
+    height: 210px;
     width: 330px;
+  }
+  @include mixins.mq(desktop) {
+    height: 300px;
   }
 }
 .menuGroupTitle {
