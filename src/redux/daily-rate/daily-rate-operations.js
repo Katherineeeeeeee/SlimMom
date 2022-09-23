@@ -1,6 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { axiosGetDailyRate, axiosGetDailyRateUser } from 'api/daily-rate';
 
+import { getUser } from 'redux/auth/auth-opetations';
+
 export const dailyRateInfo = createAsyncThunk(
   'daily-rate',
   async (data, { rejectWithValue }) => {
@@ -19,12 +21,14 @@ export const dailyRateInfo = createAsyncThunk(
 
 export const dailyRateUser = createAsyncThunk(
   'daily-rate/userId',
-  async (userData, { rejectWithValue }) => {
-    const { id, ...data } = userData;
-
+  async (userData, { rejectWithValue, getState, dispatch }) => {
     try {
+      const { id, ...data } = userData;
+      const {
+        auth: { accessToken },
+      } = getState();
       const result = await axiosGetDailyRateUser(id, data);
-      console.log(result);
+      dispatch(getUser(accessToken));
       return result;
     } catch ({ response }) {
       const error = {
