@@ -5,7 +5,7 @@ import { getProduct } from 'redux/product-search/search-selectors';
 import s from './DiaryChooseProductList.module.scss';
 import { postEatenProduct } from 'redux/day/day-operations';
 
-export default function DiaryChooseProductList({ day }) {
+export default function DiaryChooseProductList() {
   const dispatch = useDispatch();
 
   const [isOpen, setIsOpen] = useState(true);

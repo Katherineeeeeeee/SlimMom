@@ -1,15 +1,19 @@
 import { useDispatch } from 'react-redux';
 import { useForm, Controller } from 'react-hook-form';
 import { useMediaQuery } from 'react-responsive';
+import { useState } from 'react';
 
 import s from './DiaryAddProductForm.module.scss';
 import Button from '../../Shared/Button/Button';
 import TextField from 'components/Shared/TextField';
 import { getProductOperations } from '../../../redux/product-search/search-operations';
 import { addWeight } from 'redux/dairy-calendar/dairy-calendar-slice';
+import DiaryChooseProductList from '../DiaryChooseProductList/DiaryChooseProductList';
 
 const DiaryAddProductForm = () => {
   const dispatch = useDispatch();
+
+  const [isOpen, setIsOpen] = useState(false);
 
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const isTabletDesktop = useMediaQuery({ minWidth: 768 });
@@ -20,11 +24,11 @@ const DiaryAddProductForm = () => {
       weight: '',
     },
   });
-
   const onSubmit = (data, e) => {
     e.preventDefault();
     dispatch(getProductOperations(data.query));
     dispatch(addWeight(Number(data.weight)));
+    setIsOpen(!isOpen);
     reset();
   };
 
@@ -63,6 +67,7 @@ const DiaryAddProductForm = () => {
           {isTabletDesktop && <Button text={'+'} btnClass={'btnPlus'} />}
         </div>
       </form>
+      {isOpen && <DiaryChooseProductList />}
     </>
   );
 };

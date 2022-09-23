@@ -25,7 +25,6 @@ const daySlice = createSlice({
       store.error = null;
     },
     [postEatenProduct.fulfilled]: (store, { payload }) => {
-      console.log(payload);
       store.day = payload.day;
       store.daySummary = payload.daySummary;
       store.eatenProduct = payload.eatenProduct;
@@ -44,6 +43,7 @@ const daySlice = createSlice({
       store.error = null;
     },
     [deleteEatenProduct.fulfilled]: (store, { payload }) => {
+      store.daySummary = payload.newDaySummary;
       store.loading = false;
     },
     [deleteEatenProduct.rejected]: (store, { payload }) => {

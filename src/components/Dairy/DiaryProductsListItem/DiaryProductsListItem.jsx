@@ -1,13 +1,17 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import s from './DiaryProductsListItem.module.scss';
 import { eatenProducts } from 'redux/day/day-selectors';
-// import { getDayId } from 'redux/day/day-selectors';
+import { deleteEatenProduct } from 'redux/day/day-operations';
 
 const DiaryProductsListItem = () => {
+  const dispatch = useDispatch();
+
   const eatenProductsList = useSelector(eatenProducts);
-  // const dayId = useSelector(getDayId);
-  // console.log(dayId);
+
+  const removeProduct = id => {
+    dispatch(deleteEatenProduct(id));
+  };
 
   return (
     <>
@@ -23,9 +27,7 @@ const DiaryProductsListItem = () => {
               <button
                 className="btnRemove"
                 type="button"
-                // onClick={() => {
-                //   removeProduct && removeProduct(id);
-                // }}
+                onClick={() => removeProduct(id)}
               ></button>
             </li>
           );
