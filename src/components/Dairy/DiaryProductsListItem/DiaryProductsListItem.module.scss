@@ -1,9 +1,9 @@
+@use '../../../styles/mixins';
+
 .item {
   display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .wrapper {
@@ -12,5 +12,67 @@
 }
 
 .title {
-  width: 400px;
+  width: 130px;
+  padding-bottom: 8px;
+
+  border-bottom: 1px solid #E0E0E0;
+
+  @include mixins.mq(tablet) {
+    width: 240px;
+    padding-bottom: 20px;
+  }
+}
+
+.weight {
+  width: 50px;
+  margin-left: 8px;
+  padding-bottom: 8px;
+
+  border-bottom: 1px solid #E0E0E0;
+
+  @include mixins.mq(tablet) {
+    width: 105px;
+    margin-left: 20px;
+    padding-bottom: 20px;
+
+    text-align: right;
+
+  }
+
+  @include mixins.mq(desktop) {
+    margin-left: 48px;
+  }
+}
+
+.kcal {
+  width: 58px;
+  margin-left: 8px;
+  padding-bottom: 8px;
+
+  border-bottom: 1px solid #E0E0E0;
+
+  @include mixins.mq(tablet) {
+    width: 105px;
+    margin-left: 45px;
+    padding-bottom: 20px;
+
+    text-align: right;
+  }
+
+  @include mixins.mq(desktop) {
+    margin-left: 30px;
+  }
+}
+
+.btnRemove {
+  margin-left: 15px;
+
+  border: none;
+  outline: none;
+  background: none;
+
+  @include mixins.mq(tablet) {
+    margin-left: 30px;
+    margin-right: 40px;
+  }
 }

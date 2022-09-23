@@ -1,4 +1,5 @@
 @use '../../styles/mixins';
+
 .wrapper {
   @include mixins.mq(desktop) {
     display: flex;
@@ -7,3 +8,25 @@
     max-width: 1280px;
   }
 }
+
+.overlay {
+  padding-top: 40px;
+  padding-bottom: 60px;
+
+  @include mixins.mq(desktop) {
+    padding-top: 100px;
+  padding-bottom: 55px;
+  }
+
+  @include mixins.mq(desktop) {
+    padding-top: 140px;
+  }
+}
+
+// .overlayList {
+//   position: absolute;
+//   width: 600px;
+//   height: 50px;
+//   border: 1px solid red;
+//   background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, #FFFFFF 42.19%);
+// }
