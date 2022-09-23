@@ -9,7 +9,7 @@
     height: 100vh;
     background-image: url(../../images/tablet/tabletx1.png);
     background-repeat: no-repeat;
-    background-position: top -83px right 0;
+    background-position: right 0 top -80px;
   }
 
   @include mixins.mq(desktop) {
@@ -65,6 +65,7 @@
     position: absolute;
     top: 0;
     right: 0;
+    width: 100%;
     z-index: -1;
   }
 }
