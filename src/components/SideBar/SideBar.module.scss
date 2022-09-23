@@ -1,28 +1,34 @@
 @use '../../styles/mixins';
 .container_sidebar {
+  margin-top: 60px;
   display: flex;
   flex-direction: column;
-  position: absolute;
-  width: 100%;
-  height: 360px;
+  min-width: 320px;
   left: 0;
-  bottom: 0;
+  bottom: 0; 
   background: var(--background-color);
 
   @include mixins.mq(tablet) {
+    margin-top: 55px;
     flex-direction: row;
+    left: 0px;
+    width: 100%;
     height: 326px;
     background-image: url(../../images/tablet/layer411.png);
     background-position: top calc(50% + 66px) right calc(50% - 399px), center;
     background-repeat: no-repeat;
   }
   @include mixins.mq(desktop) {
+    margin-top: 0px;
+    margin-right: 0;
+    margin-left: 124px;
     background-image: url(../../images/desktop/layer2.png);
-    background-position: top calc(50% - 55px) right calc(50% - 80px), center;
+    background-position: top calc(50% + 17px) right calc(50% + 0px), center;
     background-repeat: no-repeat;
     flex-direction: column;
+    align-items: left;
     width: 40%;
-    height: 100%;
+    height: 850px;
     right: 0;
     left: auto;
   }
@@ -30,8 +36,7 @@
 .sum {
   @include mixins.mq(desktop) {
     margin-top: 212px;
-    margin-right: 120px;
-  }
+ }
 }
 .title_sidebar {
   margin-left: 20px;
@@ -53,7 +58,6 @@
     margin-right: 97px;
   }
 }
-
 .list_sidebar {
   margin-top: 20px;
   margin-left: 20px;
@@ -79,13 +83,11 @@
 
   color: var(--second-text-color);
 }
-
 .data {
   @include mixins.mq(desktop) {
-    margin-left: 40px;
+    margin-right: 40px;
   }
 }
-
 .text_sidebar_food {
   margin-left: 20px;
   margin-right: 20px;

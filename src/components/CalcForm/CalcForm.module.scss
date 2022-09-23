@@ -139,3 +139,8 @@
     margin-left: 323px;
   }
 }
+.wrapper {
+  @include mixins.mq(desktop) {
+    display: flex;
+  }
+}
