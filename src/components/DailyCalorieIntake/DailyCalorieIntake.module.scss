@@ -41,16 +41,17 @@
   margin-bottom: 40px;
   display: flex;
   flex-direction: column;
-  height: 230px;
+  height: 235px;
   width: 300px;
   border-top: 1px solid #e0e0e0;
-  overflow:hidden;
+  overflow-y: auto;
   @include mixins.mq(tablet) {
     height: 210px;
     width: 330px;
   }
   @include mixins.mq(desktop) {
-    height: 300px;
+    height: 315px;
+    width: 350px;
   }
 }
 .menuGroupTitle {
@@ -67,7 +68,7 @@
   }
 }
 .menuGroupList {
-  margin-left: 20px;
+  margin-left: 40px;
   list-style-type: decimal;
 }
 .menuGroupItems {
