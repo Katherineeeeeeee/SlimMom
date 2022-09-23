@@ -24,7 +24,7 @@
     justify-content: start;
     align-items: center;
     width: 517px;
-    height: 720px;
+    height: 100vh;
     padding-top: 150px;
   }
 }
@@ -71,7 +71,6 @@
 }
 
 .data {
-
   @include mixins.mq(desktop) {
     margin-right: 40px;
   }

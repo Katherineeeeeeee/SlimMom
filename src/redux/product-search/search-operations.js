@@ -9,7 +9,8 @@ export const getProductOperations = createAsyncThunk(
       const { data } = await axiosProductSearch(query);
       return data;
     } catch (error) {
-      return rejectWithValue(error);
+      const { data, status } = error.response;
+      return rejectWithValue({ data, status });
     }
   }
 );
