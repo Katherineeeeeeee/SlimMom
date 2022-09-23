@@ -1,22 +1,33 @@
-import React, { useState } from 'react';
-
-// import Calendar from 'react-calendar';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Moment from 'react-moment';
 import DatePicker from 'react-datepicker';
+import moment from 'moment';
 // import { useForm, Controller } from 'react-hook-form';
 
 import 'react-datepicker/dist/react-datepicker.css';
-// import { ReactComponent as CalendarIcon } from '../../../images/calendar.svg';
 import s from './DiaryDateСalendar.module.scss';
+// import { getInfoByDay } from 'redux/day/day-operations';
+import { addDate } from 'redux/dairy-calendar/dairy-calendar-slice';
+import { getInfoByDay } from 'redux/day/day-operations';
 
 const DiaryDateСalendar = () => {
-  // const { handleSubmit, control } = useForm();
-  const [startDate, setStartDate] = useState(new Date());
+  const dispatch = useDispatch();
+
+  const date = useSelector(({ dairyCalendar }) => dairyCalendar.date);
+
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    dispatch(addDate(moment(new Date()).format('yyyy-MM-DD')));
+    dispatch(getInfoByDay({ date: moment(new Date()).format('yyyy-MM-DD') }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleChange = e => {
     setIsOpen(!isOpen);
-    setStartDate(e);
+    dispatch(addDate(moment(e).format('yyyy-MM-DD')));
+    dispatch(getInfoByDay({ date: moment(e).format('yyyy-MM-DD') }));
   };
 
   const handleClick = e => {
@@ -27,12 +38,12 @@ const DiaryDateСalendar = () => {
   return (
     <>
       <button className={s.btnInput} onClick={handleClick}>
-        <Moment format="DD.MM.yyyy">{startDate}</Moment>
+        <Moment format="DD.MM.yyyy">{date}</Moment>
       </button>
 
       {isOpen && (
         <div className={s.dateOverlay}>
-          <DatePicker selected={startDate} onChange={handleChange} inline />
+          <DatePicker onChange={handleChange} inline />
         </div>
       )}
     </>

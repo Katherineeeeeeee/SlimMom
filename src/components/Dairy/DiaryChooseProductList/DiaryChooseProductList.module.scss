@@ -1,0 +1,26 @@
+.overlay {
+  position: absolute;
+  background-color: var(--main-color);
+  background-color: rgb(175, 160, 160);
+}
+
+.list {
+  width: 600px;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.wrapper {
+  display: flex;
+  gap: 10px;
+}
+
+.title {
+  width: 400px;
+}

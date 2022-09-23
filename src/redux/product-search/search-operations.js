@@ -7,7 +7,6 @@ export const getProductOperations = createAsyncThunk(
   async (query, { rejectWithValue }) => {
     try {
       const { data } = await axiosProductSearch(query);
-      console.log(data);
       return data;
     } catch (error) {
       return rejectWithValue(error);

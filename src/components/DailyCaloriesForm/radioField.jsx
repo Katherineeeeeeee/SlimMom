@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 export default function RadioField({ name, getTypeBlood }) {
   const [radioResult, setActiveCheckbox] = useState('');
-  const [typeBlood, setTypeBlood] = useState('');
+  const [typeBlood, setTypeBlood] = useState(null);
 
   getTypeBlood(typeBlood);
 

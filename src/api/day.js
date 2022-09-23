@@ -7,12 +7,19 @@ export const axiosDay = async userData => {
   return data;
 };
 
-export const axiosDeleteDay = async userDataId => {
-  const { data } = await instance.delete('/day', userDataId);
+export const axiosDayInfo = async userData => {
+  const { data } = await instance.post('/day/info', userData);
   return data;
 };
 
-export const axiosDayInfo = async date => {
-  const { data } = await instance.post('/day/info', date);
-  return data;
-};
+export async function axiosDeleteDay(data, accessToken) {
+  const serverData = await fetch('https://slimmom-backend.goit.global/day', {
+    method: 'DELETE',
+    body: JSON.stringify(data),
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + accessToken,
+    },
+  });
+  return serverData.json();
+}

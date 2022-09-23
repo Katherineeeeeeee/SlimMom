@@ -3,6 +3,8 @@
 .list {
   margin-top: 30px;
 
+  width: 600px;
+
   @include mixins.mq(tablet) {
       margin-top: 20px;
     }

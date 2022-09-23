@@ -16,7 +16,7 @@ const getProductSlice = createSlice({
       store.loading = true;
       store.error = null;
     },
-    [getProductOperations.fulfilled]: (store, payload) => {
+    [getProductOperations.fulfilled]: (store, { payload }) => {
       store.loading = false;
       store.items = payload;
     },
