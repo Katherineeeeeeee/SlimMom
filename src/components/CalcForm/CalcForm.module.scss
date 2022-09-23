@@ -142,5 +142,8 @@
 .wrapper {
   @include mixins.mq(desktop) {
     display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1280px;
   }
 }
