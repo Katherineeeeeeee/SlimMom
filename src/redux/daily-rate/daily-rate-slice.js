@@ -25,7 +25,7 @@ const dailyRateSlice = createSlice({
     },
     [dailyRateInfo.rejected]: (store, { payload }) => {
       store.loading = false;
-      store.error = payload;
+      store.error = payload.message;
     },
     [dailyRateUser.pending]: store => {
       store.loading = true;
@@ -40,7 +40,7 @@ const dailyRateSlice = createSlice({
     },
     [dailyRateUser.rejected]: (store, { payload }) => {
       store.loading = false;
-      store.error = payload;
+      store.error = payload.message;
     },
   },
 });

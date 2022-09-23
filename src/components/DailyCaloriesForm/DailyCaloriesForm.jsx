@@ -13,6 +13,7 @@ import Button from '../Shared/Button/Button';
 
 import Modal from '../../components/Modal/Modal';
 import DailyCalorieIntake from 'components/DailyCalorieIntake';
+import ErrorMessage from '../ErrorMessage/ErrorMessage'
 
 import s from './DailyCaloriesForm.module.scss';
 
@@ -24,7 +25,7 @@ const DailyCaloriesForm = () => {
   const [radioResult, setActiveCheckbox] = useState('');
 
   const dailyRateDate = useSelector(daily.dailyRate);
-
+  const errorDaily = useSelector(daily.getErrorDaily);
 
   const { control, handleSubmit, reset, register } = useForm({
     defaultValues: {
@@ -178,6 +179,9 @@ const DailyCaloriesForm = () => {
       </form>
       {modalOpen && dailyRateDate && (
         <Modal setModalOpen={setModalOpen} children={<DailyCalorieIntake />} />
+      )}
+      {modalOpen && errorDaily && (
+        <Modal setModalOpen={setModalOpen} children={<ErrorMessage status={errorDaily}/>} />
       )}
     </>
   );

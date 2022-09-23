@@ -1,9 +1,9 @@
-const getStateError = state => state.auth.error;
+const getErrorDaily = state => state.dailyRate.error;
 const dailyRate = state => state.dailyRate.dailyRate;
 const notAllowedProducts = state => state.dailyRate.notAllowedProducts;
 
 const dailyRateSelectors = {
-    getStateError,
+    getErrorDaily,
     dailyRate,
     notAllowedProducts,
 }
