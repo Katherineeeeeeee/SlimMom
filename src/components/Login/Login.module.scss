@@ -1,19 +1,26 @@
 @use '../../styles/mixins';
+
+.login {
+  padding-top: 40px;
+
+  background-image: url(../../images/tablet/tabletx1.png);
+
+  @include mixins.mq(tablet) {
+    padding-top: 160px;
+  }
+}
+
 .title {
   font-weight: 700;
   font-size: 14px;
   line-height: 13px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-
   color: var(--accent-color);
-
   text-align: center;
-  margin-top: 40px;
   margin-bottom: 60px;
 
   @include mixins.mq(tablet) {
-    margin-top: 160px;
     text-align: left;
   }
 }

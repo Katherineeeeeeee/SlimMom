@@ -1,76 +1,63 @@
 @use '../../styles/mixins';
 .container_sidebar {
-  margin-top: 60px;
+  padding: 40px 20px;
   display: flex;
   flex-direction: column;
-  min-width: 320px;
-  left: 0;
-  bottom: 0; 
+  align-items: center;
   background: var(--background-color);
 
   @include mixins.mq(tablet) {
-    margin-top: 55px;
+    padding: 80px 32px;
     flex-direction: row;
-    left: 0px;
-    width: 100%;
-    height: 326px;
+    justify-content: center;
+    align-items: start;
     background-image: url(../../images/tablet/layer411.png);
-    background-position: top calc(50% + 66px) right calc(50% - 399px), center;
+    background-position: top -72px right -264px;
     background-repeat: no-repeat;
   }
+
   @include mixins.mq(desktop) {
-    margin-top: 0px;
-    margin-right: 0;
-    margin-left: 124px;
     background-image: url(../../images/desktop/layer2.png);
-    background-position: top calc(50% + 17px) right calc(50% + 0px), center;
+    background-position: top -122px right -13px;
     background-repeat: no-repeat;
     flex-direction: column;
-    align-items: left;
-    width: 40%;
-    height: 850px;
-    right: 0;
-    left: auto;
+    justify-content: start;
+    align-items: center;
+    width: 517px;
+    height: 720px;
+    padding-top: 150px;
   }
 }
-.sum {
-  @include mixins.mq(desktop) {
-    margin-top: 212px;
- }
-}
-.title_sidebar {
-  margin-left: 20px;
-  margin-top: 40px;
-  margin-bottom: 20px;
 
+.sum {
+  width: 280px;
+
+  @include mixins.mq(tablet) {
+    width: 290px;
+    margin-right: 97px;
+  }
+
+  @include mixins.mq(desktop) {
+    margin-right: 0;
+    margin-bottom: 60px;
+  }
+}
+
+.title_sidebar {
+  margin-bottom: 20px;
   font-weight: 700;
   font-size: 14px;
   line-height: 1.21;
   letter-spacing: 0.04em;
+
   @include mixins.mq(tablet) {
-    margin-top: 80px;
-    margin-left: 32px;
-    margin-right: 97px;
-  }
-  @include mixins.mq(desktop) {
-    margin-top: 80px;
-    margin-left: 106px;
-    margin-right: 97px;
+    margin-bottom: 35px;
   }
 }
 .list_sidebar {
-  margin-top: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
-
-  @include mixins.mq(tablet) {
-    margin-left: 32px;
-    margin-right: 97px;
-  }
-  @include mixins.mq(desktop) {
-    margin-left: 106px;
-  }
+  width: 280px;
 }
+
 .item_sidebar {
   display: flex;
   justify-content: space-between;
@@ -80,28 +67,22 @@
   font-size: 14px;
   line-height: 1.21;
   letter-spacing: 0.04em;
-
   color: var(--second-text-color);
 }
+
 .data {
+
   @include mixins.mq(desktop) {
     margin-right: 40px;
   }
 }
+
 .text_sidebar_food {
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-bottom: 24px;
-
-  height: 64px;
-  font-style: normal;
-  font-weight: 400;
   font-size: 14px;
-  line-height: 1.21;
   letter-spacing: 0.04em;
-
   color: var(--second-text-color);
-  @include mixins.mq(desktop) {
-    margin-left: 106px;
-  }
+}
+
+.food {
+  width: 280px;
 }
