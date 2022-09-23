@@ -1,20 +1,32 @@
 @use '../../styles/mixins';
 
+.register {
+  padding-top: 40px;
+
+  @include mixins.mq(tablet) {
+    padding-top: 160px;
+    height: 100vh;
+    background-image: url(../../images/tablet/tabletx1.png);
+    background-repeat: no-repeat;
+    background-position: top -83px right 0;
+  }
+
+  @include mixins.mq(desktop) {
+    background-image: none;
+  }
+}
+
 .title {
   font-weight: 700;
   font-size: 14px;
   line-height: 13px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-
   color: var(--accent-color);
-
   text-align: center;
-  margin-top: 40px;
   margin-bottom: 60px;
 
   @include mixins.mq(tablet) {
-    margin-top: 160px;
     text-align: left;
   }
 }
@@ -44,25 +56,14 @@
   }
 }
 
-//img in RegisterPage.jsx
-.imgTablet {
-  display: none;
-  @include mixins.mq(tablet) {
-    display: block;
-    position: absolute;
-    top: 124px;
-    z-index: -1;
-  }
-  @include mixins.mq(desktop) {
-    display: none;
-  }
-}
 .imgDesktop {
   display: none;
+
   @include mixins.mq(desktop) {
     display: block;
     position: absolute;
     top: 0;
+    right: 0;
     width: 100%;
     z-index: -1;
   }

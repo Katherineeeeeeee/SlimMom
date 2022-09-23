@@ -7,6 +7,7 @@ import Container from 'components/Shared/Container';
 import TextField from 'components/Shared/TextField';
 import { field } from 'components/Shared/TextField/fields';
 import Button from 'components/Shared/Button';
+import bcgDesktop from '../../images/desktop/bcgD.png';
 
 import s from './Login.module.scss';
 
@@ -66,6 +67,7 @@ const Login = () => {
             <Button text="Log in" btnClass="btn" />
           </div>
         </form>
+        <img className={s.imgDesktop} src={bcgDesktop} alt="background" />
       </Container>
     </section>
   );
