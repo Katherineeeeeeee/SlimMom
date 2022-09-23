@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm, Controller } from 'react-hook-form';
+import SideBar from 'components/SideBar';
 
 import TextField from '../Shared/TextField/TextField';
 import { field } from '../Shared/TextField/fields';
@@ -34,6 +35,7 @@ const CalcForm = () => {
   };
 
   return (
+    <div className={s.wrapper}>
     <form onSubmit={handleSubmit(onSubmit)} className={s.form}>
       <h1 className={s.title}>Calculate your daily calorie intake right now</h1>
       <div className={s.formParts}>
@@ -119,6 +121,8 @@ const CalcForm = () => {
         <Button text="Start losing weight" type="submit" btnClass="btn" />
       </div>
     </form>
+    <SideBar />
+    </div>
   );
 };
 

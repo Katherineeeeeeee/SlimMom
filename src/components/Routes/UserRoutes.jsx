@@ -10,6 +10,7 @@ const DairyPage = lazy(() => import('pages/DairyPage'));
 const HomePage = lazy(() => import('pages/HomePage'));
 const LoginPage = lazy(() => import('pages/LoginPage'));
 const RegisterPage = lazy(() => import('pages/RegisterPage'));
+const NotFoundPage = lazy(() => import('pages/NotFoundPage'));
 
 const UserRoutes = () => {
   return (
@@ -24,6 +25,8 @@ const UserRoutes = () => {
           <Route path="/dairy" element={<DairyPage />} />
           <Route path="/calculator-calories" element={<CalcPage />} />
         </Route>
+
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Suspense>
   );
