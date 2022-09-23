@@ -1,13 +1,12 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm, Controller } from 'react-hook-form';
-// import { Radio } from 'antd';
 
 import daily from 'redux/daily-rate/daily-rate-selectors';
 import { dailyRateInfo } from 'redux/daily-rate/daily-rate-operations';
 
 import TextField from '../Shared/TextField/TextField';
-// import RadioField from './radioField';
+
 import { field } from '../Shared/TextField/fields';
 import Button from '../Shared/Button/Button';
 
@@ -21,7 +20,7 @@ const DailyCaloriesForm = () => {
   const dispatch = useDispatch();
 
   const [modalOpen, setModalOpen] = useState(false);
-  // const [radioResult, setActiveCheckbox] = useState('');
+
   const [radioResult, setActiveCheckbox] = useState('');
 
   const dailyRateDate = useSelector(daily.dailyRate);
@@ -29,27 +28,28 @@ const DailyCaloriesForm = () => {
 
   const { control, handleSubmit, reset, register } = useForm({
     defaultValues: {
-      weight: '',
-      height: '',
-      age: '',
-      desiredWeight: '',
-      bloodType: '',
+      weight: "",
+      height: "",
+      age: "",
+      desiredWeight: "",
+      bloodType: "",
     },
   });
 
   const onSubmit = (data, e) => {
-    console.log(data);
+    const numberData = {
+      weight: Number(data.weight),
+      height: Number(data.height),
+      age: Number(data.age),
+      desiredWeight: Number(data.desiredWeight),
+      bloodType: Number(data.bloodType),
+    }
     e.preventDefault();
-    dispatch(dailyRateInfo(data));
-    // setActiveCheckbox('');
+    dispatch(dailyRateInfo(numberData));
+    setActiveCheckbox('');
     setModalOpen(true);
     reset();
   };
-
-  // const getTypeBlood = typeBlood => {
-  //   return typeBlood;
-  // };
-  // getTypeBlood();
 
   return (
     <>
@@ -121,36 +121,6 @@ const DailyCaloriesForm = () => {
                 />
               )}
             />
-            {/* <Controller
-              control={control}
-              name="bloodType"
-              render={({ field: { onChange, value } }) => (
-                <Radio.Group
-                  className={s.radioBlock}
-                  value={value}
-                  onChange={e => onChange(e.target.value)}
-                >
-                  <Radio value={1}>1</Radio>
-                  <Radio value={2}>2</Radio>
-                  <Radio value={3}>3</Radio>
-                  <Radio value={4}>4</Radio>
-                </Radio.Group>
-              )}
-            /> */}
-            {/* <Controller
-              control={control}
-              name="bloodType"
-              render={({ field: { onChange, value } }) => (
-                <RadioField
-                  onChange={e => onChange(e.target.value)}
-                  getTypeBlood={getTypeBlood}
-                  value={value}
-                  control={control}
-                  // handleChange={onChange}
-                  {...field.bloodType}
-                />
-              )}
-            /> */}
             <div className={s.radioBlock}>
               {[...Array(4)].map((_, idx) => (
                 <div key={idx} className={s.listRadio}>
