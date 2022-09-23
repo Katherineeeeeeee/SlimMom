@@ -7,6 +7,7 @@ import s from './DiaryAddProductForm.module.scss';
 import Button from '../../Shared/Button/Button';
 import TextField from 'components/Shared/TextField';
 import { getProductOperations } from '../../../redux/product-search/search-operations';
+import { addWeight } from 'redux/dairy-calendar/dairy-calendar-operation';
 
 const DiaryAddProductForm = ({ getWeight }) => {
   const dispatch = useDispatch();
@@ -14,6 +15,8 @@ const DiaryAddProductForm = ({ getWeight }) => {
 
   useEffect(() => {
     getWeight(weight);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [weight]);
 
   const isMobile = useMediaQuery({ maxWidth: 767 });
@@ -30,6 +33,7 @@ const DiaryAddProductForm = ({ getWeight }) => {
     e.preventDefault();
     setWeight(data.weight);
     dispatch(getProductOperations(data.query));
+    dispatch(addWeight(data.weight));
     reset();
   };
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Moment from 'react-moment';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
@@ -8,20 +8,23 @@ import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
 import s from './DiaryDateСalendar.module.scss';
 import { getInfoByDay } from 'redux/day/day-operations';
+import { addDate } from 'redux/dairy-calendar/dairy-calendar-operation';
 
 const DiaryDateСalendar = ({ getDateCalendar }) => {
   const dispatch = useDispatch();
 
-  // const { handleSubmit, control } = useForm();
+  // const { date } = useSelector(state => console.log(state));
+
   const [startDate, setStartDate] = useState(new Date());
   const [isOpen, setIsOpen] = useState(false);
 
   const formatDate = { date: moment(startDate).format('yyyy-MM-DD') };
+  const formatDateOper = moment(startDate).format('yyyy-MM-DD');
 
   useEffect(() => {
-    console.log(formatDate);
     getDateCalendar(startDate);
     dispatch(getInfoByDay(formatDate));
+    // dispatch(addDate(formatDateOper));
   }, [startDate]);
 
   const handleChange = e => {

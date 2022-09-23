@@ -54,7 +54,6 @@ const daySlice = createSlice({
       store.error = null;
     },
     [getInfoByDay.fulfilled]: (store, { payload }) => {
-      console.log(payload);
       store.eatenProducts = payload.eatenProducts;
       store.loading = false;
       store.aboutDay = payload;

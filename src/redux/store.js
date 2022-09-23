@@ -11,10 +11,11 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import auth from './auth/auth-slice';
-import getProductSlice from './product-search/search-slice';
-import dailyRateSlice from './daily-rate/daily-rate-slice';
-import daySlice from './day/day-slice';
+import auth from 'redux/auth/auth-slice';
+import getProductSlice from 'redux/product-search/search-slice';
+import dailyRateSlice from 'redux/daily-rate/daily-rate-slice';
+import daySlice from 'redux/day/day-slice';
+import dairyCalendarSlice from 'redux/dairy-calendar/dairy-calendar-slice';
 
 const persistConfig = {
   key: 'auth-sid',
@@ -30,6 +31,7 @@ export const store = configureStore({
     dailyRate: dailyRateSlice,
     product: getProductSlice,
     dayProduct: daySlice,
+    dairyCalendar: dairyCalendarSlice,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

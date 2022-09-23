@@ -1,29 +1,18 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 import { getProduct } from 'redux/product-search/search-selectors';
 import s from './DiaryChooseProductList.module.scss';
 import { postEatenProduct } from 'redux/day/day-operations';
 
-export default function DiaryChooseProductList({ getIdProduct, day }) {
+export default function DiaryChooseProductList({ day }) {
   const dispatch = useDispatch();
 
-  // const [idProduct, setIdProduct] = useState('');
   const [isOpen, setIsOpen] = useState(true);
   const searchProduct = useSelector(getProduct);
 
-  // useEffect(() => {
-  //   getIdProduct(idProduct);
-  // }, [idProduct]);
-
-  const dayFull = day;
-  console.log(dayFull);
-
-  const handleClick = ({ currentTarget }) => {
-    // setIdProduct(currentTarget.dataset.id);
-    dispatch(
-      postEatenProduct({ ...dayFull, productId: currentTarget.dataset.id })
-    );
+  const handleClick = productId => {
+    dispatch(postEatenProduct({ ...day, productId }));
     setIsOpen(!isOpen);
   };
 
@@ -33,12 +22,7 @@ export default function DiaryChooseProductList({ getIdProduct, day }) {
         <div className={s.overlay}>
           <ul className={s.list}>
             {searchProduct.map(({ _id, title, calories, weight }) => (
-              <li
-                key={_id}
-                data-id={_id}
-                className={s.item}
-                onClick={handleClick}
-              >
+              <li key={_id} className={s.item} onClick={() => handleClick(_id)}>
                 <p className={s.title}> {title.ua}</p>
                 <div className={s.wrapper}>
                   <p>{calories} kcal</p>

@@ -1,19 +1,13 @@
-// import { useDispatch } from 'react-redux';
-
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
 import s from './DiaryProductsListItem.module.scss';
 import { eatenProducts } from 'redux/day/day-selectors';
 
 const DiaryProductsListItem = () => {
-  // const dispatch = useDispatch();
-
-  // function removeProduct(id) {
-  //   dispatch(removeProductOperation(id));
-  // }
-
   const eatenProductsList = useSelector(eatenProducts);
+
+  useEffect(() => {}, []);
 
   return (
     <>
