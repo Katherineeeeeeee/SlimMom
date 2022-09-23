@@ -10,7 +10,7 @@ import s from './DailyCalorieIntake.module.scss';
 
 const DailyCalorieIntake = () => {
   const notAllowedProducts = useSelector(daily.notAllowedProducts);
-  const dailyRate = useSelector(daily.dailyRate);
+  const dailyRate = Math.round(useSelector(daily.dailyRate));
 
   let itemsList = [];
   if (notAllowedProducts.length === 0) {
