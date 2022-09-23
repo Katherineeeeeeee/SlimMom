@@ -9,12 +9,9 @@ export const dailyRateInfo = createAsyncThunk(
     try {
       const result = await axiosGetDailyRate(data);
       return result;
-    } catch ({ response }) {
-      const error = {
-        status: response.status,
-        message: response.data.message,
-      };
-      return rejectWithValue(error);
+    } catch (error) {
+      const { data, status } = error.response;
+      return rejectWithValue({ data, status });
     }
   }
 );
@@ -30,12 +27,9 @@ export const dailyRateUser = createAsyncThunk(
       const result = await axiosGetDailyRateUser(id, data);
       dispatch(getUser(accessToken));
       return result;
-    } catch ({ response }) {
-      const error = {
-        status: response.status,
-        message: response.data.message,
-      };
-      return rejectWithValue(error);
+    } catch (error) {
+      const { data, status } = error.response;
+      return rejectWithValue({ data, status });
     }
   }
 );
