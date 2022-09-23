@@ -1,23 +1,15 @@
 import { useDispatch } from 'react-redux';
 import { useForm, Controller } from 'react-hook-form';
 import { useMediaQuery } from 'react-responsive';
-import { useState, useEffect } from 'react';
 
 import s from './DiaryAddProductForm.module.scss';
 import Button from '../../Shared/Button/Button';
 import TextField from 'components/Shared/TextField';
 import { getProductOperations } from '../../../redux/product-search/search-operations';
-import { addWeight } from 'redux/dairy-calendar/dairy-calendar-operation';
+import { addWeight } from 'redux/dairy-calendar/dairy-calendar-slice';
 
-const DiaryAddProductForm = ({ getWeight }) => {
+const DiaryAddProductForm = () => {
   const dispatch = useDispatch();
-  const [weight, setWeight] = useState('');
-
-  useEffect(() => {
-    getWeight(weight);
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [weight]);
 
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const isTabletDesktop = useMediaQuery({ minWidth: 768 });
@@ -31,9 +23,8 @@ const DiaryAddProductForm = ({ getWeight }) => {
 
   const onSubmit = (data, e) => {
     e.preventDefault();
-    setWeight(data.weight);
     dispatch(getProductOperations(data.query));
-    dispatch(addWeight(data.weight));
+    dispatch(addWeight(Number(data.weight)));
     reset();
   };
 

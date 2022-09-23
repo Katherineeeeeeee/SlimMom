@@ -14,7 +14,7 @@ export const postEatenProduct = createAsyncThunk(
   }
 );
 
-export const deleteDay = createAsyncThunk(
+export const deleteEatenProduct = createAsyncThunk(
   'day/delete',
   async (userDataId, { rejectWithValue }) => {
     try {

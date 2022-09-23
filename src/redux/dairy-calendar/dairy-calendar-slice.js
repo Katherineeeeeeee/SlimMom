@@ -1,29 +1,27 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { addDate, addWeight } from './dairy-calendar-operation';
-
 const initialState = {
   date: '',
   productId: '',
-  weight: '',
+  weight: null,
 };
 
 const dairyCalendarSlice = createSlice({
   name: 'postEatenProduct',
   initialState,
   reducers: {
-    // [addDate]: (store, payload) => {
-    //   console.log(payload);
-    //   store.date = payload;
-    // },
-    addProductId: (store, payload) => {
+    addDate: (store, { payload }) => {
+      store.date = payload;
+    },
+    addProductId: (store, { payload }) => {
       store.productId = payload;
     },
-    [addWeight]: (store, payload) => {
-      console.log(payload);
+    addWeight: (store, { payload }) => {
       store.weight = payload;
     },
   },
 });
 
 export default dairyCalendarSlice.reducer;
+
+export const { addDate, addProductId, addWeight } = dairyCalendarSlice.actions;

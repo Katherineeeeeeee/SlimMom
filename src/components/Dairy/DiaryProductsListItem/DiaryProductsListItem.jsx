@@ -1,13 +1,13 @@
 import { useSelector } from 'react-redux';
-import { useEffect } from 'react';
 
 import s from './DiaryProductsListItem.module.scss';
 import { eatenProducts } from 'redux/day/day-selectors';
+// import { getDayId } from 'redux/day/day-selectors';
 
 const DiaryProductsListItem = () => {
   const eatenProductsList = useSelector(eatenProducts);
-
-  useEffect(() => {}, []);
+  // const dayId = useSelector(getDayId);
+  // console.log(dayId);
 
   return (
     <>

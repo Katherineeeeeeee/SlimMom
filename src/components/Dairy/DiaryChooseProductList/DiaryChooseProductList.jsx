@@ -10,9 +10,10 @@ export default function DiaryChooseProductList({ day }) {
 
   const [isOpen, setIsOpen] = useState(true);
   const searchProduct = useSelector(getProduct);
+  const dairyCalendar = useSelector(({ dairyCalendar }) => dairyCalendar);
 
   const handleClick = productId => {
-    dispatch(postEatenProduct({ ...day, productId }));
+    dispatch(postEatenProduct({ ...dairyCalendar, productId }));
     setIsOpen(!isOpen);
   };
 

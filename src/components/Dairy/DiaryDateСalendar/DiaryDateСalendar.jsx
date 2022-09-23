@@ -7,29 +7,27 @@ import moment from 'moment';
 
 import 'react-datepicker/dist/react-datepicker.css';
 import s from './DiaryDateСalendar.module.scss';
+// import { getInfoByDay } from 'redux/day/day-operations';
+import { addDate } from 'redux/dairy-calendar/dairy-calendar-slice';
 import { getInfoByDay } from 'redux/day/day-operations';
-import { addDate } from 'redux/dairy-calendar/dairy-calendar-operation';
 
-const DiaryDateСalendar = ({ getDateCalendar }) => {
+const DiaryDateСalendar = () => {
   const dispatch = useDispatch();
 
-  // const { date } = useSelector(state => console.log(state));
+  const date = useSelector(({ dairyCalendar }) => dairyCalendar.date);
 
-  const [startDate, setStartDate] = useState(new Date());
   const [isOpen, setIsOpen] = useState(false);
 
-  const formatDate = { date: moment(startDate).format('yyyy-MM-DD') };
-  const formatDateOper = moment(startDate).format('yyyy-MM-DD');
-
   useEffect(() => {
-    getDateCalendar(startDate);
-    dispatch(getInfoByDay(formatDate));
-    // dispatch(addDate(formatDateOper));
-  }, [startDate]);
+    dispatch(addDate(moment(new Date()).format('yyyy-MM-DD')));
+    dispatch(getInfoByDay({ date: moment(new Date()).format('yyyy-MM-DD') }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleChange = e => {
     setIsOpen(!isOpen);
-    setStartDate(e);
+    dispatch(addDate(moment(e).format('yyyy-MM-DD')));
+    dispatch(getInfoByDay({ date: moment(e).format('yyyy-MM-DD') }));
   };
 
   const handleClick = e => {
@@ -40,12 +38,12 @@ const DiaryDateСalendar = ({ getDateCalendar }) => {
   return (
     <>
       <button className={s.btnInput} onClick={handleClick}>
-        <Moment format="DD.MM.yyyy">{startDate}</Moment>
+        <Moment format="DD.MM.yyyy">{date}</Moment>
       </button>
 
       {isOpen && (
         <div className={s.dateOverlay}>
-          <DatePicker selected={startDate} onChange={handleChange} inline />
+          <DatePicker onChange={handleChange} inline />
         </div>
       )}
     </>
