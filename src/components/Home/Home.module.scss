@@ -1,37 +1,20 @@
 @use '../../styles/mixins';
 
-// .wrap {
-//   @include mixins.mq(tablet-only) {
-//     height: 100vh;
-//     background-image: url('../../images/tablet/bghometablet.png');
-//     background-repeat: no-repeat;
-//     background-position: right 0 bottom 1px;
-//   }
-// }
-
-// .imgDesktop {
-//   display: none;
-//   @include mixins.mq(desktop) {
-//     display: block;
-//     position: absolute;
-//     width: 100%;
-//     top: 0;
-//     right: 0;
-//     z-index: -1;
-//   }
-// }
-
 .home {
   padding-top: 40px;
 
   @include mixins.mq(tablet) {
     height: 100vh;
-    background-image: url('../../images/tablet/bghometablet.png');
+    background-image: image-set(
+      url('../../images/tablet/bghometablet.png') 1x,
+      url('../../images/tablet/bghometabletx2.png') 2x
+    );
     background-repeat: no-repeat;
     background-position: right 0 top 456px;
   }
 
   @include mixins.mq(desktop) {
+    height: auto;
     background-image: none;
   }
 }
@@ -44,7 +27,8 @@
     position: absolute;
     top: 0;
     right: 0;
-    width: 100%;
+    // width: 100%;
+    width: 1280px;
     z-index: -1;
   }
 }

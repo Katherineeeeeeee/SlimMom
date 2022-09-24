@@ -31,22 +31,23 @@
 }
 
 .container {
-  height: 100vh;
   text-align: center;
-
-  h1 {
-    font-size: 32px;
-    margin-top: 32px;
-    color: var(--accent-color);
-  }
 }
 
-p {
+.title {
+  font-size: 32px;
+  margin-top: 32px;
+  color: var(--accent-color);
+}
+
+.txt {
   margin-top: 20px;
+  margin-bottom: 30px;
   color: var(--second-text-color);
 }
 
 .booWrapper {
+  margin-top: 50px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -126,11 +127,4 @@ p {
   margin-left: auto;
   border-radius: 50%;
   animation: floatingShadow 3s ease-in-out infinite;
-}
-
-.btn Button {
-  margin-top: 625px;
-  @include mixins.mq(desktop) {
-    margin-top: 484px;
-  }
 }

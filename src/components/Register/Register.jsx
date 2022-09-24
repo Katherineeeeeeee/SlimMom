@@ -7,12 +7,17 @@ import { field } from 'components/Shared/TextField/fields';
 import TextField from 'components/Shared/TextField';
 import Button from 'components/Shared/Button';
 import Container from 'components/Shared/Container';
-import bcgDesktop from '../../images/desktop/bcgD.png';
 import { getErrorLogin } from 'redux/auth/auth-selectors';
+
+import { useMediaQuery } from 'react-responsive';
+import bcgDesktop from '../../images/desktop/bcgD.png';
+import bcgDesktop2x from '../../images/desktop/bcgD@2x.png';
 
 import s from './Register.module.scss';
 
 const Register = () => {
+  const isRetina = useMediaQuery({ query: '(min-resolution: 2dppx)' });
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const errorLogin = useSelector(getErrorLogin);
@@ -84,7 +89,12 @@ const Register = () => {
             <Button text="Register" btnClass="btnLight" />
           </div>
         </form>
-        <img className={s.imgDesktop} src={bcgDesktop} alt="background" />
+        {!isRetina && (
+          <img className={s.imgDesktop} src={bcgDesktop} alt="background" />
+        )}
+        {isRetina && (
+          <img className={s.imgDesktop} src={bcgDesktop2x} alt="background" />
+        )}
       </Container>
     </section>
   );
