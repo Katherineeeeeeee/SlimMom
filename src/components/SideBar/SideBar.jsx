@@ -1,31 +1,32 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   getKcalLeft,
   getKcalConsumed,
   getDailyRate,
   getPercentsOfDailyRate,
 } from 'redux/day/day-selectors';
-import dailyRateSelectors from 'redux/daily-rate/daily-rate-selectors';
 import { getDay } from 'redux/dairy-calendar/dairy-calendar-selectors';
 import styles from '../SideBar/SideBar.module.scss';
-import { useEffect } from 'react';
 
+import { getNotAllowedProducts } from 'redux/auth/auth-selectors';
+import { useEffect } from 'react';
 import { getInfoByDay } from 'redux/day/day-operations';
-import { useDispatch } from 'react-redux';
 
 const SideBar = () => {
-  const dispatch = useDispatch();
-
   const kcalLeft = useSelector(getKcalLeft);
   const kcalConsumed = useSelector(getKcalConsumed);
   const dailyRate = useSelector(getDailyRate);
   const percentsOfDailyRate = useSelector(getPercentsOfDailyRate);
   const date = useSelector(getDay);
-  const notAllowedProducts = useSelector(dailyRateSelectors.notAllowedProducts);
+  const notAllowedProducts = useSelector(getNotAllowedProducts);
 
-  // useEffect(() => {
-  //   dispatch(getInfoByDay({ date }));
-  // }, [dispatch, date]);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (date) {
+      dispatch(getInfoByDay({ date }));
+    }
+  }, [dispatch, date]);
 
   return (
     <div className={styles.container_sidebar}>

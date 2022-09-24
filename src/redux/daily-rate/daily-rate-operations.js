@@ -23,12 +23,16 @@ export const dailyRateUser = createAsyncThunk(
   async (userData, { rejectWithValue, getState, dispatch }) => {
     try {
       const { id, ...data } = userData;
+
       const {
         auth: { accessToken },
       } = getState();
+
       const result = await axiosGetDailyRateUser(id, data);
-      dispatch(getUser(accessToken));
+
       dispatch(getInfoByDay({ date: moment(new Date()).format('yyyy-MM-DD') }));
+
+      dispatch(getUser(accessToken));
       return result;
     } catch (error) {
       const { data, status } = error.response;

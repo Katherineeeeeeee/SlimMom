@@ -8,8 +8,6 @@ import { field } from '../Shared/TextField/fields';
 import Button from '../Shared/Button/Button';
 import { dailyRateUser } from 'redux/daily-rate/daily-rate-operations';
 
-import { addUserParams } from 'redux/userParams/user-params-slice';
-
 import { getID } from 'redux/auth/auth-selectors';
 
 import s from './CalcForm.module.scss';
@@ -42,7 +40,6 @@ const CalcForm = () => {
     };
 
     e.preventDefault();
-    dispatch(addUserParams(numberData));
     dispatch(dailyRateUser({ id, ...numberData }));
     reset();
   };
