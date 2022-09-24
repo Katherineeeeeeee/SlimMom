@@ -21,6 +21,7 @@ export default function DiaryChooseProductList() {
     <>
       {isOpen && (
         <div className={s.overlay}>
+          <h2 className={s.headTitle}>Choose a product:</h2>
           <ul className={s.list}>
             {searchProduct.map(({ _id, title, calories, weight }) => (
               <li key={_id} className={s.item} onClick={() => handleClick(_id)}>
