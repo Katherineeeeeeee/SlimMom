@@ -44,7 +44,12 @@ const DiaryDateСalendar = () => {
 
       {isOpen && (
         <div className={s.dateOverlay}>
-          <DatePicker selected={startDate} onChange={handleChange} inline />
+          <DatePicker
+            selected={startDate}
+            onChange={handleChange}
+            maxDate={new Date()}
+            inline
+          />
         </div>
       )}
     </>
