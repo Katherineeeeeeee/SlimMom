@@ -36,7 +36,7 @@ const auth = createSlice({
 
     [register.rejected]: (store, { payload }) => {
       store.loading = false;
-      store.error = payload;
+      store.error = payload.data.message;
     },
 
     // * LOGIN
