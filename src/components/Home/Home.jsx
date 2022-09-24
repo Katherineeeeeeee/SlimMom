@@ -2,7 +2,6 @@ import DailyCaloriesForm from '../DailyCaloriesForm/DailyCaloriesForm';
 import { dailyRateInfo } from '../../redux/daily-rate/daily-rate-operations';
 import { useDispatch } from 'react-redux';
 
-import Container from 'components/Shared/Container';
 import bcgDesktop from '../../images/desktop/bcgD.png';
 
 import s from './Home.module.scss';
@@ -16,10 +15,10 @@ const Home = () => {
   };
 
   return (
-    <Container>
+    <section className={s.home}>
       <DailyCaloriesForm onSubmit={onGetDailyRate} />
-      <img className={s.imgDesktop} src={bcgDesktop} alt="background" /> 
-    </Container>
+      <img className={s.imgDesktop} src={bcgDesktop} alt="background" />
+    </section>
   );
 };
 

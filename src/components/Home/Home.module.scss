@@ -1,22 +1,50 @@
 @use '../../styles/mixins';
 
-.wrap {
-  @include mixins.mq(tablet-only) {
+// .wrap {
+//   @include mixins.mq(tablet-only) {
+//     height: 100vh;
+//     background-image: url('../../images/tablet/bghometablet.png');
+//     background-repeat: no-repeat;
+//     background-position: right 0 bottom 1px;
+//   }
+// }
+
+// .imgDesktop {
+//   display: none;
+//   @include mixins.mq(desktop) {
+//     display: block;
+//     position: absolute;
+//     width: 100%;
+//     top: 0;
+//     right: 0;
+//     z-index: -1;
+//   }
+// }
+
+.home {
+  padding-top: 40px;
+
+  @include mixins.mq(tablet) {
     height: 100vh;
     background-image: url('../../images/tablet/bghometablet.png');
     background-repeat: no-repeat;
-    background-position: right 0 bottom 1px;
+    background-position: right 0 top 456px;
+  }
+
+  @include mixins.mq(desktop) {
+    background-image: none;
   }
 }
 
 .imgDesktop {
   display: none;
+
   @include mixins.mq(desktop) {
     display: block;
     position: absolute;
-    width: 100%;
     top: 0;
     right: 0;
+    width: 100%;
     z-index: -1;
   }
 }
