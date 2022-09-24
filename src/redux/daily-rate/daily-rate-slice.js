@@ -25,7 +25,7 @@ const dailyRateSlice = createSlice({
     },
     [dailyRateInfo.rejected]: (store, { payload }) => {
       store.loading = false;
-      store.error = payload.message;
+      store.error = payload.data.message;
     },
     [dailyRateUser.pending]: store => {
       store.loading = true;

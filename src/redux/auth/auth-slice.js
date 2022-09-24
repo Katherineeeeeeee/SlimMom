@@ -50,7 +50,7 @@ const auth = createSlice({
 
     [login.rejected]: (store, { payload }) => {
       store.loading = false;
-      store.error = payload;
+      store.error = payload.data.message;  
     },
 
     // * LOGOUT

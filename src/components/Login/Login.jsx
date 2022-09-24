@@ -1,6 +1,7 @@
+import { useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { login } from 'redux/auth/auth-opetations';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import Container from 'components/Shared/Container';
@@ -8,6 +9,9 @@ import TextField from 'components/Shared/TextField';
 import { field } from 'components/Shared/TextField/fields';
 import Button from 'components/Shared/Button';
 import bcgDesktop from '../../images/desktop/bcgD.png';
+import ErrorMessage from '../ErrorMessage/ErrorMessage';
+import Modal from '../../components/Modal/Modal';
+import { getErrorLogin } from 'redux/auth/auth-selectors';
 
 import s from './Login.module.scss';
 
@@ -15,6 +19,9 @@ const Login = () => {
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
+
+  const [modalOpen, setModalOpen] = useState(false);
+  const errorLogin = useSelector(getErrorLogin);
 
   const { control, handleSubmit, reset } = useForm({
     defaultValues: {
@@ -26,8 +33,11 @@ const Login = () => {
   const onSubmit = (data, e) => {
     e.preventDefault();
     dispatch(login(data));
+    setModalOpen(true);
     reset();
-    navigate('/dairy');
+    if(!errorLogin) {
+      navigate('/dairy');
+    }
   };
 
   return (
@@ -68,6 +78,9 @@ const Login = () => {
           </div>
         </form>
         <img className={s.imgDesktop} src={bcgDesktop} alt="background" />
+        {modalOpen && errorLogin && (
+        <Modal setModalOpen={setModalOpen} children={<ErrorMessage status={errorLogin}/>} />
+      )}
       </Container>
     </section>
   );
