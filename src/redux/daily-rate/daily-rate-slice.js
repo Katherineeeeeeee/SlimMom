@@ -27,6 +27,7 @@ const dailyRateSlice = createSlice({
       store.loading = false;
       store.error = payload.data.message;
     },
+
     [dailyRateUser.pending]: store => {
       store.loading = true;
       store.error = null;

@@ -16,7 +16,6 @@ import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import Container from 'components/Shared/Container';
 
 import s from './DailyCaloriesForm.module.scss';
-import { addUserParams } from 'redux/userParams/user-params-slice';
 
 const DailyCaloriesForm = () => {
   const dispatch = useDispatch();
@@ -48,7 +47,6 @@ const DailyCaloriesForm = () => {
     };
     e.preventDefault();
 
-    dispatch(addUserParams(numberData));
     dispatch(dailyRateInfo(numberData));
     setActiveCheckbox('');
     setModalOpen(true);

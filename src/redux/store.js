@@ -16,7 +16,6 @@ import getProductSlice from 'redux/product-search/search-slice';
 import dailyRateSlice from 'redux/daily-rate/daily-rate-slice';
 import daySlice from 'redux/day/day-slice';
 import dairyCalendarSlice from 'redux/dairy-calendar/dairy-calendar-slice';
-import userParamsSlice from './userParams/user-params-slice';
 
 const persistConfig = {
   key: 'auth-sid',
@@ -24,16 +23,6 @@ const persistConfig = {
   whitelist: ['sid', 'accessToken', 'refreshToken'],
 };
 
-const persistConfigUserParams = {
-  key: 'userParams',
-  storage,
-  whitelist: ['params'],
-};
-
-const persistedReducerUserParams = persistReducer(
-  persistConfigUserParams,
-  userParamsSlice
-);
 const persistedReducer = persistReducer(persistConfig, auth);
 
 export const store = configureStore({
@@ -43,7 +32,6 @@ export const store = configureStore({
     product: getProductSlice,
     dayProduct: daySlice,
     dairyCalendar: dairyCalendarSlice,
-    userParams: persistedReducerUserParams,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

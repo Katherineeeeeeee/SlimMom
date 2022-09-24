@@ -23,8 +23,6 @@ const DiaryDateСalendar = () => {
   }, []);
 
   const handleChange = e => {
-    let currentDate = e.toISOString().slice(0, 10);
-    console.log(currentDate);
     setStartDate(e);
     setIsOpen(!isOpen);
     dispatch(addDate(moment(e).format('yyyy-MM-DD')));
