@@ -5,6 +5,9 @@ import {
   getDailyRate,
   getPercentsOfDailyRate,
 } from 'redux/day/day-selectors';
+
+import { nanoid } from '@reduxjs/toolkit';
+
 import { getDay } from 'redux/dairy-calendar/dairy-calendar-selectors';
 import styles from '../SideBar/SideBar.module.scss';
 
@@ -63,12 +66,22 @@ const SideBar = () => {
       </div>
       <div className={styles.food}>
         <h3 className={styles.title_sidebar}>Food not recommended</h3>
-        <p className={styles.text_sidebar_food}>
-          {notAllowedProducts?.length > 0
-            ? notAllowedProducts
-            : 'Your diet will be displayed here'}
-        </p>
+        {notAllowedProducts.length > 0 && (
+          <>
+            <ol className={styles.menuGroupList}>
+              {notAllowedProducts.map(el => (
+                <li key={nanoid()} className={styles.menuGroupItems}>
+                  {el}
+                </li>
+              ))}
+            </ol>
+          </>
+        )}
       </div>
+      {notAllowedProducts.length === 0 && (
+          <p className={styles.text_sidebar_food}>
+          Your diet will be displayed here
+          </p>)}
     </div>
   );
 };

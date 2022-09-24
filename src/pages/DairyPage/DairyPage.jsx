@@ -17,7 +17,9 @@ const DairyPage = () => {
 
   const isTabletDesktop = useMediaQuery({ minWidth: 767 });
 
+
   // useEffect(() => {}, []);
+
 
   return (
     <main className={s.wrapper}>
