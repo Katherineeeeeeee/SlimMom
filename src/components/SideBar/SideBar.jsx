@@ -1,9 +1,9 @@
-import { useSelector } from 'react-redux';
-import dailyRateSelectors from 'redux/daily-rate/daily-rate-selectors';
+// import { useSelector } from 'react-redux';
+// import dailyRateSelectors from 'redux/daily-rate/daily-rate-selectors';
 import styles from '../SideBar/SideBar.module.scss';
 
 const SideBar = () => {
-  const notAllowedProducts = useSelector(dailyRateSelectors.notAllowedProducts);
+  // const notAllowedProducts = useSelector(dailyRateSelectors.notAllowedProducts);
   return (
     <div className={styles.container_sidebar}>
       <div className={styles.sum}>
