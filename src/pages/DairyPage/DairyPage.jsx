@@ -23,9 +23,10 @@ const DairyPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(dailyRateUser({ id, ...userParams }));
-    // eslint-disable-next-line
-  }, []);
+    if (id) {
+      dispatch(dailyRateUser({ id, ...userParams }));
+    }
+  }, [dispatch, id, userParams]);
 
   return (
     <main className={s.wrapper}>

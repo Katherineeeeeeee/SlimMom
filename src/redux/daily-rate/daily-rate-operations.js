@@ -27,8 +27,8 @@ export const dailyRateUser = createAsyncThunk(
         auth: { accessToken },
       } = getState();
       const result = await axiosGetDailyRateUser(id, data);
-      dispatch(getInfoByDay({ date: moment(new Date()).format('yyyy-MM-DD') }));
       dispatch(getUser(accessToken));
+      dispatch(getInfoByDay({ date: moment(new Date()).format('yyyy-MM-DD') }));
       return result;
     } catch (error) {
       const { data, status } = error.response;
