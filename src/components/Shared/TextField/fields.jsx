@@ -3,6 +3,8 @@ export const field = {
     name: 'name',
     type: 'text',
     placeholder: 'Name',
+    pattern: '.{3,}',
+    title: 'Name must be at least 3 characters',
     required: true,
   },
   email: {
@@ -18,8 +20,8 @@ export const field = {
     type: 'password',
     placeholder: 'Password*',
     required: true,
-    pattern: '(?=^.{8,30}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n]).*$',
-    title: 'Password min 8 chars',
+    pattern: '.{8,}',
+    title: 'Password must be at least 8 characters',
   },
   height: {
     name: 'height',
@@ -34,7 +36,7 @@ export const field = {
     type: 'text',
     placeholder: 'Age*',
     required: true,
-    pattern: '(250)|(0*\\d{1,3})',
+    pattern: '(100)|(0*\\d{1,3})',
     title: 'Please enter a valid number between 18 and 100.',
   },
   weight: {
@@ -43,7 +45,7 @@ export const field = {
     placeholder: 'Current weight*',
     required: true,
     pattern: '(250)|(0*\\d{1,3})',
-    title: 'Please enter a valid number between 20 and 500.',
+    title: 'Please enter a valid number between 20 and 250.',
   },
   desiredWeight: {
     name: 'desiredWeight',

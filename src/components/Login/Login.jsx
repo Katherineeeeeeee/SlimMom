@@ -11,7 +11,7 @@ import Button from 'components/Shared/Button';
 import bcgDesktop from '../../images/desktop/bcgD.png';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import Modal from '../../components/Modal/Modal';
-import { getErrorLogin } from 'redux/auth/auth-selectors';
+import { getLogin, getErrorLogin } from 'redux/auth/auth-selectors';
 
 import s from './Login.module.scss';
 
@@ -21,6 +21,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   const [modalOpen, setModalOpen] = useState(false);
+  const isLogin = useSelector(getLogin);
   const errorLogin = useSelector(getErrorLogin);
 
   const { control, handleSubmit, reset } = useForm({
@@ -35,7 +36,8 @@ const Login = () => {
     dispatch(login(data));
     setModalOpen(true);
     reset();
-    if(!errorLogin) {
+    if (isLogin) {
+      console.log('hello');
       navigate('/dairy');
     }
   };
@@ -79,8 +81,11 @@ const Login = () => {
         </form>
         <img className={s.imgDesktop} src={bcgDesktop} alt="background" />
         {modalOpen && errorLogin && (
-        <Modal setModalOpen={setModalOpen} children={<ErrorMessage status={errorLogin}/>} />
-      )}
+          <Modal
+            setModalOpen={setModalOpen}
+            children={<ErrorMessage status={errorLogin} />}
+          />
+        )}
       </Container>
     </section>
   );

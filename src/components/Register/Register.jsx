@@ -1,19 +1,21 @@
 import { useNavigate } from 'react-router-dom';
 import { useForm, Controller } from 'react-hook-form';
 import { register } from 'redux/auth/auth-opetations';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { field } from 'components/Shared/TextField/fields';
 import TextField from 'components/Shared/TextField';
 import Button from 'components/Shared/Button';
 import Container from 'components/Shared/Container';
 import bcgDesktop from '../../images/desktop/bcgD.png';
+import { getErrorLogin } from 'redux/auth/auth-selectors';
 
 import s from './Register.module.scss';
 
 const Register = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const errorLogin = useSelector(getErrorLogin);
 
   const { control, handleSubmit, reset } = useForm({
     defaultValues: {
@@ -27,7 +29,9 @@ const Register = () => {
     e.preventDefault();
     dispatch(register(data));
     reset();
-    navigate('/login');
+    if (errorLogin) {
+      navigate('/login');
+    }
   };
 
   return (
