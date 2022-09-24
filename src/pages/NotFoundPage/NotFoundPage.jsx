@@ -34,14 +34,13 @@ const NotFoundPage = () => {
         </div>
         <div className={s.shadow}></div>
 
-        <h1>Oops!</h1>
-        <p>
+        <h1 className={s.title}>Oops!</h1>
+        <p className={s.txt}>
           We couldn't find the page you
           <br />
           were looking for.
         </p>
-      </div>
-      <div className={s.btn}>
+
         <Link to={backLinkHref}>
           <Button text="Come back" btnClass="btnLight" />
         </Link>

@@ -7,14 +7,19 @@ import Container from 'components/Shared/Container';
 import TextField from 'components/Shared/TextField';
 import { field } from 'components/Shared/TextField/fields';
 import Button from 'components/Shared/Button';
-import bcgDesktop from '../../images/desktop/bcgD.png';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import Modal from '../../components/Modal/Modal';
 import { getErrorLogin } from 'redux/auth/auth-selectors';
 
+import { useMediaQuery } from 'react-responsive';
+import bcgDesktop from '../../images/desktop/bcgD.png';
+import bcgDesktop2x from '../../images/desktop/bcgD@2x.png';
+
 import s from './Login.module.scss';
 
 const Login = () => {
+  const isRetina = useMediaQuery({ query: '(min-resolution: 2dppx)' });
+
   const dispatch = useDispatch();
 
   const [modalOpen, setModalOpen] = useState(false);
@@ -72,7 +77,12 @@ const Login = () => {
             <Button text="Log in" btnClass="btn" />
           </div>
         </form>
-        <img className={s.imgDesktop} src={bcgDesktop} alt="background" />
+        {!isRetina && (
+          <img className={s.imgDesktop} src={bcgDesktop} alt="background" />
+        )}
+        {isRetina && (
+          <img className={s.imgDesktop} src={bcgDesktop2x} alt="background" />
+        )}
         {modalOpen && errorLogin && (
           <Modal
             setModalOpen={setModalOpen}

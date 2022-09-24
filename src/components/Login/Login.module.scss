@@ -3,16 +3,20 @@
 .login {
   padding-top: 40px;
 
-  
   @include mixins.mq(tablet) {
     padding-top: 160px;
     height: 100vh;
-    background-image: url(../../images/tablet/tabletx1.png);
+    background-image: image-set(
+      url(../../images/tablet/tabletx1.png) 1x,
+      url(../../images/tablet/tabletx2.png) 2x
+    );
     background-repeat: no-repeat;
     background-position: right 0 top -80px;
+    // background-position: right 36px top -80px; ?????
   }
 
   @include mixins.mq(desktop) {
+    height: auto;
     background-image: none;
   }
 }
@@ -65,7 +69,8 @@
     position: absolute;
     top: 0;
     right: 0;
-    width: 100%;
+    // width: 100%;
+    width: 1280px;
     z-index: -1;
   }
 }
