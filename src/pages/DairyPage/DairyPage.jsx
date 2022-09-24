@@ -1,19 +1,20 @@
 import { useMediaQuery } from 'react-responsive';
+import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { getID } from 'redux/auth/auth-selectors';
+import { useEffect } from 'react';
 
 import Button from 'components/Shared/Button';
+import SideBar from 'components/SideBar';
+
 import DiaryAddProductForm from '../../components/Dairy/DiaryAddProductForm';
 import DiaryDateСalendar from '../../components/Dairy/DiaryDateСalendar';
 import DiaryProductsList from '../../components/Dairy/DiaryProductsList';
-
-import SideBar from 'components/SideBar';
 
 import s from './DairyPage.module.scss';
 
 import { dailyRateUser } from 'redux/daily-rate/daily-rate-operations';
 import { getUserParams } from 'redux/userParams/user-params-selectors';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getID } from 'redux/auth/auth-selectors';
 
 const DairyPage = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
@@ -39,7 +40,11 @@ const DairyPage = () => {
           {isTabletDesktop && <DiaryAddProductForm />}
           <DiaryProductsList />
         </div>
-        {isMobile && <Button type="button" btnClass="btnDairyPage" />}
+        {isMobile && (
+          <Link to="/calculator-calories" className={s.btnDairyPage}>
+            +
+          </Link>
+        )}
       </div>
       <SideBar />
     </main>
