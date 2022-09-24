@@ -1,11 +1,13 @@
 import DiaryProductsListItem from '../DiaryProductsListItem/DiaryProductsListItem';
-import styles from './DiaryProductsList.module.scss';
+import s from './DiaryProductsList.module.scss';
 
 const DiaryProductsList = () => {
   return (
-    <ul className={styles.list}>
-      <DiaryProductsListItem />
-    </ul>
+    <div className={s.overlay}>
+      <ul className={s.list}>
+        <DiaryProductsListItem />
+      </ul>
+    </div>
   );
 };
 

@@ -10,7 +10,7 @@ export const field = {
     type: 'email',
     placeholder: 'Email*',
     required: true,
-    pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}",
+    pattern: '[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}',
     title: 'Invalid email',
   },
   password: {
@@ -18,8 +18,9 @@ export const field = {
     type: 'password',
     placeholder: 'Password*',
     required: true,
-    pattern: '(?=^.{8,30}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$',
-    title: 'Password (UpperCase, LowerCase, Number/SpecialChar and min 8 Chars)',
+    // pattern: '(?=^.{8,30}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$',
+    title:
+      'Password (UpperCase, LowerCase, Number/SpecialChar and min 8 Chars)',
   },
   height: {
     name: 'height',

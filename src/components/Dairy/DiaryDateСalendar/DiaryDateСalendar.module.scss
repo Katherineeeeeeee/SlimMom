@@ -3,7 +3,6 @@
 .btnInput {
   position: relative;
 
-  margin-top: 40px;
   padding-right: 20px;
 
   font-weight: 700;
@@ -30,15 +29,9 @@
   }
 
   @include mixins.mq(tablet) {
-    margin-top: 100px;
-
     font-weight: 700;
     font-size: 34px;
     line-height: 1.20;
-  }
-
-  @include mixins.mq(desktop) {
-    margin-top: 150px;
   }
 }
 

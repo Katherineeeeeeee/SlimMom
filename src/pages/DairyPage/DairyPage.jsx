@@ -14,7 +14,7 @@ const DairyPage = () => {
 
   return (
     <main className={s.wrapper}>
-      <div>
+      <div className={s.overlay}>
         <DiaryDateСalendar />
         <DiaryAddProductForm />
         <DiaryProductsList />
