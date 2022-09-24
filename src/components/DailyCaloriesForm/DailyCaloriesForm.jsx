@@ -12,10 +12,11 @@ import Button from '../Shared/Button/Button';
 
 import Modal from '../../components/Modal/Modal';
 import DailyCalorieIntake from 'components/DailyCalorieIntake';
-import ErrorMessage from '../ErrorMessage/ErrorMessage'
+import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import Container from 'components/Shared/Container';
 
 import s from './DailyCaloriesForm.module.scss';
+import { addUserParams } from 'redux/userParams/user-params-slice';
 
 const DailyCaloriesForm = () => {
   const dispatch = useDispatch();
@@ -29,11 +30,11 @@ const DailyCaloriesForm = () => {
 
   const { control, handleSubmit, reset, register } = useForm({
     defaultValues: {
-      weight: "",
-      height: "",
-      age: "",
-      desiredWeight: "",
-      bloodType: "",
+      weight: '',
+      height: '',
+      age: '',
+      desiredWeight: '',
+      bloodType: '',
     },
   });
 
@@ -44,8 +45,10 @@ const DailyCaloriesForm = () => {
       age: Number(data.age),
       desiredWeight: Number(data.desiredWeight),
       bloodType: Number(data.bloodType),
-    }
+    };
     e.preventDefault();
+
+    dispatch(addUserParams(numberData));
     dispatch(dailyRateInfo(numberData));
     setActiveCheckbox('');
     setModalOpen(true);
@@ -152,7 +155,10 @@ const DailyCaloriesForm = () => {
         <Modal setModalOpen={setModalOpen} children={<DailyCalorieIntake />} />
       )}
       {modalOpen && errorDaily && (
-        <Modal setModalOpen={setModalOpen} children={<ErrorMessage status={errorDaily}/>} />
+        <Modal
+          setModalOpen={setModalOpen}
+          children={<ErrorMessage status={errorDaily} />}
+        />
       )}
     </Container>
   );

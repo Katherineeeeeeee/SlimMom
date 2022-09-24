@@ -9,8 +9,23 @@ import SideBar from 'components/SideBar';
 
 import s from './DairyPage.module.scss';
 
+import { dailyRateUser } from 'redux/daily-rate/daily-rate-operations';
+import { getUserParams } from 'redux/userParams/user-params-selectors';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getID } from 'redux/auth/auth-selectors';
+
 const DairyPage = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
+  const id = useSelector(getID);
+  const userParams = useSelector(getUserParams);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(dailyRateUser({ id, ...userParams }));
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <main className={s.wrapper}>
