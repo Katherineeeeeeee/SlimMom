@@ -5,3 +5,5 @@ export const getAccessToken = ({ auth }) => auth.accessToken;
 export const getDayId = ({ auth }) => auth.user.days;
 export const getErrorLogin = ({ auth }) => auth.error;
 export const getID = ({ auth }) => auth.user.id;
+export const getNotAllowedProducts = ({ auth }) =>
+  auth.user.userData?.notAllowedProducts;

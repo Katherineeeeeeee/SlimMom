@@ -13,24 +13,23 @@ import DiaryProductsList from '../../components/Dairy/DiaryProductsList';
 
 import s from './DairyPage.module.scss';
 
+
 import { dailyRateUser } from 'redux/daily-rate/daily-rate-operations';
 import { getUserParams } from 'redux/userParams/user-params-selectors';
 
+// import { useEffect } from 'react';
+// import { useDispatch } from 'react-redux';
+
+
 const DairyPage = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
+  // const dispatch = useDispatch();
 
   const isTabletDesktop = useMediaQuery({ minWidth: 767 });
 
-  const id = useSelector(getID);
-  const userParams = useSelector(getUserParams);
 
-  const dispatch = useDispatch();
+  // useEffect(() => {}, []);
 
-  useEffect(() => {
-    if (id) {
-      dispatch(dailyRateUser({ id, ...userParams }));
-    }
-  }, [dispatch, id, userParams]);
 
   return (
     <main className={s.wrapper}>
