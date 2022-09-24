@@ -25,3 +25,13 @@
 .btn {
   margin-top: 50px;
 }
+
+.btnGreeting {
+  background-color: var(--accent-color);
+  padding: 13px 25px;
+  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+  border-radius: 30px;
+  border: 2px solid var(--accent-color);
+  color: var(--main-color);
+  min-width: 182px;
+}
