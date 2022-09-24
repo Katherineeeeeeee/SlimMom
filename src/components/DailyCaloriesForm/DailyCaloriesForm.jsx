@@ -13,6 +13,7 @@ import Button from '../Shared/Button/Button';
 import Modal from '../../components/Modal/Modal';
 import DailyCalorieIntake from 'components/DailyCalorieIntake';
 import ErrorMessage from '../ErrorMessage/ErrorMessage'
+import Container from 'components/Shared/Container';
 
 import s from './DailyCaloriesForm.module.scss';
 
@@ -52,7 +53,7 @@ const DailyCaloriesForm = () => {
   };
 
   return (
-    <>
+    <Container>
       <form onSubmit={handleSubmit(onSubmit)} className={s.form}>
         <h1 className={s.title}>
           Calculate your daily calorie intake right now
@@ -153,7 +154,7 @@ const DailyCaloriesForm = () => {
       {modalOpen && errorDaily && (
         <Modal setModalOpen={setModalOpen} children={<ErrorMessage status={errorDaily}/>} />
       )}
-    </>
+    </Container>
   );
 };
 
