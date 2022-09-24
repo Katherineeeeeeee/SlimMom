@@ -3,7 +3,6 @@ import Header from './Header';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getSid } from 'redux/auth/auth-selectors';
-
 import { refresh } from 'redux/auth/auth-opetations';
 
 export const App = () => {

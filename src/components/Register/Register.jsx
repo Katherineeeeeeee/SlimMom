@@ -29,7 +29,7 @@ const Register = () => {
     e.preventDefault();
     dispatch(register(data));
     reset();
-    if (errorLogin) {
+    if (!errorLogin) {
       navigate('/login');
     }
   };

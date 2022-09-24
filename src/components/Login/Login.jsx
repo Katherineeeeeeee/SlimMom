@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { login } from 'redux/auth/auth-opetations';
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 
 import Container from 'components/Shared/Container';
 import TextField from 'components/Shared/TextField';
@@ -11,17 +10,15 @@ import Button from 'components/Shared/Button';
 import bcgDesktop from '../../images/desktop/bcgD.png';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import Modal from '../../components/Modal/Modal';
-import { getLogin, getErrorLogin } from 'redux/auth/auth-selectors';
+import { getErrorLogin } from 'redux/auth/auth-selectors';
 
 import s from './Login.module.scss';
 
 const Login = () => {
   const dispatch = useDispatch();
 
-  const navigate = useNavigate();
-
   const [modalOpen, setModalOpen] = useState(false);
-  const isLogin = useSelector(getLogin);
+
   const errorLogin = useSelector(getErrorLogin);
 
   const { control, handleSubmit, reset } = useForm({
@@ -36,10 +33,6 @@ const Login = () => {
     dispatch(login(data));
     setModalOpen(true);
     reset();
-    if (isLogin) {
-      console.log('hello');
-      navigate('/dairy');
-    }
   };
 
   return (
