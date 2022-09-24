@@ -10,6 +10,8 @@
 }
 
 .title {
+  display: flex;
+  align-items: center;
   width: 100%;
   padding-bottom: 8px;
 
@@ -39,7 +41,6 @@
     padding-bottom: 20px;
 
     text-align: right;
-
   }
 
   @include mixins.mq(desktop) {
@@ -52,7 +53,6 @@
   align-items: center;
 
   width: 64px;
-  // margin-left: 8px;
   padding-bottom: 8px;
 
   border-bottom: 1px solid #E0E0E0;

@@ -4,7 +4,7 @@ import { axiosProductSearch } from '../../api/product-search';
 
 export const getProductOperations = createAsyncThunk(
   '/product',
-  async (query, { rejectWithValue }) => {
+  async (query, { rejectWithValue, dispatch, getState }) => {
     try {
       const { data } = await axiosProductSearch(query);
       return data;
