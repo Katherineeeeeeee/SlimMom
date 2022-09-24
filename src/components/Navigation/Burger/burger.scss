@@ -70,9 +70,9 @@
   transition: 0.4s;
 }
 .burger-menu_link {
-    padding: 20px;
+  padding: 20px;
+  color: #9b9faa;
   text-decoration: none;
-  color: #fff;
   font-family: 'Verdana';
   font-weight: 700;
   font-size: 18px;
@@ -81,6 +81,7 @@
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
-.burger-menu_link:first-child {
-  color: #9b9faa;
+
+.burger-menu_link.active {
+  color: #fff;
 }
