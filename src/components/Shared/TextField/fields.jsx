@@ -18,9 +18,8 @@ export const field = {
     type: 'password',
     placeholder: 'Password*',
     required: true,
-    // pattern: '(?=^.{8,30}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$',
-    title:
-      'Password (UpperCase, LowerCase, Number/SpecialChar and min 8 Chars)',
+    pattern: '(?=^.{8,30}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n]).*$',
+    title: 'Password min 8 chars',
   },
   height: {
     name: 'height',
