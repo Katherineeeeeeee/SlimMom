@@ -28,7 +28,7 @@ export const field = {
     type: 'text',
     placeholder: 'Height*',
     required: true,
-    pattern: '(250)|(0*\\d{1,3})',
+    pattern: '(250)|(10*\\d{1,3})',
     title: 'Please enter a valid number between 100 and 250.',
   },
   age: {
