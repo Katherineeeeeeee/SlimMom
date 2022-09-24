@@ -31,7 +31,6 @@ const DairyPage = () => {
     }
   }, [dispatch, id, userParams]);
 
-
   return (
     <main className={s.wrapper}>
       <div className={s.overlay}>
