@@ -1,19 +1,46 @@
+@use '../../../styles/mixins';
+
 .overlay {
-  position: absolute;
-  background-color: var(--main-color);
-  background-color: rgb(175, 160, 160);
+  position: relative;
+}
+
+.headTitle {
+  text-align: center;
 }
 
 .list {
-  width: 600px;
+  position: absolute;
+  margin-top: 30px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+
+  background-color: var(--main-color);
+
+  z-index: 2;
+
+  @include mixins.mq(tablet) {
+    width: 610px;
+    margin-top: 20px;
+    gap: 15px;
+    height: 245px;
+
+    overflow-y: scroll;
+  }
+
+  @include mixins.mq(desktop) {
+    height: 270px;
+  }
 }
 
 .item {
   display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  padding-top: 5px;
-  padding-bottom: 5px;
 }
 
 .wrapper {
@@ -22,5 +49,61 @@
 }
 
 .title {
-  width: 400px;
+  width: 100%;
+  padding-bottom: 8px;
+
+  border-bottom: 1px solid #E0E0E0;
+
+  overflow: hidden;
+
+  @include mixins.mq(tablet) {
+    width: 240px;
+    padding-bottom: 20px;
+  }
+}
+
+.weight {
+  display: flex;
+  align-items: center;
+
+  width: 50px;
+  margin-left: 8px;
+  padding-bottom: 8px;
+
+  border-bottom: 1px solid #E0E0E0;
+
+  @include mixins.mq(tablet) {
+    width: 105px;
+    margin-left: 20px;
+    padding-bottom: 20px;
+
+    text-align: right;
+
+  }
+
+  @include mixins.mq(desktop) {
+    margin-left: 48px;
+  }
+}
+
+.kcal {
+  display: flex;
+  align-items: center;
+
+  width: 64px;
+  padding-bottom: 8px;
+
+  border-bottom: 1px solid #E0E0E0;
+
+  @include mixins.mq(tablet) {
+    width: 105px;
+    margin-left: 45px;
+    padding-bottom: 20px;
+
+    text-align: right;
+  }
+
+  @include mixins.mq(desktop) {
+    margin-left: 30px;
+  }
 }

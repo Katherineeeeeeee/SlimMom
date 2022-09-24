@@ -17,6 +17,9 @@ import { getID } from 'redux/auth/auth-selectors';
 
 const DairyPage = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
+
+  const isTabletDesktop = useMediaQuery({ minWidth: 767 });
+
   const id = useSelector(getID);
   const userParams = useSelector(getUserParams);
 
@@ -28,12 +31,15 @@ const DairyPage = () => {
     }
   }, [dispatch, id, userParams]);
 
+
   return (
     <main className={s.wrapper}>
       <div className={s.overlay}>
-        <DiaryDateСalendar />
-        <DiaryAddProductForm />
-        <DiaryProductsList />
+        <div>
+          <DiaryDateСalendar />
+          {isTabletDesktop && <DiaryAddProductForm />}
+          <DiaryProductsList />
+        </div>
         {isMobile && <Button type="button" btnClass="btnDairyPage" />}
       </div>
       <SideBar />

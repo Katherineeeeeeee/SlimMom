@@ -21,13 +21,14 @@ export default function DiaryChooseProductList() {
     <>
       {isOpen && (
         <div className={s.overlay}>
+          <h2 className={s.headTitle}>Choose a product:</h2>
           <ul className={s.list}>
             {searchProduct.map(({ _id, title, calories, weight }) => (
               <li key={_id} className={s.item} onClick={() => handleClick(_id)}>
                 <p className={s.title}> {title.ua}</p>
                 <div className={s.wrapper}>
-                  <p>{calories} kcal</p>
-                  <p>{weight} gr</p>
+                  <p className={s.weight}>{weight} gr</p>
+                  <p className={s.kcal}>{calories} kcal</p>
                 </div>
               </li>
             ))}
