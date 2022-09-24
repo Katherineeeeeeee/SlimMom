@@ -1,17 +1,35 @@
+@use '../../../styles/mixins';
+
 .overlay {
-  position: absolute;
-  background-color: var(--main-color);
-  background-color: rgb(175, 160, 160);
+  position: relative;
 }
 
 .list {
-  width: 600px;
+  position: absolute;
+  height: 200px;
+  // background-color: var(--main-color);
+  background-color: red;
+  z-index: 10;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  overflow-y: scroll;
+
+  @include mixins.mq(tablet) {
+    margin-top: 20px;
+    gap: 15px;
+    height: 245px;
+  }
+
+  @include mixins.mq(desktop) {
+    height: 270px;
+  }
 }
 
 .item {
   display: flex;
-  justify-content: space-between;
-  gap: 10px;
   padding-top: 5px;
   padding-bottom: 5px;
 }
@@ -22,5 +40,54 @@
 }
 
 .title {
-  width: 400px;
+  width: 130px;
+  padding-bottom: 8px;
+
+  border-bottom: 1px solid #E0E0E0;
+
+  @include mixins.mq(tablet) {
+    width: 240px;
+    padding-bottom: 20px;
+  }
+}
+
+.weight {
+  width: 50px;
+  margin-left: 8px;
+  padding-bottom: 8px;
+
+  border-bottom: 1px solid #E0E0E0;
+
+  @include mixins.mq(tablet) {
+    width: 105px;
+    margin-left: 20px;
+    padding-bottom: 20px;
+
+    text-align: right;
+
+  }
+
+  @include mixins.mq(desktop) {
+    margin-left: 48px;
+  }
+}
+
+.kcal {
+  width: 58px;
+  margin-left: 8px;
+  padding-bottom: 8px;
+
+  border-bottom: 1px solid #E0E0E0;
+
+  @include mixins.mq(tablet) {
+    width: 105px;
+    margin-left: 45px;
+    padding-bottom: 20px;
+
+    text-align: right;
+  }
+
+  @include mixins.mq(desktop) {
+    margin-left: 30px;
+  }
 }

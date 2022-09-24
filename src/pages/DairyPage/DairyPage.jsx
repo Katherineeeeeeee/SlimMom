@@ -11,13 +11,16 @@ import s from './DairyPage.module.scss';
 
 const DairyPage = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
+  const isTabletDesktop = useMediaQuery({ minWidth: 767 });
 
   return (
     <main className={s.wrapper}>
       <div className={s.overlay}>
-        <DiaryDateСalendar />
-        <DiaryAddProductForm />
-        <DiaryProductsList />
+        <div>
+          <DiaryDateСalendar />
+          {isTabletDesktop && <DiaryAddProductForm />}
+          <DiaryProductsList />
+        </div>
         {isMobile && <Button type="button" btnClass="btnDairyPage" />}
       </div>
       <SideBar />
