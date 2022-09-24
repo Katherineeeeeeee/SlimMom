@@ -7,6 +7,5 @@ export const axiosGetDailyRate = async userData => {
 
 export const axiosGetDailyRateUser = async (id, userData) => {
   const { data } = await instance.post(`/daily-rate/${id}`, userData);
-  console.log(data);
   return data;
 };

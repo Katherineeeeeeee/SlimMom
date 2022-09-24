@@ -3,10 +3,6 @@ import { NavLink } from 'react-router-dom';
 import './burger.scss';
 
 export default function Burger() {
-  const getClassName = ({ isActive }) => {
-    return isActive ? `burger-menu_link active` : 'burger-menu_link';
-  };
-
   function openMenu(e) {
     e.preventDefault();
     if (e.target.nodeName === 'NAV') {

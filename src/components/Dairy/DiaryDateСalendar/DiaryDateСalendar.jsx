@@ -20,7 +20,7 @@ const DiaryDateСalendar = () => {
 
   useEffect(() => {
     dispatch(addDate(moment(new Date()).format('yyyy-MM-DD')));
-    dispatch(getInfoByDay({ date: moment(new Date()).format('yyyy-MM-DD') }));
+    // dispatch(getInfoByDay({ date: moment(new Date()).format('yyyy-MM-DD') }));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
