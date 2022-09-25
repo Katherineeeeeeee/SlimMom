@@ -2,9 +2,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
-  top: 150px;
-  left: -355px;
-  width: 100vw;
-  height: 100vh;
+  height: 200px;
+  background-color: var(--main-color);
 }
+
+// .overlay {
+//   height: 270px;
+//   background-color: #E0E0E0;
+// }
