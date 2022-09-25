@@ -45,8 +45,6 @@
   height: 240px;
   width: 270px;
   border-top: 1px solid #e0e0e0;
-  overflow-y: auto;
-  overflow-x: hidden;
   @include mixins.mq(tablet) {
     height: 210px;
     width: 340px;
@@ -71,9 +69,16 @@
   }
 }
 .menuGroupList {
-  width: 190px;
-  margin-left: 45px;
+  width: 270px;
   list-style-type: decimal;
+  overflow-y: auto;
+  overflow-x: hidden;
+  @include mixins.mq(tablet) {
+    width: 340px;
+  }
+  @include mixins.mq(desktop) {
+    width: 350px;
+  }
 }
 .menuGroupItems {
   margin-bottom: 20px;

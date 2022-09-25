@@ -31,6 +31,7 @@
 
 .sum {
   width: 280px;
+  margin-bottom: 30px;
 
   @include mixins.mq(tablet) {
     width: 290px;
@@ -85,20 +86,35 @@
 
 .food {
   width: 280px;
-  overflow-y: auto;
-  overflow-x: hidden;
 }
 .menuGroupList {
-  width: 230px;
-  height: 300px;
-  margin-left: 45px;
-  list-style-type: decimal;
+  width: 275px;
+  height: 305px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  list-style-type: none;
+  @include mixins.mq(tablet) {
+    width: 250px;
+    height: 305px;
+  }
+  @include mixins.mq(desktop) {
+    width: 240px;
+    height: 315px;
+  }
 }
 .menuGroupItems {
+  width: 255px;
   margin-bottom: 20px;
   font-weight: 400;
   font-size: 12px;
   line-height: 1.214;
   letter-spacing: 0.04em;
   color: var(--second-text-color);
+  @include mixins.mq(tablet) {
+    margin-bottom: 15px;
+    width: 235px;
+  }
+  @include mixins.mq(desktop) {
+    width: 230px;
+  }
 }
