@@ -30,6 +30,7 @@ const DiaryAddProductForm = () => {
       query: '',
       weight: '',
     },
+    mode: 'onChange',
   });
   const onSubmit = (data, e) => {
     e.preventDefault();
