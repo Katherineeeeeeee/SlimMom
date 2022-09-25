@@ -13,14 +13,14 @@ import LoaderMini from 'components/LoaderMini';
 export default function DiaryChooseProductList({ handleClickClose }) {
   const dispatch = useDispatch();
 
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const searchProduct = useSelector(getProduct);
   const dairyCalendar = useSelector(({ dairyCalendar }) => dairyCalendar);
   const searchLoading = useSelector(getSearchLoading);
 
   const handleClick = productId => {
     dispatch(postEatenProduct({ ...dairyCalendar, productId }));
-    setIsOpen(!isOpen);
+    setIsOpen(false);
     handleClickClose(false);
   };
 
@@ -30,7 +30,7 @@ export default function DiaryChooseProductList({ handleClickClose }) {
         <LoaderMini />
       ) : (
         <>
-          {isOpen && (
+          {!isOpen && (
             <div className={s.overlay}>
               <h2 className={s.headTitle}>Виберіть продукт:</h2>
               <ul className={s.list}>
