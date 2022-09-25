@@ -17,6 +17,9 @@ const initialState = {
 const daySlice = createSlice({
   name: 'day',
   initialState,
+  reducers: {
+    clearDay: () => ({ ...initialState }),
+  },
   extraReducers: {
     //* getDay
 
@@ -70,3 +73,5 @@ const daySlice = createSlice({
 });
 
 export default daySlice.reducer;
+
+export const { clearDay } = daySlice.actions;

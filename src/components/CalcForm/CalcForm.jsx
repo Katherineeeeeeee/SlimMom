@@ -12,9 +12,11 @@ import { getID } from 'redux/auth/auth-selectors';
 
 import s from './CalcForm.module.scss';
 import style from '../Shared/TextField/TextField.module.scss';
+import { useNavigate } from 'react-router-dom';
 
 const CalcForm = () => {
   const [bloodType, setActiveCheckbox] = useState('');
+  const navigate = useNavigate();
 
   const id = useSelector(getID);
 
@@ -42,6 +44,8 @@ const CalcForm = () => {
     e.preventDefault();
     dispatch(dailyRateUser({ id, ...numberData }));
     reset();
+
+    navigate('/dairy');
   };
 
   return (
