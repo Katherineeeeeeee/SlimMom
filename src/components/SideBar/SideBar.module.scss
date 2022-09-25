@@ -118,3 +118,10 @@
     width: 230px;
   }
 }
+
+input[name='filter'] {
+  color: var(--second-text-color);
+  background-color: var(--background-color);
+  border-bottom: 1px solid var(--second-text-color);
+  font-weight: 600;
+}
