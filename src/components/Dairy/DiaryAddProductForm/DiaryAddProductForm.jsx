@@ -51,8 +51,6 @@ const DiaryAddProductForm = () => {
     setIsOpen(data);
   };
 
-  console.log(isOpen);
-
   return (
     <>
       <form className={s.form} onSubmit={handleSubmit(onSubmit)}>

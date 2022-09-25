@@ -28,8 +28,8 @@ export default function DiaryChooseProductList({ handleClickClose }) {
               <li key={_id} className={s.item} onClick={() => handleClick(_id)}>
                 <p className={s.title}> {title.ua}</p>
                 <div className={s.wrapper}>
-                  <p className={s.weight}>{weight} gr</p>
-                  <p className={s.kcal}>{calories} kcal</p>
+                  <p className={s.weight}>{weight} гр</p>
+                  <p className={s.kcal}>{calories} ккал</p>
                 </div>
               </li>
             ))}
