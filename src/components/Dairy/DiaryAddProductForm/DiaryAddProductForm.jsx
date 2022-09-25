@@ -61,13 +61,13 @@ const DiaryAddProductForm = () => {
             render={({ field: { onChange, value } }) => (
               <TextField
                 value={value}
-                placeholder={'Введіть назву продукту'}
+                placeholder={'Введіть перші літери продукту'}
                 name={'query'}
                 control={control}
                 handleChange={onChange}
               />
             )}
-            rules={{ required: 'Введіть назву продукту' }}
+            rules={{ required: 'Введіть перші літери продукту' }}
           />
 
           <ErrorMessage
