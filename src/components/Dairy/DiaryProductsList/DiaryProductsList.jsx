@@ -6,13 +6,16 @@ import LoaderMini from 'components/LoaderMini';
 import s from './DiaryProductsList.module.scss';
 
 import { getEatenProductsLoading } from 'redux/day/day-selectors';
+import { getSearchLoading } from 'redux/product-search/search-selectors';
 
 const DiaryProductsList = () => {
   const eatenProductsLoading = useSelector(getEatenProductsLoading);
+  const searchLoading = useSelector(getSearchLoading);
 
-  // if (eatenProductsLoading === true) {
-  //   return <LoaderMini />;
-  // }
+  if (searchLoading === true) {
+    return <></>;
+  }
+
   return (
     <>
       {/* <LoaderMini /> */}

@@ -24,14 +24,8 @@ export default function DiaryChooseProductList({ handleClickClose }) {
     handleClickClose(false);
   };
 
-  // if (searchLoading === true) {
-  //   return <LoaderMini />;
-  // }
-
   return (
     <>
-      {/* <LoaderMini /> */}
-
       {searchLoading === true ? (
         <LoaderMini />
       ) : (
