@@ -4,6 +4,10 @@ import {
   getKcalConsumed,
   getDailyRate,
   getPercentsOfDailyRate,
+  getKcalLeft2,
+  getKcalConsumed2,
+  getDailyRate2,
+  getPercentsOfDailyRate2,
 } from 'redux/day/day-selectors';
 import { useState } from 'react';
 
@@ -20,12 +24,18 @@ import { useEffect } from 'react';
 import { getInfoByDay } from 'redux/day/day-operations';
 
 const SideBar = () => {
+  const date = useSelector(getDay);
+  const notAllowedProducts = useSelector(getNotAllowedProducts);
+
   const kcalLeft = useSelector(getKcalLeft);
   const kcalConsumed = useSelector(getKcalConsumed);
   const dailyRate = useSelector(getDailyRate);
   const percentsOfDailyRate = useSelector(getPercentsOfDailyRate);
-  const date = useSelector(getDay);
-  const notAllowedProducts = useSelector(getNotAllowedProducts);
+
+  const kcalLeft2 = useSelector(getKcalLeft2);
+  const kcalConsumed2 = useSelector(getKcalConsumed2);
+  const dailyRate2 = useSelector(getDailyRate2);
+  const percentsOfDailyRate2 = useSelector(getPercentsOfDailyRate2);
 
   const dispatch = useDispatch();
 
@@ -60,19 +70,31 @@ const SideBar = () => {
           <li className={styles.item_sidebar}>
             <p className={styles.text_sidebar_sum}>Залишилося</p>
             <span className={styles.data}>
-              {kcalLeft ? Math.floor(kcalLeft) + ' kcal' : '000 kcal'}
+              {kcalLeft
+                ? Math.floor(kcalLeft) + ' kcal'
+                : kcalLeft2
+                ? Math.floor(kcalLeft2) + ' kcal'
+                : '000 kcal'}
             </span>
           </li>
           <li className={styles.item_sidebar}>
             <p className={styles.text_sidebar}>Спожилося</p>
             <span className={styles.data}>
-              {kcalConsumed ? Math.floor(kcalConsumed) + ' kcal' : '000 kcal'}
+              {kcalConsumed
+                ? Math.floor(kcalConsumed) + ' kcal'
+                : kcalConsumed2
+                ? Math.floor(kcalConsumed2) + ' kcal'
+                : '000 kcal'}
             </span>
           </li>
           <li className={styles.item_sidebar}>
             <p className={styles.text_sidebar}>Добова норма</p>
             <span className={styles.data}>
-              {dailyRate ? Math.floor(dailyRate) + ' kcal' : '000 kcal'}
+              {dailyRate
+                ? Math.floor(dailyRate) + ' kcal'
+                : dailyRate2
+                ? Math.floor(dailyRate2) + ' kcal'
+                : '000 kcal'}
             </span>
           </li>
           <li className={styles.item_sidebar}>
@@ -80,6 +102,8 @@ const SideBar = () => {
             <span className={styles.data}>
               {percentsOfDailyRate
                 ? Math.floor(percentsOfDailyRate) + ' %'
+                : percentsOfDailyRate2
+                ? Math.floor(percentsOfDailyRate2) + ' %'
                 : '0 %'}
             </span>
           </li>
@@ -87,7 +111,9 @@ const SideBar = () => {
       </div>
       <div className={styles.food}>
         <h3 className={styles.title_sidebar}>Не рекомендована їжа</h3>
-        <TextField handleChange={filterRecommendedFood} {...field.filter} />
+        {notAllowedProducts?.length > 0 && (
+          <TextField handleChange={filterRecommendedFood} {...field.filter} />
+        )}
         {notAllowedProducts?.length > 0 && (
           <>
             <ol className={styles.menuGroupList}>
@@ -101,8 +127,7 @@ const SideBar = () => {
         )}
         {notAllowedProducts?.length === 0 && (
           <p className={styles.text_sidebar_food}>
-            Тут відображатиметься ваш раціон. Для цього заповніть форму в
-            калькуляторі.
+            Тут відображатиметься ваш раціон.
           </p>
         )}
       </div>
