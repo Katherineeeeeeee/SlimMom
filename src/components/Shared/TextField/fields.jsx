@@ -58,4 +58,9 @@ export const field = {
     type: 'text',
     placeholder: 'Blood Type*',
   },
+  filter: {
+    type: 'text',
+    name: 'filter',
+    placeholder: 'filter by name',
+  },
 };
