@@ -1,4 +1,3 @@
-// import { BallTriangle } from 'react-loader-spinner';
 import { Oval } from 'react-loader-spinner';
 
 import s from './Loader.module.scss';

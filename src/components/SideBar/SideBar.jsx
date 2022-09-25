@@ -5,8 +5,12 @@ import {
   getDailyRate,
   getPercentsOfDailyRate,
 } from 'redux/day/day-selectors';
+import { useState } from 'react';
 
 import { nanoid } from '@reduxjs/toolkit';
+
+import TextField from 'components/Shared/TextField';
+import { field } from '../Shared/TextField/fields';
 
 import { getDay } from 'redux/dairy-calendar/dairy-calendar-selectors';
 import styles from '../SideBar/SideBar.module.scss';
@@ -25,11 +29,28 @@ const SideBar = () => {
 
   const dispatch = useDispatch();
 
+  const [filteredFood, setFilteredFood] = useState([]);
+
   useEffect(() => {
     if (date) {
       dispatch(getInfoByDay({ date }));
     }
   }, [dispatch, date]);
+
+  useEffect(() => {
+    if (!notAllowedProducts) {
+      return;
+    }
+    setFilteredFood(notAllowedProducts);
+  }, [notAllowedProducts]);
+
+  const filterRecommendedFood = e => {
+    const filteredProducts = notAllowedProducts.filter(el =>
+      el.includes(e.target.value)
+    );
+
+    setFilteredFood(filteredProducts);
+  };
 
   return (
     <div className={styles.container_sidebar}>
@@ -66,10 +87,11 @@ const SideBar = () => {
       </div>
       <div className={styles.food}>
         <h3 className={styles.title_sidebar}>Food not recommended</h3>
+        <TextField handleChange={filterRecommendedFood} {...field.filter} />
         {notAllowedProducts?.length > 0 && (
           <>
             <ol className={styles.menuGroupList}>
-              {notAllowedProducts.map(el => (
+              {filteredFood.map(el => (
                 <li key={nanoid()} className={styles.menuGroupItems}>
                   {el}
                 </li>
@@ -77,12 +99,12 @@ const SideBar = () => {
             </ol>
           </>
         )}
+        {notAllowedProducts?.length === 0 && (
+          <p className={styles.text_sidebar_food}>
+            Your diet will be displayed here
+          </p>
+        )}
       </div>
-      {notAllowedProducts?.length === 0 && (
-        <p className={styles.text_sidebar_food}>
-          Your diet will be displayed here
-        </p>
-      )}
     </div>
   );
 };

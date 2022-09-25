@@ -11,7 +11,7 @@ import Container from 'components/Shared/Container';
 
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import Modal from '../../components/Modal/Modal';
-import { getLogin, getErrorLogin } from 'redux/auth/auth-selectors';
+import { getErrorLogin } from 'redux/auth/auth-selectors';
 
 import { useMediaQuery } from 'react-responsive';
 import bcgDesktop from '../../images/desktop/bcgD.png';
@@ -26,7 +26,6 @@ const Register = () => {
   const navigate = useNavigate();
 
   const [modalOpen, setModalOpen] = useState(false);
-  const isLogin = useSelector(getLogin);
   const errorLogin = useSelector(getErrorLogin);
 
   const { control, handleSubmit, reset } = useForm({
@@ -42,7 +41,8 @@ const Register = () => {
     dispatch(register(data));
     setModalOpen(true);
     reset();
-    if (isLogin) {
+
+    if (!errorLogin) {
       navigate('/login');
     }
   };

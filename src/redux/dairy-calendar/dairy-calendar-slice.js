@@ -19,9 +19,11 @@ const dairyCalendarSlice = createSlice({
     addWeight: (store, { payload }) => {
       store.weight = payload;
     },
+    clearData: () => ({ ...initialState }),
   },
 });
 
 export default dairyCalendarSlice.reducer;
 
-export const { addDate, addProductId, addWeight } = dairyCalendarSlice.actions;
+export const { addDate, addProductId, addWeight, clearData } =
+  dairyCalendarSlice.actions;

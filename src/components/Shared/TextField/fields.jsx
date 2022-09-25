@@ -12,8 +12,6 @@ export const field = {
     type: 'email',
     placeholder: 'Електронна пошта*',
     required: true,
-    pattern: '[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}',
-    title: 'Невірна адреса електронної пошти',
   },
   password: {
     name: 'password',
@@ -28,15 +26,15 @@ export const field = {
     type: 'text',
     placeholder: 'Зріст*',
     required: true,
-    pattern: '(250)|(10*\\d{1,3})',
-    title: 'Введіть дійсне число від 100 до 250.',
+    pattern: '.{2,3}',
+    title: 'Введіть дійсне число від 100 до 250.', 
   },
   age: {
     name: 'age',
     type: 'text',
     placeholder: 'Вік*',
     required: true,
-    pattern: '(100)|(0*\\d{1,3})',
+    pattern: '.{2,}',
     title: 'Введіть дійсне число від 18 до 100.',
   },
   weight: {
@@ -44,20 +42,28 @@ export const field = {
     type: 'text',
     placeholder: 'Поточна вага*',
     required: true,
-    pattern: '(250)|(0*\\d{1,3})',
+    pattern: '.{2,3}',
     title: 'Введіть дійсне число від 20 до 250.',
+
   },
   desiredWeight: {
     name: 'desiredWeight',
     type: 'text',
     placeholder: 'Бажана вага*',
     required: true,
-    pattern: '(250)|(0*\\d{1,3})',
+    pattern: '.{2,3}',
     title: 'Введіть дійсне число від 20 до 500.',
+    title: 'Please enter a valid number between 20 and 500.',
+
   },
   bloodType: {
     name: 'blodtype',
     type: 'text',
     placeholder: 'Група крові*',
+  },
+  filter: {
+    type: 'text',
+    name: 'filter',
+    placeholder: 'filter by name',
   },
 };
