@@ -2,15 +2,23 @@
 
 .overlay {
   position: relative;
+  margin-top: 20px;
+
+  @include mixins.mq(tablet) {
+    margin-top: 0px;
+  }
 }
 
 .headTitle {
+  font-size: 18px;
   text-align: center;
+
 }
 
 .list {
   position: absolute;
   margin-top: 30px;
+  padding: 0px 20px 30px 20px;
 
   display: flex;
   flex-direction: column;
@@ -23,15 +31,20 @@
 
   background-color: var(--main-color);
 
+  height: 100vh;
+
   z-index: 2;
 
   @include mixins.mq(tablet) {
     width: 610px;
     margin-top: 20px;
+    padding: 0px;
+
     gap: 15px;
     height: 245px;
 
-    overflow-y: scroll;
+  overflow-y: scroll;
+
   }
 
   @include mixins.mq(desktop) {

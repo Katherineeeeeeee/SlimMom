@@ -6,10 +6,24 @@
 
 .wrapper {
   display: flex;
-  gap: 10px;
+  gap: 8px;
+
+  margin-left: 8px;
+
+  @include mixins.mq(tablet) {
+    gap: 45px;
+    margin-left: 20px;
+  }
+
+  @include mixins.mq(desktop) {
+    gap: 30px;
+    margin-left: 50px;
+  }
 }
 
 .title {
+  display: flex;
+  align-items: center;
   width: 100%;
   padding-bottom: 8px;
 
@@ -27,23 +41,16 @@
   display: flex;
   align-items: center;
 
-  width: 50px;
-  margin-left: 8px;
+  width: 51px;
   padding-bottom: 8px;
 
   border-bottom: 1px solid #E0E0E0;
 
   @include mixins.mq(tablet) {
     width: 105px;
-    margin-left: 20px;
     padding-bottom: 20px;
 
-    text-align: right;
-
-  }
-
-  @include mixins.mq(desktop) {
-    margin-left: 48px;
+    justify-content: right;
   }
 }
 
@@ -51,27 +58,22 @@
   display: flex;
   align-items: center;
 
-  width: 64px;
-  // margin-left: 8px;
+  width: 70px;
   padding-bottom: 8px;
+
 
   border-bottom: 1px solid #E0E0E0;
 
   @include mixins.mq(tablet) {
     width: 105px;
-    margin-left: 45px;
     padding-bottom: 20px;
 
-    text-align: right;
-  }
-
-  @include mixins.mq(desktop) {
-    margin-left: 30px;
+    justify-content: right;
   }
 }
 
 .btnRemove {
-  margin-left: 15px;
+  margin-left: 10px;
 
   border: none;
   outline: none;

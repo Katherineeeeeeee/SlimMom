@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
+import uk from 'date-fns/locale/uk';
 
 import 'react-datepicker/dist/react-datepicker.css';
 import s from './DiaryDateСalendar.module.scss';
@@ -45,6 +46,7 @@ const DiaryDateСalendar = () => {
           <DatePicker
             selected={startDate}
             onChange={handleChange}
+            locale={uk}
             maxDate={new Date()}
             inline
           />

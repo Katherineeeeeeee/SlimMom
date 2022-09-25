@@ -22,8 +22,8 @@ const DiaryProductsListItem = () => {
             <li key={id} className={s.item}>
               <p className={s.title}>{title}</p>
               <div className={s.wrapper}>
-                <p className={s.weight}>{weight} gr</p>
-                <p className={s.kcal}>{Math.round(kcal)} kcal</p>
+                <p className={s.weight}>{weight} гр</p>
+                <p className={s.kcal}>{Math.round(kcal)} ккал</p>
               </div>
               <button
                 className={s.btnRemove}

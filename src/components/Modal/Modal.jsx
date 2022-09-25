@@ -2,7 +2,12 @@ import { useEffect } from 'react';
 
 import s from './Modal.module.scss';
 
-const Modal = ({ setModalOpen, children }) => {
+const Modal = ({
+  setModalOpen,
+  overlayClass = 'overlay',
+  modalClass = 'modal',
+  children,
+}) => {
   useEffect(() => {
     const onEscPush = e => {
       if (e.code !== 'Escape') {
@@ -29,8 +34,8 @@ const Modal = ({ setModalOpen, children }) => {
   };
 
   return (
-    <div className={s.overlay} onClick={onOverlayClick}>
-      <div className={s.modal}>
+    <div className={s[overlayClass]} onClick={onOverlayClick}>
+      <div className={s[modalClass]}>
         <div className={s.mobileClose}>
           <span onClick={closeModal} className={s.closeM}></span>
         </div>
