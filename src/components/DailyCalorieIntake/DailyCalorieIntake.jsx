@@ -21,15 +21,19 @@ const DailyCalorieIntake = () => {
 
   return (
     <>
-      <h2 className={s.modalTitle}>Your recommended daily calorie intake is</h2>
+      <h2 className={s.modalTitle}>
+        Ваша рекомендована добова норма споживання калорій становить:
+      </h2>
       <p className={s.modalText}>
         {dailyRate}
-        <span className={s.textDescription}> kcal</span>
+        <span className={s.textDescription}> ккал</span>
       </p>
       <div className={s.menuGroup}>
         {itemsList.length > 0 && (
           <>
-            <p className={s.menuGroupTitle}>Foods you should not eat</p>
+            <p className={s.menuGroupTitle}>
+              Продукти, які ви не повинні їсти:
+            </p>
             <ol className={s.menuGroupList}>
               {itemsList.map(el => (
                 <li key={nanoid()} className={s.menuGroupItems}>
@@ -41,7 +45,7 @@ const DailyCalorieIntake = () => {
         )}
       </div>
       <Link to="/registration">
-        <Button text="Start losing weight" type="button" btnClass="btn" />
+        <Button text="Схуднути" type="button" btnClass="btn" />
       </Link>
     </>
   );

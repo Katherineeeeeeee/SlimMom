@@ -80,20 +80,20 @@
     &::after {
       content: '';
       display: block;
-      width: round(32px / 1.3333) / 4;
-      height: round(32px / 1.3333) / 4;
+      width: calc(round(32px / 1.3333) / 4);
+      height: calc(round(32px / 1.3333) / 4);
       background-color: #fc842d;
       border-radius: 50%;
       position: absolute;
-      bottom: 32px + (round(32px / 1.3333) / 3);
+      bottom: 32px + calc((round(32px / 1.3333) / 3));
     }
 
     &::before {
-      left: round(32px / 1.3333);
+      left: calc(round(32px / 1.3333));
     }
 
     &::after {
-      right: round(32px / 1.3333);
+      right: calc(round(32px / 1.3333));
     }
   }
 }
@@ -101,21 +101,32 @@
   content: '';
   display: block;
   position: absolute;
-  left: -(32px / 1.7);
-  bottom: -(32px / 3.85);
-  width: calc(100% + #{32px});
+  left: calc(-32px / 1.7);
+  bottom: calc(-32px / 3.85);
+  width: calc(100% + 32px);
   height: 32px;
   background-repeat: repeat-x;
   background-size: 32px 32px;
   background-position: left bottom;
   background-image: linear-gradient(
       -45deg,
-      var(--background-color) (32px / 2),
+      var(--background-color),
+      calc(32px / 2),
       transparent 0
     ),
-    linear-gradient(45deg, var(--background-color) (32px / 2), transparent 0),
-    linear-gradient(-45deg, var(--accent-color) (32px / 1.7), transparent 0),
-    linear-gradient(45deg, var(--accent-color) (32px / 1.7), transparent 0);
+    linear-gradient(
+      45deg,
+      var(--background-color),
+      calc(32px / 2),
+      transparent 0
+    ),
+    linear-gradient(
+      -45deg,
+      var(--accent-color),
+      calc(32px / 1.7),
+      transparent 0
+    ),
+    linear-gradient(45deg, var(--accent-color), calc(32px / 1.7), transparent 0);
 }
 
 .shadow {

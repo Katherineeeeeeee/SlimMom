@@ -23,10 +23,10 @@ const UserInfo = () => {
     return (
       <div>
         <NavLink className={getClassName} to="/login">
-          Sign in
+          Вхід
         </NavLink>
         <NavLink className={getClassName} to="/registration">
-          Registration
+          Реєстрація
         </NavLink>
       </div>
     );
@@ -36,7 +36,7 @@ const UserInfo = () => {
     return (
       <div className={s.userInfoSide}>
         <p>{userName}</p>
-        <p onClick={onLogout}>Exit</p>
+        <p onClick={onLogout}>Вихід</p>
       </div>
     );
   }
