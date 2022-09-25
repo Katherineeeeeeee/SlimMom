@@ -7,6 +7,11 @@
   width: 320px;
   height: 630px;
 
+  @include mixins.mq(mobile-only) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
   @include mixins.mq(tablet) {
     margin-top: 100px;
     margin-left: 32px;

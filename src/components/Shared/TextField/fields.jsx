@@ -12,8 +12,6 @@ export const field = {
     type: 'email',
     placeholder: 'Email*',
     required: true,
-    pattern: '[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}',
-    title: 'Invalid email',
   },
   password: {
     name: 'password',
@@ -28,7 +26,7 @@ export const field = {
     type: 'text',
     placeholder: 'Height*',
     required: true,
-    pattern: '(250)|(10*\\d{1,3})',
+    pattern: '.{2,3}',
     title: 'Please enter a valid number between 100 and 250.',
   },
   age: {
@@ -36,15 +34,15 @@ export const field = {
     type: 'text',
     placeholder: 'Age*',
     required: true,
-    pattern: '(100)|(0*\\d{1,3})',
-    title: 'Please enter a valid number between 18 and 100.',
+    pattern: '.{2,}',
+    title: 'Please enter a valid number between 18 and 99.',
   },
   weight: {
     name: 'weight',
     type: 'text',
     placeholder: 'Current weight*',
     required: true,
-    pattern: '(250)|(0*\\d{1,3})',
+    pattern: '.{2,3}',
     title: 'Please enter a valid number between 20 and 250.',
   },
   desiredWeight: {
@@ -52,7 +50,7 @@ export const field = {
     type: 'text',
     placeholder: 'Desired weight*',
     required: true,
-    pattern: '(250)|(0*\\d{1,3})',
+    pattern: '.{2,3}',
     title: 'Please enter a valid number between 20 and 500.',
   },
   bloodType: {
