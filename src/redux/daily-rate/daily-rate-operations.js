@@ -2,8 +2,6 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { axiosGetDailyRate, axiosGetDailyRateUser } from 'api/daily-rate';
 
 import { getUser } from 'redux/auth/auth-opetations';
-import { getInfoByDay } from 'redux/day/day-operations';
-import moment from 'moment';
 
 export const dailyRateInfo = createAsyncThunk(
   'daily-rate',
@@ -29,8 +27,6 @@ export const dailyRateUser = createAsyncThunk(
       } = getState();
 
       const result = await axiosGetDailyRateUser(id, data);
-
-      dispatch(getInfoByDay({ date: moment(new Date()).format('yyyy-MM-DD') }));
 
       dispatch(getUser(accessToken));
       return result;
