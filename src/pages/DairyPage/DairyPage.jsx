@@ -1,9 +1,6 @@
 import { useMediaQuery } from 'react-responsive';
 import { useState } from 'react';
-
-// import { useDispatch, useSelector } from 'react-redux';
-// import { getID } from 'redux/auth/auth-selectors';
-// import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 import SideBar from 'components/SideBar';
 import Button from 'components/Shared/Button';
@@ -14,21 +11,18 @@ import DiaryProductsList from '../../components/Dairy/DiaryProductsList';
 import Modal from 'components/Modal';
 
 import s from './DairyPage.module.scss';
-
-// import { dailyRateUser } from 'redux/daily-rate/daily-rate-operations';
-
-// import { useEffect } from 'react';
-// import { useDispatch } from 'react-redux';
+import { getNotAllowedProducts } from 'redux/auth/auth-selectors';
+import GreetingForm from 'components/GreetingForm';
 
 const DairyPage = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
-  // const dispatch = useDispatch();
+
+  const notAllowedProduct = useSelector(getNotAllowedProducts);
+  const firstLoading = notAllowedProduct?.length === 0;
 
   const isTabletDesktop = useMediaQuery({ minWidth: 767 });
 
   const [modalOpen, setModalOpen] = useState(false);
-
-  // useEffect(() => {}, []);
 
   const handleClick = () => {
     setModalOpen(true);
@@ -36,31 +30,34 @@ const DairyPage = () => {
 
   return (
     <main className={s.wrapper}>
-      <div className={s.overlay}>
-        <div>
-          <DiaryDateСalendar />
-          {isTabletDesktop && <DiaryAddProductForm />}
-          <DiaryProductsList />
-        </div>
-        {isMobile && (
-          <div className={s.btn}>
-            <Button
-              text="+"
-              btnClass="btnPlus"
-              type="button"
-              handleClick={handleClick}
-            />
+      {firstLoading && <GreetingForm />}
+      {!firstLoading && (
+        <div className={s.overlay}>
+          <div>
+            <DiaryDateСalendar />
+            {isTabletDesktop && <DiaryAddProductForm />}
+            <DiaryProductsList />
           </div>
-        )}
-        {modalOpen && (
-          <Modal
-            setModalOpen={setModalOpen}
-            overlayClass="overlayDairyPage"
-            modalClass="modalDairyPage"
-            children={<DiaryAddProductForm />}
-          />
-        )}
-      </div>
+          {isMobile && (
+            <div className={s.btn}>
+              <Button
+                text="+"
+                btnClass="btnPlus"
+                type="button"
+                handleClick={handleClick}
+              />
+            </div>
+          )}
+          {modalOpen && (
+            <Modal
+              setModalOpen={setModalOpen}
+              overlayClass="overlayDairyPage"
+              modalClass="modalDairyPage"
+              children={<DiaryAddProductForm />}
+            />
+          )}
+        </div>
+      )}
 
       <SideBar />
     </main>

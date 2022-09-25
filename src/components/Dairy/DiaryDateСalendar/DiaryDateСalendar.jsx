@@ -18,8 +18,12 @@ const DiaryDateСalendar = () => {
   const [startDate, setStartDate] = useState(new Date());
 
   useEffect(() => {
-    dispatch(addDate(moment(new Date()).format('yyyy-MM-DD')));
-    // dispatch(getInfoByDay({ date: moment(new Date()).format('yyyy-MM-DD') }));
+    if (!date) {
+      dispatch(addDate(moment(new Date()).format('yyyy-MM-DD')));
+      return;
+    }
+
+    dispatch(addDate(date));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
