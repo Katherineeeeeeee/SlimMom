@@ -32,7 +32,6 @@
   text-align: center;
   @include mixins.mq(tablet) {
     width: 330px;
-    
   }
 }
 .textDescription {
@@ -69,6 +68,7 @@
   }
 }
 .menuGroupList {
+  margin-top: 12px;
   width: 270px;
   list-style-type: decimal;
   overflow-y: auto;
@@ -95,15 +95,15 @@
 }
 /* Track */
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px rgb(211, 207, 207); 
+  box-shadow: inset 0 0 5px rgb(211, 207, 207);
   border-radius: 10px;
 }
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #264061; 
+  background: #264061;
   border-radius: 10px;
 }
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #264061; 
+  background: #264061;
 }

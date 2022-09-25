@@ -53,7 +53,6 @@ export const field = {
     required: true,
     pattern: '.{2,3}',
     title: 'Введіть дійсне число від 20 до 500.',
-    title: 'Please enter a valid number between 20 and 500.',
 
   },
   bloodType: {
