@@ -12,3 +12,11 @@ export const getDailyRate = ({ dayProduct }) =>
   dayProduct?.aboutDay?.daySummary?.dailyRate;
 export const getPercentsOfDailyRate = ({ dayProduct }) =>
   dayProduct?.aboutDay?.daySummary?.percentsOfDailyRate;
+
+export const getKcalLeft2 = ({ dayProduct }) => dayProduct?.aboutDay?.kcalLeft;
+export const getKcalConsumed2 = ({ dayProduct }) =>
+  dayProduct?.aboutDay?.kcalConsumed;
+export const getDailyRate2 = ({ dayProduct }) =>
+  dayProduct?.aboutDay?.dailyRate;
+export const getPercentsOfDailyRate2 = ({ dayProduct }) =>
+  dayProduct?.aboutDay?.percentsOfDailyRate;

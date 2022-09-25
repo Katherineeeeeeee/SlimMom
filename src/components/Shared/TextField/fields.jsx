@@ -27,7 +27,7 @@ export const field = {
     placeholder: 'Зріст*',
     required: true,
     pattern: '.{2,3}',
-    title: 'Введіть дійсне число від 100 до 250.', 
+    title: 'Введіть дійсне число від 100 до 250.',
   },
   age: {
     name: 'age',
@@ -44,7 +44,6 @@ export const field = {
     required: true,
     pattern: '.{2,3}',
     title: 'Введіть дійсне число від 20 до 250.',
-
   },
   desiredWeight: {
     name: 'desiredWeight',
@@ -53,7 +52,6 @@ export const field = {
     required: true,
     pattern: '.{2,3}',
     title: 'Введіть дійсне число від 20 до 500.',
-
   },
   bloodType: {
     name: 'blodtype',
@@ -63,6 +61,6 @@ export const field = {
   filter: {
     type: 'text',
     name: 'filter',
-    placeholder: 'filter by name',
+    placeholder: 'Фільтрувати за назвою',
   },
 };

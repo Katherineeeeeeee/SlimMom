@@ -6,6 +6,7 @@ import { logout } from 'redux/auth/auth-opetations';
 
 import s from './UserInfo.module.scss';
 import { clearData } from 'redux/dairy-calendar/dairy-calendar-slice';
+import { clearDay } from 'redux/day/day-slice';
 
 const UserInfo = () => {
   const isUserLogin = useSelector(getLogin);
@@ -15,6 +16,7 @@ const UserInfo = () => {
   const onLogout = () => {
     dispatch(logout());
     dispatch(clearData());
+    dispatch(clearDay());
   };
 
   const getClassName = ({ isActive }) => {

@@ -1,4 +1,5 @@
 @use '../../styles/mixins';
+@use 'sass:math';
 
 @keyframes floating {
   0% {
@@ -80,20 +81,20 @@
     &::after {
       content: '';
       display: block;
-      width: calc(round(32px / 1.3333) / 4);
-      height: calc(round(32px / 1.3333) / 4);
+      width: round(math.div(math.div(32px, 1.3333), 4));
+      height: round(math.div(math.div(32px, 1.3333), 4));
       background-color: #fc842d;
       border-radius: 50%;
       position: absolute;
-      bottom: 32px + calc((round(32px / 1.3333) / 3));
+      bottom: 32px + round(math.div(math.div(32px, 1.3333), 3));
     }
 
     &::before {
-      left: calc(round(32px / 1.3333));
+      left: round(math.div(32px, 1.3333));
     }
 
     &::after {
-      right: calc(round(32px / 1.3333));
+      right: round(math.div(32px, 1.3333));
     }
   }
 }
@@ -101,8 +102,8 @@
   content: '';
   display: block;
   position: absolute;
-  left: calc(-32px / 1.7);
-  bottom: calc(-32px / 3.85);
+  left: math.div(-32px, 1.7);
+  bottom: math.div(-32px, 3.85);
   width: calc(100% + 32px);
   height: 32px;
   background-repeat: repeat-x;
@@ -111,22 +112,27 @@
   background-image: linear-gradient(
       -45deg,
       var(--background-color),
-      calc(32px / 2),
+      math.div(32px, 2),
       transparent 0
     ),
     linear-gradient(
       45deg,
       var(--background-color),
-      calc(32px / 2),
+      math.div(32px, 2),
       transparent 0
     ),
     linear-gradient(
       -45deg,
       var(--accent-color),
-      calc(32px / 1.7),
+      math.div(32px, 1.7),
       transparent 0
     ),
-    linear-gradient(45deg, var(--accent-color), calc(32px / 1.7), transparent 0);
+    linear-gradient(
+      45deg,
+      var(--accent-color),
+      math.div(32px, 1.7),
+      transparent 0
+    );
 }
 
 .shadow {
