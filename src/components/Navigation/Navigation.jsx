@@ -17,8 +17,12 @@ const Navigation = () => {
 
   return (
     <div className={s.navDesct}>
-      <NavLink className={getClassName} to="/dairy">dairy</NavLink>
-      <NavLink className={getClassName} to="/calculator-calories">calculator</NavLink>
+      <NavLink className={getClassName} to="/dairy">
+        Щоденник
+      </NavLink>
+      <NavLink className={getClassName} to="/calculator-calories">
+        Калькулятор
+      </NavLink>
     </div>
   );
 };
