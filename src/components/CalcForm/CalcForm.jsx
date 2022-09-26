@@ -13,7 +13,7 @@ import { getID } from 'redux/auth/auth-selectors';
 import s from './CalcForm.module.scss';
 // import style from '../Shared/TextField/TextField.module.scss';
 import { useNavigate } from 'react-router-dom';
-import RadioBtn from 'components/Shared/RadioBtn/RadioBtn';
+import TextFieldDefault from 'components/Shared/TextFieldDefault/TextFieldDefault';
 
 const CalcForm = () => {
   const [bloodType, setActiveCheckbox] = useState('');
@@ -115,7 +115,7 @@ const CalcForm = () => {
               control={control}
               name="bloodType"
               render={({ field: { onChange, value } }) => (
-                <RadioBtn
+                <TextFieldDefault
                   value={value}
                   control={control}
                   handleChange={onChange}

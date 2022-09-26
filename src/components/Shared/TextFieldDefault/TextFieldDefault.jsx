@@ -1,6 +1,5 @@
-// import PropTypes from ‘prop-types’;
-import s from './RadioBtn.module.scss';
-const RadioBtn = ({
+import s from './TextFieldDefault.module.scss';
+const TextFieldDefault = ({
   type,
   name,
   value,
@@ -26,17 +25,9 @@ const RadioBtn = ({
     </label>
   );
 };
-export default RadioBtn;
-RadioBtn.defaultProps = {
+export default TextFieldDefault;
+
+TextFieldDefault.defaultProps = {
   type: 'text',
   required: false,
 };
-// TextField.propTypes = {
-//   value: PropTypes.string,
-//   name: PropTypes.string.isRequired,
-//   onChange: PropTypes.func.isRequired,
-//   type: PropTypes.string,
-//   className: PropTypes.string,
-//   placeholder: PropTypes.string,
-//   required: PropTypes.bool,
-// };
