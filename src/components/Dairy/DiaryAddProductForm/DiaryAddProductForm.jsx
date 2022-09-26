@@ -7,7 +7,7 @@ import { ErrorMessage } from '@hookform/error-message';
 import s from './DiaryAddProductForm.module.scss';
 import Button from '../../Shared/Button/Button';
 
-import TextField from 'components/Shared/TextField';
+// import TextField from 'components/Shared/TextField';
 import Modal from 'components/Modal';
 import ErrorMessageAddProduct from 'components/ErrorMessage/ErrorMessage';
 
@@ -17,6 +17,7 @@ import { getSearchError } from 'redux/product-search/search-selectors';
 import { addWeight } from 'redux/dairy-calendar/dairy-calendar-slice';
 import DiaryChooseProductList from '../DiaryChooseProductList/DiaryChooseProductList';
 import { ReactComponent as Warning } from 'images/svg/warning.svg';
+import RadioBtn from 'components/Shared/RadioBtn/RadioBtn';
 
 const DiaryAddProductForm = ({ setModalOpen }) => {
   const dispatch = useDispatch();
@@ -68,15 +69,15 @@ const DiaryAddProductForm = ({ setModalOpen }) => {
             control={control}
             name="query"
             render={({ field: { onChange, value } }) => (
-              <TextField
+              <RadioBtn
                 value={value}
-                placeholder={'Введіть перші літери продукту'}
+                placeholder={'Введіть назву продукту'}
                 name={'query'}
                 control={control}
                 handleChange={onChange}
               />
             )}
-            rules={{ required: 'Введіть перші літери продукту' }}
+            rules={{ required: 'Введіть назву продукту' }}
           />
 
           <ErrorMessage
@@ -96,7 +97,7 @@ const DiaryAddProductForm = ({ setModalOpen }) => {
             control={control}
             name="weight"
             render={({ field: { onChange, value } }) => (
-              <TextField
+              <RadioBtn
                 value={value}
                 placeholder={'Вага'}
                 name={'weight'}

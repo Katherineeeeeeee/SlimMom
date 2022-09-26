@@ -50,9 +50,8 @@
   align-items: center;
 
   @include mixins.mq(tablet) {
-  // top: 20px;
-
-    }
+    // top: 20px;
+  }
 }
 
 .errorMessage {
@@ -61,7 +60,6 @@
   color: #f84147;
 
   @include mixins.mq(tablet) {
-        width: 200px;
-
-    }
+    width: 200px;
+  }
 }
