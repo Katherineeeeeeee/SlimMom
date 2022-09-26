@@ -40,7 +40,7 @@ const DailyCalorieIntake = () => {
         {itemsList.length > 0 && (
           <>
             <p className={s.menuGroupTitle}>
-              Продукти, які ви не повинні їсти:
+              Продукти, які ви не повинні вживати:
             </p>
             <ul className={s.menuGroupList}>
               {itemsList.map(el => (
