@@ -1,28 +1,17 @@
 @use '../../styles/mixins';
 
 .form {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 32px;
-  width: 320px;
-  height: 630px;
-
-  @include mixins.mq(mobile-only) {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
+  margin-top: 152px;
+  margin-bottom: 32px;
+  padding-left: 20px;
+  padding-right: 20px;
   @include mixins.mq(tablet) {
-    margin-top: 100px;
-    margin-left: 32px;
-    width: 768px;
-    height: 580px;
+      margin-top: 130px;
+      margin-bottom: 50px;
   }
-
   @include mixins.mq(desktop) {
-    margin-top: 138px;
-    width: 608px;
-    height: 345px;
+      margin-top: 138px;
+      width: 608px;
   }
 }
 

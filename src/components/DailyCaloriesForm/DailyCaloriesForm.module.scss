@@ -1,18 +1,15 @@
 @use '../../styles/mixins';
 
 .form {
-    margin-top: 32px;
-    width: 320px;
-    height: 568px;
+    margin-top: 90px;
     @include mixins.mq(tablet) {
-        margin-top: 100px;
-        width: 768px;
+        margin-top: 145px;
         height: 944px;
     }
     @include mixins.mq(desktop) {
         margin-top: 138px;
         width: 608px;
-        height: 345px;
+        height: 565px;
     }
 }
 .formParts {
@@ -22,7 +19,7 @@
     @include mixins.mq(tablet) {
         justify-content: left;
         flex-direction: row;
-        margin-bottom: 60px;
+        margin-bottom: 20px;
     }
     @include mixins.mq(desktop) {
         justify-content: space-between;
