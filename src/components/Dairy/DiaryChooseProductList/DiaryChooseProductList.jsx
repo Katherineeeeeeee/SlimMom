@@ -5,6 +5,8 @@ import s from './DiaryChooseProductList.module.scss';
 
 import { postEatenProduct } from 'redux/day/day-operations';
 
+import { useMediaQuery } from 'react-responsive';
+
 import { getProduct } from 'redux/product-search/search-selectors';
 import { getSearchLoading } from 'redux/product-search/search-selectors';
 
@@ -16,6 +18,8 @@ export default function DiaryChooseProductList({
 }) {
   const dispatch = useDispatch();
 
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+
   const [isOpen, setIsOpen] = useState(false);
   const searchProduct = useSelector(getProduct);
   const dairyCalendar = useSelector(({ dairyCalendar }) => dairyCalendar);
@@ -25,8 +29,10 @@ export default function DiaryChooseProductList({
     dispatch(postEatenProduct({ ...dairyCalendar, productId }));
     setIsOpen(false);
     handleClickClose(false);
-    setModalOpen(false);
-    document.querySelector('body').classList.remove('no-scroll');
+    if (isMobile) {
+      setModalOpen(false);
+      document.querySelector('body').classList.remove('no-scroll');
+    }
   };
 
   return (

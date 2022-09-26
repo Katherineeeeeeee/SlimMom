@@ -13,10 +13,21 @@
   font-size: 18px;
   padding-left: 20px;
   text-align: center;
+
+  @include mixins.mq(tablet) {
+    margin-bottom: 12px;
+    padding-left: 0px;
+    text-align: start;
+  }
+
+  @include mixins.mq(desktop) {
+    margin-bottom: 22px;
+    padding-left: 0px;
+    text-align: start;
+  }
 }
 
 .list {
-  position: absolute;
   margin-top: 30px;
   padding: 0px 20px 30px 20px;
 
@@ -32,13 +43,13 @@
   background-color: var(--main-color);
 
   height: 100vh;
-  max-width: 320px;
+  width: calc(100vw - 10px);
 
   z-index: 2;
 
   @include mixins.mq(tablet) {
     width: 610px;
-    margin-top: 20px;
+    margin-top: 0px;
     padding: 0px;
 
     gap: 15px;

@@ -1,13 +1,10 @@
 @use '../../styles/mixins';
 
 .form {
-  margin-top: 90px;
   @include mixins.mq(tablet) {
-    margin-top: 145px;
     height: 944px;
   }
   @include mixins.mq(desktop) {
-    margin-top: 138px;
     width: 608px;
     height: 565px;
   }

@@ -25,6 +25,10 @@
   display: flex;
   flex-direction: column;
 
+  @include mixins.mq(tablet-only) {
+    margin: 0 auto;
+  }
+
   @include mixins.mq(desktop) {
     padding-top: 140px;
     padding-bottom: 55px;
