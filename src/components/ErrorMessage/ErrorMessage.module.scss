@@ -1,0 +1,31 @@
+@use '../../styles/mixins';
+
+.errorMessageBlock {
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-top: auto;
+    margin-bottom: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.errorMessageTitle {
+    margin-bottom: 40px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.208;
+    letter-spacing: 0.04em;
+    color: #264061;
+    @include mixins.mq(tablet) {
+        font-size: 28px;
+    }
+}
+.errorMessageText {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.214;
+    letter-spacing: 0.04em;
+    @include mixins.mq(tablet) {
+        font-size: 22px;
+    }
+}

@@ -1,0 +1,34 @@
+@use '../../styles/mixins';
+
+.home {
+  padding-top: 112px;
+
+  @include mixins.mq(tablet) {
+    padding-top: 180px;
+    background-image: image-set(
+      url('../../images/tablet/bghometablet.png') 1x,
+      url('../../images/tablet/bghometabletx2.png') 2x
+    );
+    background-repeat: no-repeat;
+    background-position: right 0 bottom 0;
+  }
+
+  @include mixins.mq(desktop) {
+    padding-top: 147px;
+    height: auto;
+    background-image: none;
+  }
+}
+
+.imgDesktop {
+  display: none;
+
+  @include mixins.mq(desktop) {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 1280px;
+    z-index: -1;
+  }
+}
