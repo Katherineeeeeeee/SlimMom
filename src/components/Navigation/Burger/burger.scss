@@ -27,7 +27,6 @@
 }
 .burger-menu_lines {
   top: 50%;
-  //   left: 50%;
   transform: translate(-50%, -50%);
 }
 .burger-menu_lines::before {
@@ -62,7 +61,7 @@
   width: 100vw;
   background-color: #264061;
   overflow-y: auto;
-  right: -100%;
+  right: -105%;
   transition: 0.8s;
 }
 .burger-menu_active .burger-menu_nav {

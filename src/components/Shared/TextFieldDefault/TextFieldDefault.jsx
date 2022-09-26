@@ -8,6 +8,7 @@ const TextFieldDefault = ({
   required,
   pattern,
   title,
+  disabled,
 }) => {
   return (
     <label>
@@ -21,6 +22,7 @@ const TextFieldDefault = ({
         required={required}
         pattern={pattern}
         title={title}
+        disabled={disabled}
       />
     </label>
   );
