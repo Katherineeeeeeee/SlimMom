@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import s from './ErrorMessage.module.scss';
 import style from '../NotFound/NotFound.module.scss';
 
@@ -14,3 +15,11 @@ const ErrorMessage = ({ status }) => {
 };
 
 export default ErrorMessage;
+
+ErrorMessage.defaultProps = {
+  status: {},
+}
+
+ErrorMessage.propTypes = {
+  status: PropTypes.string,
+}
