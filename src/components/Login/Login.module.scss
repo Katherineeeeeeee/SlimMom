@@ -1,10 +1,10 @@
 @use '../../styles/mixins';
 
 .login {
-  padding-top: 40px;
+  padding-top: 120px;
 
   @include mixins.mq(tablet) {
-    padding-top: 160px;
+    padding-top: 240px;
     height: 100vh;
     background-image: image-set(
       url(../../images/tablet/tabletx1.png) 1x,
@@ -15,6 +15,7 @@
   }
 
   @include mixins.mq(desktop) {
+    padding-top: 160px;
     height: auto;
     background-image: none;
   }
@@ -36,11 +37,9 @@
 }
 
 .form {
-  @include mixins.mq(tablet) {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-  }
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 .wrap {
   display: flex;
@@ -68,7 +67,6 @@
     position: absolute;
     bottom: 0;
     right: 0;
-    // width: 100%;
     width: 1280px;
     z-index: -1;
   }
