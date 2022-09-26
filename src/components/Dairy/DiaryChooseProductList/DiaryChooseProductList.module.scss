@@ -1,8 +1,8 @@
 @use '../../../styles/mixins';
 
 .overlay {
-  position: relative;
-  margin-top: 20px;
+  position: absolute;
+  margin-top: 50px;
 
   @include mixins.mq(tablet) {
     margin-top: 0px;
@@ -11,8 +11,8 @@
 
 .headTitle {
   font-size: 18px;
+  padding-left: 20px;
   text-align: center;
-
 }
 
 .list {
@@ -32,6 +32,7 @@
   background-color: var(--main-color);
 
   height: 100vh;
+  max-width: 320px;
 
   z-index: 2;
 
@@ -44,7 +45,6 @@
     height: 245px;
 
     overflow-y: scroll;
-
   }
 
   @include mixins.mq(desktop) {
@@ -73,7 +73,7 @@
   width: 100%;
   padding-bottom: 8px;
 
-  border-bottom: 1px solid #E0E0E0;
+  border-bottom: 1px solid #e0e0e0;
 
   overflow: hidden;
 
@@ -91,7 +91,7 @@
   margin-left: 8px;
   padding-bottom: 8px;
 
-  border-bottom: 1px solid #E0E0E0;
+  border-bottom: 1px solid #e0e0e0;
 
   @include mixins.mq(tablet) {
     width: 105px;
@@ -99,7 +99,6 @@
     padding-bottom: 20px;
 
     justify-content: right;
-
   }
 
   @include mixins.mq(desktop) {
@@ -111,11 +110,10 @@
   display: flex;
   align-items: center;
 
-
   width: 70px;
   padding-bottom: 8px;
 
-  border-bottom: 1px solid #E0E0E0;
+  border-bottom: 1px solid #e0e0e0;
 
   @include mixins.mq(tablet) {
     width: 105px;

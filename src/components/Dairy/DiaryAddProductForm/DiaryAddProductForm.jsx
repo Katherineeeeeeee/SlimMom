@@ -19,7 +19,7 @@ import DiaryChooseProductList from '../DiaryChooseProductList/DiaryChooseProduct
 import { ReactComponent as Warning } from 'images/svg/warning.svg';
 import RadioBtn from 'components/Shared/RadioBtn/RadioBtn';
 
-const DiaryAddProductForm = () => {
+const DiaryAddProductForm = ({ setModalOpen }) => {
   const dispatch = useDispatch();
 
   const [isOpen, setIsOpen] = useState(false);
@@ -133,7 +133,12 @@ const DiaryAddProductForm = () => {
           }
         />
       )}
-      {isOpen && <DiaryChooseProductList handleClickClose={handleClickClose} />}
+      {isOpen && (
+        <DiaryChooseProductList
+          setModalOpen={setModalOpen}
+          handleClickClose={handleClickClose}
+        />
+      )}
     </>
   );
 };
