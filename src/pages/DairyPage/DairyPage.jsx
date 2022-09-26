@@ -25,6 +25,7 @@ const DairyPage = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const handleClick = () => {
+    document.querySelector('body').classList.add('no-scroll');
     setModalOpen(true);
   };
 
@@ -53,7 +54,7 @@ const DairyPage = () => {
               setModalOpen={setModalOpen}
               overlayClass="overlayDairyPage"
               modalClass="modalDairyPage"
-              children={<DiaryAddProductForm />}
+              children={<DiaryAddProductForm setModalOpen={setModalOpen} />}
             />
           )}
         </div>

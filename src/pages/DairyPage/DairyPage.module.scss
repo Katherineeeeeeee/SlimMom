@@ -29,10 +29,6 @@
     padding-top: 140px;
     padding-bottom: 55px;
   }
-
-  @include mixins.mq(desktop) {
-    padding-top: 140px;
-  }
 }
 
 .btn {
