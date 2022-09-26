@@ -50,6 +50,7 @@ const DailyCaloriesForm = () => {
 
     dispatch(dailyRateInfo(numberData));
     setActiveCheckbox('');
+    document.querySelector('body').classList.add('no-scroll');
     setModalOpen(true);
     reset();
   };
@@ -171,7 +172,7 @@ DailyCaloriesForm.defaultProps = {
   errorDaily: () => {},
   onChange: () => {},
   data: {},
-}
+};
 
 DailyCaloriesForm.propTypes = {
   onSubmit: PropTypes.func,
@@ -184,5 +185,5 @@ DailyCaloriesForm.propTypes = {
     age: PropTypes.string,
     desiredWeight: PropTypes.string,
     bloodType: PropTypes.string,
-  }),    
-}
+  }),
+};
