@@ -1,13 +1,6 @@
 @use '../../styles/mixins';
 
 .wrapper {
-  @include mixins.mq(not-desktop) {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    justify-content: space-between;
-  }
-
   @include mixins.mq(desktop) {
     display: flex;
     justify-content: space-between;
@@ -18,7 +11,7 @@
 
 /*
 .overlay {
-  padding-top: 152px;
+  padding-top: 40px;
   padding-bottom: 60px;
   padding-left: 20px;
   padding-right: 20px;
@@ -27,8 +20,12 @@
   flex-direction: column;
 
   @include mixins.mq(desktop) {
-    padding-top: 140px;
+    padding-top: 100px;
     padding-bottom: 55px;
+  }
+
+  @include mixins.mq(desktop) {
+    padding-top: 140px;
   }
 }
 */

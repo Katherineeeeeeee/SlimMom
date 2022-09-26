@@ -34,7 +34,7 @@
   overflow-y: scroll;
   height: 100vh;
 
-  background: #ffffff;
+  background: #FFFFFF;
   box-shadow: 0px 22px 40px rgba(0, 0, 0, 0.1);
 
   @include mixins.mq(tablet) {
@@ -55,9 +55,9 @@
   flex-direction: column;
   align-items: center;
   position: relative;
-  width: 100%;
-  height: 100%;
-  background: #ffffff;
+  width: 320px;
+  height: 600px;
+  background: #FFFFFF;
   box-shadow: 0px 22px 40px rgba(0, 0, 0, 0.1);
 
   @include mixins.mq(tablet) {
@@ -76,7 +76,7 @@
   cursor: pointer;
   width: 20px;
   height: 20px;
-  background-image: url('../../images/modal/back.svg');
+  background-image: url("../../images/modal/back.svg");
   background-repeat: no-repeat;
   top: 18px;
   left: 20px;
@@ -88,7 +88,7 @@
     cursor: pointer;
     width: 20px;
     height: 20px;
-    background-image: url('../../images/modal/close.svg');
+    background-image: url("../../images/modal/close.svg");
     background-repeat: no-repeat;
     top: 20px;
     right: 20px;
@@ -96,9 +96,9 @@
 }
 
 .mobileClose {
-  width: 100%;
+  width: 320px;
   height: 40px;
-  background-color: #eff1f3;
+  background-color: #EFF1F3;
 
   @include mixins.mq(tablet) {
     display: none;
