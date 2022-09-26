@@ -13,7 +13,7 @@ import { useState } from 'react';
 
 import { nanoid } from '@reduxjs/toolkit';
 
-import TextField from 'components/Shared/TextField';
+import TextFieldDefault from 'components/Shared/TextFieldDefault/TextFieldDefault';
 import { field } from '../Shared/TextField/fields';
 
 import { getDay } from 'redux/dairy-calendar/dairy-calendar-selectors';
@@ -112,7 +112,10 @@ const SideBar = () => {
       <div className={styles.food}>
         <h3 className={styles.title_sidebar}>Не рекомендована їжа</h3>
         {notAllowedProducts?.length > 0 && (
-          <TextField handleChange={filterRecommendedFood} {...field.filter} />
+          <TextFieldDefault
+            handleChange={filterRecommendedFood}
+            {...field.filter}
+          />
         )}
         {notAllowedProducts?.length > 0 && (
           <>
