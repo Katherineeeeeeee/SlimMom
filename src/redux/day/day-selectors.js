@@ -20,3 +20,5 @@ export const getDailyRate2 = ({ dayProduct }) =>
   dayProduct?.aboutDay?.dailyRate;
 export const getPercentsOfDailyRate2 = ({ dayProduct }) =>
   dayProduct?.aboutDay?.percentsOfDailyRate;
+
+export const getDayLoading = ({ dayProduct }) => dayProduct.loading;
