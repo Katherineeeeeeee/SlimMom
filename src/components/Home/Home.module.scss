@@ -1,10 +1,10 @@
 @use '../../styles/mixins';
 
 .home {
-  padding-top: 40px;
+  padding-top: 112px;
 
   @include mixins.mq(tablet) {
-    // height: 100vh;
+    padding-top: 180px;
     background-image: image-set(
       url('../../images/tablet/bghometablet.png') 1x,
       url('../../images/tablet/bghometabletx2.png') 2x
@@ -14,6 +14,7 @@
   }
 
   @include mixins.mq(desktop) {
+    padding-top: 147px;
     height: auto;
     background-image: none;
   }
@@ -27,7 +28,6 @@
     position: absolute;
     bottom: 0;
     right: 0;
-    // width: 100%;
     width: 1280px;
     z-index: -1;
   }

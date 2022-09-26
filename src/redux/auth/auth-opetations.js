@@ -1,7 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { axiosLogin, axiosLogout, axiosRegister, axiosRefresh } from 'api/auth';
 import { axiosGetUser } from 'api/user';
-// import { getUser } from 'redux/user/user-operations';
 
 export const register = createAsyncThunk(
   'auth/register',
