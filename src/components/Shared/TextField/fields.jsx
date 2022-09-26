@@ -57,7 +57,7 @@ export const field = {
     name: 'blodtype',
     type: 'text',
     placeholder: 'Група крові*',
-    disabled: 'true',
+    disabled: true,
   },
   filter: {
     type: 'text',
