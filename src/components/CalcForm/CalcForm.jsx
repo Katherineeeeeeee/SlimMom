@@ -11,7 +11,6 @@ import { dailyRateUser } from 'redux/daily-rate/daily-rate-operations';
 import { getID } from 'redux/auth/auth-selectors';
 
 import s from './CalcForm.module.scss';
-// import style from '../Shared/TextField/TextField.module.scss';
 import { useNavigate } from 'react-router-dom';
 import TextFieldDefault from 'components/Shared/TextFieldDefault/TextFieldDefault';
 
