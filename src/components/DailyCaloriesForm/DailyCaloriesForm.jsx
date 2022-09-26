@@ -16,8 +16,6 @@ import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import Container from 'components/Shared/Container';
 import PropTypes from 'prop-types';
 
-import RadioBtn from 'components/Shared/RadioBtn/RadioBtn';
-
 import s from './DailyCaloriesForm.module.scss';
 
 const DailyCaloriesForm = () => {
@@ -119,7 +117,7 @@ const DailyCaloriesForm = () => {
               control={control}
               name="bloodType"
               render={({ field: { onChange, value } }) => (
-                <RadioBtn
+                <TextField
                   value={value}
                   control={control}
                   handleChange={onChange}
