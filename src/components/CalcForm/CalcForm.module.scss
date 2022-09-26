@@ -1,28 +1,17 @@
 @use '../../styles/mixins';
 
 .form {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 32px;
-  width: 320px;
-  height: 630px;
-
-  @include mixins.mq(mobile-only) {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
+  margin-top: 152px;
+  margin-bottom: 32px;
+  padding-left: 20px;
+  padding-right: 20px;
   @include mixins.mq(tablet) {
-    margin-top: 100px;
-    margin-left: 32px;
-    width: 768px;
-    height: 580px;
+      margin-top: 130px;
+      margin-bottom: 50px;
   }
-
   @include mixins.mq(desktop) {
-    margin-top: 138px;
-    width: 608px;
-    height: 345px;
+      margin-top: 138px;
+      width: 608px;
   }
 }
 
@@ -154,4 +143,23 @@
     margin: 0 auto;
     max-width: 1280px;
   }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgb(211, 207, 207); 
+  border-radius: 10px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #264061; 
+  border-radius: 10px;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #264061; 
 }

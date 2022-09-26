@@ -23,7 +23,7 @@
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    width: 517px;
+    min-width: 517px;
     height: 100vh;
     padding-top: 150px;
   }
@@ -88,17 +88,16 @@
   width: 280px;
 }
 .menuGroupList {
-  width: 275px;
+  width: 280px;
   height: 305px;
+  list-style-type: none;
   overflow-y: auto;
   overflow-x: hidden;
-  list-style-type: none;
   @include mixins.mq(tablet) {
-    width: 250px;
+    width: 240px;
     height: 305px;
   }
   @include mixins.mq(desktop) {
-    width: 240px;
     height: 315px;
   }
 }
@@ -126,3 +125,21 @@ input[name='filter'] {
   font-weight: 600;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgb(211, 207, 207); 
+  border-radius: 10px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #264061; 
+  border-radius: 10px;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #264061; 
+}

@@ -1,14 +1,22 @@
+@use '../../styles/_mixins.scss';
+
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 20px;
-  padding-bottom: 16px;
   width: 100%;
   border-bottom: 2px solid #e0e0e0;
   padding: 20px;
   max-width: 1280px;
   margin: 0 auto;
+
+  @include mixins.mq(not-desktop) {
+    position: fixed;
+    background-color: #fff;
+    z-index: 20;
+    top: 0;
+    left: 0;
+  }
 
   @media screen and (min-width: 1280px) {
     justify-content: start;
@@ -130,4 +138,13 @@
 .headerIsLogin {
   max-width: 1280px;
   margin: 0 auto;
+
+  @include mixins.mq(not-desktop) {
+    position: fixed;
+    width: 100%;
+    background-color: #fff;
+    z-index: 20;
+    top: 0;
+    left: 0;
+  }
 }

@@ -2,20 +2,17 @@
 
 .modalTitle {
   margin-top: 40px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   text-align: left;
   width: 280px;
-  height: 52px;
   font-weight: 700;
   font-size: 18px;
   line-height: 1.444;
   color: #212121;
   @include mixins.mq(tablet) {
     margin-top: 64px;
-    margin-bottom: 20px;
     text-align: center;
     width: 450px;
-    height: 70px;
     font-size: 26px;
     line-height: 1.23;
   }
@@ -38,18 +35,16 @@
   font-size: 18px;
 }
 .menuGroup {
-  margin-bottom: 40px;
+  margin-bottom: 5px;
   display: flex;
   flex-direction: column;
-  height: 240px;
   width: 270px;
   border-top: 1px solid #e0e0e0;
   @include mixins.mq(tablet) {
-    height: 210px;
+    margin-bottom: 20px;
     width: 340px;
   }
   @include mixins.mq(desktop) {
-    height: 315px;
     width: 350px;
   }
 }
@@ -65,14 +60,12 @@
   letter-spacing: 0.04em;
   @include mixins.mq(tablet) {
     margin-top: 12px;
+    width: 330px;
   }
 }
 .menuGroupList {
   margin-top: 12px;
   width: 270px;
-  list-style-type: decimal;
-  overflow-y: auto;
-  overflow-x: hidden;
   @include mixins.mq(tablet) {
     width: 340px;
   }
@@ -87,23 +80,4 @@
   line-height: 1.214;
   letter-spacing: 0.04em;
   color: var(--second-text-color);
-}
-
-/* width */
-::-webkit-scrollbar {
-  width: 6px;
-}
-/* Track */
-::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px rgb(211, 207, 207);
-  border-radius: 10px;
-}
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #264061;
-  border-radius: 10px;
-}
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #264061;
 }

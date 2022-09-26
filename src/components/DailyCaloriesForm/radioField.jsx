@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import s from './DailyCaloriesForm.module.scss';
 
 import { useState } from 'react';
@@ -32,4 +33,14 @@ export default function RadioField({ name, getTypeBlood }) {
       </div>
     </>
   );
+}
+
+RadioField.defaultProps = {
+  getTypeBlood: () => {},
+  name: '',
+}
+
+RadioField.propTypes = {
+  getTypeBlood: PropTypes.func,
+  name: PropTypes.string,
 }

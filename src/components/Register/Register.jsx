@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { useForm, Controller } from 'react-hook-form';
 import { register } from 'redux/auth/auth-opetations';
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,7 +11,7 @@ import Container from 'components/Shared/Container';
 
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import Modal from '../../components/Modal/Modal';
-import { getErrorLogin } from 'redux/auth/auth-selectors';
+import { getErrorLogin, getNewUserId } from 'redux/auth/auth-selectors';
 
 import { useMediaQuery } from 'react-responsive';
 import bcgDesktop from '../../images/desktop/bcgD.png';
@@ -23,10 +23,10 @@ const Register = () => {
   const isRetina = useMediaQuery({ query: '(min-resolution: 2dppx)' });
 
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const [modalOpen, setModalOpen] = useState(false);
   const errorLogin = useSelector(getErrorLogin);
+  const newUserId = useSelector(getNewUserId);
 
   const { control, handleSubmit, reset } = useForm({
     defaultValues: {
@@ -41,11 +41,11 @@ const Register = () => {
     dispatch(register(data));
     setModalOpen(true);
     reset();
-
-    if (!errorLogin) {
-      navigate('/login');
-    }
   };
+
+  if (!errorLogin && newUserId) {
+    return <Navigate to="/login" />;
+  }
 
   return (
     <section className={s.register}>

@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useForm, Controller } from 'react-hook-form';
 import { useMediaQuery } from 'react-responsive';
 import { useState } from 'react';
@@ -6,8 +6,14 @@ import { ErrorMessage } from '@hookform/error-message';
 
 import s from './DiaryAddProductForm.module.scss';
 import Button from '../../Shared/Button/Button';
+
 import TextField from 'components/Shared/TextField';
+import Modal from 'components/Modal';
+import ErrorMessageAddProduct from 'components/ErrorMessage/ErrorMessage';
+
 import { getProductOperations } from '../../../redux/product-search/search-operations';
+import { getSearchError } from 'redux/product-search/search-selectors';
+
 import { addWeight } from 'redux/dairy-calendar/dairy-calendar-slice';
 import DiaryChooseProductList from '../DiaryChooseProductList/DiaryChooseProductList';
 import { ReactComponent as Warning } from 'images/svg/warning.svg';
@@ -20,6 +26,8 @@ const DiaryAddProductForm = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const isTabletDesktop = useMediaQuery({ minWidth: 768 });
 
+  const searchError = useSelector(getSearchError);
+
   const {
     control,
     handleSubmit,
@@ -31,6 +39,7 @@ const DiaryAddProductForm = () => {
       weight: '',
     },
   });
+
   const onSubmit = (data, e) => {
     e.preventDefault();
     dispatch(getProductOperations(data.query));
@@ -91,6 +100,7 @@ const DiaryAddProductForm = () => {
                 value={value}
                 placeholder={'Вага'}
                 name={'weight'}
+                pattern="[0-9]+"
                 control={control}
                 handleChange={onChange}
               />
@@ -114,6 +124,14 @@ const DiaryAddProductForm = () => {
           {isTabletDesktop && <Button text={'+'} btnClass={'btnPlus'} />}
         </div>
       </form>
+      {isOpen && searchError && (
+        <Modal
+          setModalOpen={setIsOpen}
+          children={
+            <ErrorMessageAddProduct status={searchError.data.message} />
+          }
+        />
+      )}
       {isOpen && <DiaryChooseProductList handleClickClose={handleClickClose} />}
     </>
   );

@@ -13,6 +13,7 @@ const Modal = ({
       if (e.code !== 'Escape') {
         return;
       }
+      removeNoScrollClassList();
       setModalOpen(false);
     };
 
@@ -23,12 +24,18 @@ const Modal = ({
     };
   }, [setModalOpen]);
 
+  function removeNoScrollClassList() {
+    document.querySelector('body').classList.remove('no-scroll');
+  }
+
   const closeModal = () => {
+    removeNoScrollClassList();
     setModalOpen(false);
   };
 
   const onOverlayClick = e => {
     if (e.target === e.currentTarget) {
+      removeNoScrollClassList();
       setModalOpen(false);
     }
   };

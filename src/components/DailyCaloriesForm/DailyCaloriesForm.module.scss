@@ -1,6 +1,7 @@
 @use '../../styles/mixins';
 
 .form {
+
   margin-top: 32px;
   width: 320px;
   height: 568px;
@@ -27,6 +28,34 @@
   @include mixins.mq(desktop) {
     justify-content: space-between;
   }
+
+/* 
+    margin-top: 90px;
+    @include mixins.mq(tablet) {
+        margin-top: 145px;
+        height: 944px;
+    }
+    @include mixins.mq(desktop) {
+        margin-top: 138px;
+        width: 608px;
+        height: 565px;
+    }
+}
+.formParts {
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    @include mixins.mq(tablet) {
+        justify-content: left;
+        flex-direction: row;
+        margin-bottom: 20px;
+    }
+    @include mixins.mq(desktop) {
+        justify-content: space-between;
+    }
+    
+ */
+
 }
 .formPart {
   display: flex;

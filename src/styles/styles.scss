@@ -14,7 +14,8 @@
 
 body {
   font-family: Verdana, Geneva, sans-serif;
-  @include mixins.mq(desktop) {
-    // overflow-y: hidden;
+
+  &.no-scroll {
+    overflow: hidden;
   }
 }
