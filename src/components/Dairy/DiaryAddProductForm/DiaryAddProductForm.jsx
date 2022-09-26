@@ -100,6 +100,7 @@ const DiaryAddProductForm = () => {
                 value={value}
                 placeholder={'Вага'}
                 name={'weight'}
+                pattern="[0-9]+"
                 control={control}
                 handleChange={onChange}
               />
