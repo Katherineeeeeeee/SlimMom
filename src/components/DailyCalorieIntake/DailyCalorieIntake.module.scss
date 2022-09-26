@@ -60,6 +60,7 @@
   letter-spacing: 0.04em;
   @include mixins.mq(tablet) {
     margin-top: 12px;
+    width: 330px;
   }
 }
 .menuGroupList {
@@ -80,4 +81,3 @@
   letter-spacing: 0.04em;
   color: var(--second-text-color);
 }
-
