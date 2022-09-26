@@ -5,7 +5,7 @@ import { getProductOperations } from './search-operations';
 const initialState = {
   items: [],
   loading: false,
-  error: null,
+  error: '',
 };
 
 const getProductSlice = createSlice({
@@ -20,7 +20,7 @@ const getProductSlice = createSlice({
       store.loading = false;
       store.items = payload;
     },
-    [getProductOperations.rejected]: (store, payload) => {
+    [getProductOperations.rejected]: (store, { payload }) => {
       store.loading = false;
       store.error = payload;
     },

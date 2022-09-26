@@ -43,7 +43,7 @@
     gap: 15px;
     height: 245px;
 
-  overflow-y: scroll;
+    overflow-y: scroll;
 
   }
 
@@ -59,6 +59,14 @@
 .wrapper {
   display: flex;
   gap: 10px;
+
+  @include mixins.mq(tablet) {
+    gap: 45px;
+  }
+
+  @include mixins.mq(desktop) {
+    gap: 30px;
+  }
 }
 
 .title {
@@ -79,7 +87,7 @@
   display: flex;
   align-items: center;
 
-  width: 50px;
+  width: 51px;
   margin-left: 8px;
   padding-bottom: 8px;
 
@@ -90,7 +98,7 @@
     margin-left: 20px;
     padding-bottom: 20px;
 
-    text-align: right;
+    justify-content: right;
 
   }
 
@@ -103,20 +111,15 @@
   display: flex;
   align-items: center;
 
-  width: 64px;
+
+  width: 70px;
   padding-bottom: 8px;
 
   border-bottom: 1px solid #E0E0E0;
 
   @include mixins.mq(tablet) {
     width: 105px;
-    margin-left: 45px;
     padding-bottom: 20px;
-
-    text-align: right;
-  }
-
-  @include mixins.mq(desktop) {
-    margin-left: 30px;
+    justify-content: right;
   }
 }
