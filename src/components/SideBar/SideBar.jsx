@@ -8,7 +8,6 @@ import {
   getKcalConsumed2,
   getDailyRate2,
   getPercentsOfDailyRate2,
-  getDayLoading,
 } from 'redux/day/day-selectors';
 import { useState } from 'react';
 
@@ -23,7 +22,6 @@ import styles from '../SideBar/SideBar.module.scss';
 import { getNotAllowedProducts } from 'redux/auth/auth-selectors';
 import { useEffect } from 'react';
 import { getInfoByDay } from 'redux/day/day-operations';
-import Loader from 'components/Loader';
 
 const SideBar = () => {
   const date = useSelector(getDay);
@@ -38,8 +36,6 @@ const SideBar = () => {
   const kcalConsumed2 = useSelector(getKcalConsumed2);
   const dailyRate2 = useSelector(getDailyRate2);
   const percentsOfDailyRate2 = useSelector(getPercentsOfDailyRate2);
-
-  const loading = useSelector(getDayLoading);
 
   const dispatch = useDispatch();
 
@@ -68,7 +64,6 @@ const SideBar = () => {
 
   return (
     <div className={styles.container_sidebar}>
-      {loading && <Loader />}
       <div className={styles.sum}>
         <h3 className={styles.title_sidebar}>Резюме за {date}</h3>
         <ul className={styles.list_sidebar}>

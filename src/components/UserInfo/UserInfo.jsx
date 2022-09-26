@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { getLogin, getUserName } from 'redux/auth/auth-selectors';
@@ -40,7 +40,9 @@ const UserInfo = () => {
     return (
       <div className={s.userInfoSide}>
         <p>{userName}</p>
-        <p onClick={onLogout}>Вихід</p>
+        <Link to="/" className={s.link} onClick={onLogout}>
+          Вихід
+        </Link>
       </div>
     );
   }

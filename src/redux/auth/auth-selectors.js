@@ -11,3 +11,4 @@ export const getNotAllowedProducts = ({ auth }) =>
   auth.user.userData?.notAllowedProducts;
 
 export const getNewUserId = ({ auth }) => auth.newUser?.id;
+export const getUserIsRefreshing = ({ auth }) => auth.isRefreshing;

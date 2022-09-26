@@ -9,6 +9,7 @@ const initialState = {
   refreshToken: '',
   isLogin: false,
   loading: false,
+  isRefreshing: false,
   error: null,
   newUser: {},
 };
@@ -85,6 +86,7 @@ const auth = createSlice({
     [refresh.pending]: store => {
       store.loading = true;
       store.error = null;
+      store.isRefreshing = true;
     },
 
     [refresh.fulfilled]: (store, { payload }) => {
@@ -93,6 +95,7 @@ const auth = createSlice({
       store.sid = payload.sid;
       store.accessToken = payload.newAccessToken;
       store.refreshToken = payload.newRefreshToken;
+      store.isRefreshing = false;
     },
 
     [refresh.rejected]: (store, { payload }) => {
