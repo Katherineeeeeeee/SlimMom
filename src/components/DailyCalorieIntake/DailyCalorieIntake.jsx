@@ -17,9 +17,14 @@ const DailyCalorieIntake = () => {
   if (notAllowedProducts.length === 0) {
     itemsList = items;
   } else {
-    for(let i = 0; i < 5; i += 1) {
+    for (let i = 0; i < 5; i += 1) {
       itemsList[i] = notAllowedProducts[i];
     }
+  }
+
+  function removeClassList() {
+    document.querySelector('body').classList.remove('no-scroll');
+    console.log(document.querySelector('body'));
   }
 
   return (
@@ -48,7 +53,12 @@ const DailyCalorieIntake = () => {
         )}
       </div>
       <Link to="/registration">
-        <Button text="Схуднути" type="button" btnClass="btn" />
+        <Button
+          text="Схуднути"
+          type="button"
+          btnClass="btn"
+          handleClick={removeClassList}
+        />
       </Link>
     </>
   );
@@ -59,9 +69,9 @@ export default DailyCalorieIntake;
 DailyCalorieIntake.defaultProps = {
   notAllowedProducts: () => {},
   dailyRate: () => {},
-}
+};
 
 DailyCalorieIntake.propTypes = {
   notAllowedProducts: PropTypes.func,
   dailyRate: PropTypes.func,
-}
+};
