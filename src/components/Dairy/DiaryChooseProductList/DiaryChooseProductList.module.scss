@@ -65,6 +65,11 @@
 
 .item {
   display: flex;
+  cursor: pointer;
+}
+
+.item:hover {
+  background-color: #e0e0e0;
 }
 
 .wrapper {
