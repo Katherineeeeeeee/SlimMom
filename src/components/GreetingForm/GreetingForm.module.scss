@@ -2,11 +2,18 @@
 
 .wrapper {
   padding: 40px 20px;
-  padding-top: 152px;
+  padding-top: 200px;
   text-align: center;
+  margin: 0 auto;
+
+  @include mixins.mq(mobile) {
+    width: 280px;
+  }
 
   @include mixins.mq(tablet) {
     padding: 40px 32px;
+    width: 509px;
+    padding-top: 152px;
   }
 }
 
@@ -61,7 +68,7 @@
   }
 
   @include mixins.mq(desktop) {
-    margin-top: 150px;
+    margin-top: 75px;
   }
 }
 

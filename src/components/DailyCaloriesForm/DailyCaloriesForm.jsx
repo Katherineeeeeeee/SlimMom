@@ -15,6 +15,7 @@ import DailyCalorieIntake from 'components/DailyCalorieIntake';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import Container from 'components/Shared/Container';
 import PropTypes from 'prop-types';
+import RadioBtn from 'components/Shared/RadioBtn/RadioBtn';
 
 import s from './DailyCaloriesForm.module.scss';
 
@@ -23,7 +24,8 @@ const DailyCaloriesForm = () => {
 
   const [modalOpen, setModalOpen] = useState(false);
 
-  const [radioResult, setActiveCheckbox] = useState('');
+  // const [radioResult, setActiveCheckbox] = useState('');
+  const [bloodType, setActiveCheckbox] = useState('');
 
   const dailyRateDate = useSelector(daily.dailyRate);
   const errorDaily = useSelector(daily.getErrorDaily);
@@ -117,7 +119,7 @@ const DailyCaloriesForm = () => {
               control={control}
               name="bloodType"
               render={({ field: { onChange, value } }) => (
-                <TextField
+                <RadioBtn
                   value={value}
                   control={control}
                   handleChange={onChange}
@@ -134,7 +136,7 @@ const DailyCaloriesForm = () => {
                       className={s.checkbox}
                       type="radio"
                       name="bloodType"
-                      checked={idx === radioResult}
+                      checked={idx === bloodType}
                       onClick={() => setActiveCheckbox(idx)}
                       value={idx + 1}
                       placeholder="Blood type"

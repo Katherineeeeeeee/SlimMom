@@ -26,6 +26,8 @@
   }
 }
 .formPart {
+  display: flex;
+  flex-direction: column;
   width: 240px;
   @include mixins.mq(tablet) {
     margin-right: 32px;
