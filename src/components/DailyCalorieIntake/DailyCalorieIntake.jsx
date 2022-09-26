@@ -6,6 +6,7 @@ import daily from 'redux/daily-rate/daily-rate-selectors';
 import Button from 'components/Shared/Button';
 import { items } from './items';
 
+import PropTypes from 'prop-types';
 import s from './DailyCalorieIntake.module.scss';
 
 const DailyCalorieIntake = () => {
@@ -16,7 +17,9 @@ const DailyCalorieIntake = () => {
   if (notAllowedProducts.length === 0) {
     itemsList = items;
   } else {
-    itemsList = notAllowedProducts;
+    for(let i = 0; i < 5; i += 1) {
+      itemsList[i] = notAllowedProducts[i];
+    }
   }
 
   return (
@@ -34,13 +37,13 @@ const DailyCalorieIntake = () => {
             <p className={s.menuGroupTitle}>
               Продукти, які ви не повинні їсти:
             </p>
-            <ol className={s.menuGroupList}>
+            <ul className={s.menuGroupList}>
               {itemsList.map(el => (
                 <li key={nanoid()} className={s.menuGroupItems}>
                   {el}
                 </li>
               ))}
-            </ol>
+            </ul>
           </>
         )}
       </div>
@@ -52,3 +55,13 @@ const DailyCalorieIntake = () => {
 };
 
 export default DailyCalorieIntake;
+
+DailyCalorieIntake.defaultProps = {
+  notAllowedProducts: () => {},
+  dailyRate: () => {},
+}
+
+DailyCalorieIntake.propTypes = {
+  notAllowedProducts: PropTypes.func,
+  dailyRate: PropTypes.func,
+}
