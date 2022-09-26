@@ -10,6 +10,7 @@ const initialState = {
   isLogin: false,
   loading: false,
   error: null,
+  newUser: {},
 };
 
 const accessAuth = (store, payload) => {
@@ -24,6 +25,12 @@ const accessAuth = (store, payload) => {
 const auth = createSlice({
   name: 'auth',
   initialState,
+  reducers: {
+    clearNewUser: store => {
+      store.newUser = {};
+    },
+  },
+
   extraReducers: {
     // * REGISTER
 
@@ -32,7 +39,15 @@ const auth = createSlice({
       store.error = null;
     },
 
-    [register.fulfilled]: () => ({ ...initialState }),
+    [register.fulfilled]: (store, { payload }) => {
+      store.loading = false;
+      store.isLogin = false;
+      store.newUser = payload;
+      store.user = { ...store.user };
+      store.sid = '';
+      store.accessToken = '';
+      store.refreshToken = '';
+    },
 
     [register.rejected]: (store, { payload }) => {
       store.loading = false;
@@ -50,7 +65,7 @@ const auth = createSlice({
 
     [login.rejected]: (store, { payload }) => {
       store.loading = false;
-      store.error = payload.data.message;  
+      store.error = payload.data.message;
     },
 
     // * LOGOUT
@@ -106,3 +121,4 @@ const auth = createSlice({
 });
 
 export default auth.reducer;
+export const { clearNewUser } = auth.actions;

@@ -45,7 +45,7 @@ const SideBar = () => {
     if (date) {
       dispatch(getInfoByDay({ date }));
     }
-  }, [dispatch, date]);
+  }, [dispatch, date, notAllowedProducts]);
 
   useEffect(() => {
     if (!notAllowedProducts) {

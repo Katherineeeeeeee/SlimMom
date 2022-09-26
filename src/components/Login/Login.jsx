@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { login } from 'redux/auth/auth-opetations';
 import { useSelector, useDispatch } from 'react-redux';
@@ -14,6 +14,8 @@ import { getErrorLogin } from 'redux/auth/auth-selectors';
 import { useMediaQuery } from 'react-responsive';
 import bcgDesktop from '../../images/desktop/bcgD.png';
 import bcgDesktop2x from '../../images/desktop/bcgD@2x.png';
+
+import { clearNewUser } from 'redux/auth/auth-slice';
 
 import s from './Login.module.scss';
 
@@ -32,6 +34,11 @@ const Login = () => {
       password: '',
     },
   });
+
+  useEffect(() => {
+    dispatch(clearNewUser());
+    // eslint-disable-next-line
+  }, []);
 
   const onSubmit = (data, e) => {
     e.preventDefault();
