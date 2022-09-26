@@ -1,6 +1,12 @@
+@use '../../styles/mixins';
+
 .wrapper {
   padding: 40px 20px;
   text-align: center;
+
+  @include mixins.mq(tablet) {
+      padding: 40px 32px;
+    }
 }
 
 .title {
@@ -9,6 +15,18 @@
   line-height: 1.22;
 
   text-align: left;
+
+  @include mixins.mq(tablet) {
+    text-align: center;
+  }
+
+  @include mixins.mq(desktop) {
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 1.2;
+
+    text-align: center;
+  }
 }
 
 .text {
@@ -20,10 +38,32 @@
   letter-spacing: 0.04em;
 
   text-align: left;
+
+  @include mixins.mq(tablet) {
+        margin-top: 40px;
+    line-height: 1.4;
+    }
+
+  @include mixins.mq(desktop) {
+        margin-top: 60px;
+
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+
 }
 
 .btn {
   margin-top: 50px;
+
+  @include mixins.mq(tablet) {
+      margin-top: 100px;
+    }
+
+  @include mixins.mq(desktop) {
+    margin-top: 150px;
+  }
 }
 
 .btnGreeting {
