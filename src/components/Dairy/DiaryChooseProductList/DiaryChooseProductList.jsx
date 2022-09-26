@@ -10,7 +10,10 @@ import { getSearchLoading } from 'redux/product-search/search-selectors';
 
 import LoaderMini from 'components/LoaderMini';
 
-export default function DiaryChooseProductList({ handleClickClose }) {
+export default function DiaryChooseProductList({
+  handleClickClose,
+  setModalOpen,
+}) {
   const dispatch = useDispatch();
 
   const [isOpen, setIsOpen] = useState(false);
@@ -22,6 +25,8 @@ export default function DiaryChooseProductList({ handleClickClose }) {
     dispatch(postEatenProduct({ ...dairyCalendar, productId }));
     setIsOpen(false);
     handleClickClose(false);
+    setModalOpen(false);
+    document.querySelector('body').classList.remove('no-scroll');
   };
 
   return (

@@ -18,7 +18,7 @@ import { addWeight } from 'redux/dairy-calendar/dairy-calendar-slice';
 import DiaryChooseProductList from '../DiaryChooseProductList/DiaryChooseProductList';
 import { ReactComponent as Warning } from 'images/svg/warning.svg';
 
-const DiaryAddProductForm = () => {
+const DiaryAddProductForm = ({ setModalOpen }) => {
   const dispatch = useDispatch();
 
   const [isOpen, setIsOpen] = useState(false);
@@ -132,7 +132,12 @@ const DiaryAddProductForm = () => {
           }
         />
       )}
-      {isOpen && <DiaryChooseProductList handleClickClose={handleClickClose} />}
+      {isOpen && (
+        <DiaryChooseProductList
+          setModalOpen={setModalOpen}
+          handleClickClose={handleClickClose}
+        />
+      )}
     </>
   );
 };
