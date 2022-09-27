@@ -3,7 +3,6 @@ export const field = {
     name: 'name',
     type: 'text',
     placeholder: 'Імʼя*',
-    pattern: '.{3,}',
     title: 'Назва має складатися не менше, ніж з 3 символів',
     required: true,
   },
