@@ -22,7 +22,7 @@
   position: absolute;
   width: 34px;
   height: 3px;
-  background-color: #212121;
+  background-color: var(--text-color);
   transition: 0.4s;
 }
 .burger-menu_lines {
@@ -70,7 +70,7 @@
 }
 .burger-menu_link {
   padding: 20px;
-  color: #9b9faa;
+  color: var(--second-text-color);
   text-decoration: none;
   font-family: 'Verdana';
   font-weight: 700;
@@ -82,5 +82,5 @@
 }
 
 .burger-menu_link.active {
-  color: #fff;
+  color: var(--main-color);
 }

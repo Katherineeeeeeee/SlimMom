@@ -5,14 +5,14 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  border-bottom: 2px solid #e0e0e0;
+  border-bottom: 2px solid var(--border-color);
   padding: 20px;
   max-width: 1280px;
   margin: 0 auto;
 
   @include mixins.mq(not-desktop) {
     position: fixed;
-    background-color: #fff;
+    background-color: var(--main-color);
     z-index: 20;
     top: 0;
     left: 0;
@@ -37,7 +37,7 @@
         left: -20px;
         height: 32px;
         width: 2px;
-        background-color: #e0e0e0;
+        background-color: var(--border-color);
       }
     }
   }
@@ -60,7 +60,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  border-bottom: 2px solid #e0e0e0;
+  border-bottom: 2px solid var(--border-color);
 }
 
 .userInfo {
@@ -77,14 +77,14 @@
 
 .userInfo p {
   display: inline-block;
-  color: #212121;
+  color: var(--text-color);
   font-family: 'GothamPro';
   font-weight: 700;
   padding: 12px;
 }
 
 .userInfo p:last-child {
-  color: #9b9faa;
+  color: var(--second-text-color);
   margin-left: 32px;
   position: relative;
 }
@@ -96,7 +96,7 @@
   height: 0px;
   top: 17px;
   left: -30px;
-  border: 2px solid #e0e0e0;
+  border: 2px solid var(--border-color);
   transform: rotate(90deg);
 }
 
@@ -104,7 +104,7 @@
   composes: userInfo;
   width: 260px;
   justify-content: end;
-  background-color: #fff;
+  background-color: var(--main-color);
   margin-right: 106px;
 }
 
@@ -132,7 +132,7 @@
   margin: 0;
   height: 130px;
   width: 517px;
-  background: #f0f1f3;
+  background: var(--background-color);
 }
 
 .headerIsLogin {
@@ -142,7 +142,7 @@
   @include mixins.mq(not-desktop) {
     position: fixed;
     width: 100%;
-    background-color: #fff;
+    background-color: var(--main-color);
     z-index: 20;
     top: 0;
     left: 0;

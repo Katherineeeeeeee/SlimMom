@@ -1,5 +1,3 @@
-//need to add token
-
 import { instance } from './auth';
 
 export const axiosDay = async userData => {

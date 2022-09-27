@@ -2,17 +2,17 @@ import { useMediaQuery } from 'react-responsive';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 
+import s from './DairyPage.module.scss';
+
 import SideBar from 'components/SideBar';
 import Button from 'components/Shared/Button';
-
 import DiaryAddProductForm from '../../components/Dairy/DiaryAddProductForm';
 import DiaryDateСalendar from '../../components/Dairy/DiaryDateСalendar';
 import DiaryProductsList from '../../components/Dairy/DiaryProductsList';
 import Modal from 'components/Modal';
-
-import s from './DairyPage.module.scss';
-import { getNotAllowedProducts } from 'redux/auth/auth-selectors';
 import GreetingForm from 'components/GreetingForm';
+
+import { getNotAllowedProducts } from 'redux/auth/auth-selectors';
 
 const DairyPage = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 });

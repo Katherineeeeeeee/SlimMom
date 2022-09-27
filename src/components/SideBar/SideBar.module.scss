@@ -24,7 +24,7 @@
     justify-content: start;
     align-items: center;
     min-width: 517px;
-    height: 100vh;
+    min-height: 100vh;
     padding-top: 150px;
   }
 }
@@ -131,15 +131,15 @@ input[name='filter'] {
 }
 /* Track */
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px rgb(211, 207, 207); 
+  box-shadow: inset 0 0 5px rgb(211, 207, 207);
   border-radius: 10px;
 }
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #264061; 
+  background: #264061;
   border-radius: 10px;
 }
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #264061; 
+  background: #264061;
 }

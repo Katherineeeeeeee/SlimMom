@@ -29,7 +29,7 @@
   width: 100%;
   padding-bottom: 8px;
 
-  border-bottom: 1px solid #E0E0E0;
+  border-bottom: 1px solid var(--border-color);
 
   overflow: hidden;
 
@@ -46,7 +46,7 @@
   width: 51px;
   padding-bottom: 8px;
 
-  border-bottom: 1px solid #E0E0E0;
+  border-bottom: 1px solid var(--border-color);
 
   @include mixins.mq(tablet) {
     width: 105px;
@@ -63,8 +63,7 @@
   width: 70px;
   padding-bottom: 8px;
 
-
-  border-bottom: 1px solid #E0E0E0;
+  border-bottom: 1px solid var(--border-color);
 
   @include mixins.mq(tablet) {
     width: 105px;

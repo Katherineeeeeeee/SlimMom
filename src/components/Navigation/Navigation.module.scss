@@ -11,9 +11,7 @@
     left: -34px;
     top: 5px;
 
-    /* Gray 5 */
-
-    border: 2px solid #e0e0e0;
+    border: 2px solid var(--border-color);
     transform: rotate(90deg);
   }
 }
@@ -33,7 +31,7 @@
 }
 
 .link {
-  color: #9b9faa;
+  color: var(--second-text-color);
   background-size: 200% 100%;
   background-position: -100%;
   display: inline-block;
@@ -47,7 +45,7 @@
 
 .link:before {
   content: '';
-  background: #9b9faa;
+  background: var(--second-text-color);
   display: block;
   position: absolute;
   bottom: -3px;

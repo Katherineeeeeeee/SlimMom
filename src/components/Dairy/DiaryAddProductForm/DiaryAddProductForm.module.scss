@@ -3,7 +3,6 @@
 .form {
   display: flex;
   flex-direction: column;
-  // gap: 32px;
   margin-top: 40px;
   padding: 0px 20px;
 
@@ -42,16 +41,10 @@
 }
 
 .errorOverlay {
-  // top: -20px;
-  // position: relative;
   position: absolute;
   bottom: 10px;
   display: flex;
   align-items: center;
-
-  @include mixins.mq(tablet) {
-    // top: 20px;
-  }
 }
 
 .errorMessage {

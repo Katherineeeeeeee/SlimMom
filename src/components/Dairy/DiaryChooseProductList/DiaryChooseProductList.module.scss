@@ -69,7 +69,7 @@
 }
 
 .item:hover {
-  background-color: #e0e0e0;
+  background-color: var(--border-color);
 }
 
 .wrapper {
@@ -89,7 +89,7 @@
   width: 100%;
   padding-bottom: 8px;
 
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid var(--border-color);
 
   overflow: hidden;
 
@@ -107,7 +107,7 @@
   margin-left: 8px;
   padding-bottom: 8px;
 
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid var(--border-color);
 
   @include mixins.mq(tablet) {
     width: 105px;
@@ -129,7 +129,7 @@
   width: 70px;
   padding-bottom: 8px;
 
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid var(--border-color);
 
   @include mixins.mq(tablet) {
     width: 105px;

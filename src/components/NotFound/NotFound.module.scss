@@ -71,7 +71,7 @@
     width: 15px;
     height: 14px;
     border-radius: 6px;
-    background-color: #fc842d;
+    background-color: var(--accent-color);
     position: absolute;
     left: 50%;
     bottom: 56px;
@@ -83,7 +83,7 @@
       display: block;
       width: round(math.div(math.div(32px, 1.3333), 4));
       height: round(math.div(math.div(32px, 1.3333), 4));
-      background-color: #fc842d;
+      background-color: var(--accent-color);
       border-radius: 50%;
       position: absolute;
       bottom: 32px + round(math.div(math.div(32px, 1.3333), 3));

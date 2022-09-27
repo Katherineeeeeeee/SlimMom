@@ -1,18 +1,18 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm, Controller } from 'react-hook-form';
-import SideBar from 'components/SideBar';
+import { useNavigate } from 'react-router-dom';
 
+import s from './CalcForm.module.scss';
+
+import SideBar from 'components/SideBar';
 import TextField from '../Shared/TextField/TextField';
 import { field } from '../Shared/TextField/fields';
 import Button from '../Shared/Button/Button';
-import { dailyRateUser } from 'redux/daily-rate/daily-rate-operations';
-
-import { getID } from 'redux/auth/auth-selectors';
-
-import s from './CalcForm.module.scss';
-import { useNavigate } from 'react-router-dom';
 import TextFieldDefault from 'components/Shared/TextFieldDefault/TextFieldDefault';
+
+import { dailyRateUser } from 'redux/daily-rate/daily-rate-operations';
+import { getID } from 'redux/auth/auth-selectors';
 
 const CalcForm = () => {
   const [bloodType, setActiveCheckbox] = useState('');
@@ -123,7 +123,6 @@ const CalcForm = () => {
               )}
             />
 
-            {/* <input placeholder="Blood type" className={style.input}></input> */}
             <div className={s.radioBlock}>
               {[...Array(4)].map((_, idx) => (
                 <div key={idx} className={s.listRadio}>

@@ -2,7 +2,6 @@
 .input {
   display: inline-block;
   margin-bottom: 40px;
-  // width: 280px; //mobile
   width: 100%;
   height: 48px;
   font-weight: 400;
@@ -13,14 +12,14 @@
   border-left-color: transparent;
   border-right-color: transparent;
   border-top-color: transparent;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid var(--border-color);
   letter-spacing: 1px;
   -webkit-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 
   &:disabled {
-    background-color: #ffffff;
+    background-color: var(--main-color);
   }
 
   @include mixins.mq(tablet) {
@@ -28,6 +27,7 @@
   }
 }
 .input::placeholder {
+  font-size: 14px;
   color: var(--second-text-color);
 }
 .input:focus {

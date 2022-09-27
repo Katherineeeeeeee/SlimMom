@@ -1,12 +1,12 @@
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { getLogin, getUserName } from 'redux/auth/auth-selectors';
-import { logout } from 'redux/auth/auth-opetations';
-
 import s from './UserInfo.module.scss';
+
+import { getLogin, getUserName } from 'redux/auth/auth-selectors';
 import { clearData } from 'redux/dairy-calendar/dairy-calendar-slice';
 import { clearDay } from 'redux/day/day-slice';
+import { logout } from 'redux/auth/auth-opetations';
 
 const UserInfo = () => {
   const isUserLogin = useSelector(getLogin);

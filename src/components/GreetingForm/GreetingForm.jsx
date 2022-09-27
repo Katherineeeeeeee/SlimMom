@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { getUserName } from 'redux/auth/auth-selectors';
 
 import s from './GreetingForm.module.scss';
+
+import { getUserName } from 'redux/auth/auth-selectors';
 
 export default function GreetingForm() {
   const userName = useSelector(getUserName);

@@ -18,8 +18,8 @@ export default ErrorMessage;
 
 ErrorMessage.defaultProps = {
   status: {},
-}
+};
 
 ErrorMessage.propTypes = {
   status: PropTypes.string,
-}
+};

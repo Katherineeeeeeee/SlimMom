@@ -1,16 +1,14 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 
 import s from './DiaryChooseProductList.module.scss';
 
-import { postEatenProduct } from 'redux/day/day-operations';
-
-import { useMediaQuery } from 'react-responsive';
+import LoaderMini from 'components/LoaderMini';
 
 import { getProduct } from 'redux/product-search/search-selectors';
 import { getSearchLoading } from 'redux/product-search/search-selectors';
-
-import LoaderMini from 'components/LoaderMini';
+import { postEatenProduct } from 'redux/day/day-operations';
 
 export default function DiaryChooseProductList({
   handleClickClose,

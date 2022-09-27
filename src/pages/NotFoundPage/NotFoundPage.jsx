@@ -1,7 +1,8 @@
 import { Link, useLocation } from 'react-router-dom';
 
-import Button from 'components/Shared/Button';
 import s from '../../components/NotFound/NotFound.module.scss';
+
+import Button from 'components/Shared/Button';
 
 const NotFoundPage = () => {
   const location = useLocation();

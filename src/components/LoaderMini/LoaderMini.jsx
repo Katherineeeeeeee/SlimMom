@@ -1,8 +1,5 @@
-import s from './LoaderMini.module.scss';
-
 import { Oval } from 'react-loader-spinner';
-
-//need to add this loader too component = DiaryAddProductForm
+import s from './LoaderMini.module.scss';
 
 const Loader = () => {
   return (

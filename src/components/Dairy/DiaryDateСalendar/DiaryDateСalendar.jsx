@@ -3,9 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import uk from 'date-fns/locale/uk';
-
 import 'react-datepicker/dist/react-datepicker.css';
+
 import s from './DiaryDateСalendar.module.scss';
+
 import { addDate } from 'redux/dairy-calendar/dairy-calendar-slice';
 import { getInfoByDay } from 'redux/day/day-operations';
 

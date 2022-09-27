@@ -3,21 +3,21 @@ import { Navigate } from 'react-router-dom';
 import { useForm, Controller } from 'react-hook-form';
 import { register } from 'redux/auth/auth-opetations';
 import { useDispatch, useSelector } from 'react-redux';
+import { useMediaQuery } from 'react-responsive';
+
+import s from './Register.module.scss';
 
 import { field } from 'components/Shared/TextField/fields';
 import TextField from 'components/Shared/TextField';
 import Button from 'components/Shared/Button';
 import Container from 'components/Shared/Container';
-
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import Modal from '../../components/Modal/Modal';
-import { getErrorLogin, getNewUserId } from 'redux/auth/auth-selectors';
 
-import { useMediaQuery } from 'react-responsive';
 import bcgDesktop from '../../images/desktop/bcgD.png';
 import bcgDesktop2x from '../../images/desktop/bcgD@2x.png';
 
-import s from './Register.module.scss';
+import { getErrorLogin, getNewUserId } from 'redux/auth/auth-selectors';
 
 const Register = () => {
   const isRetina = useMediaQuery({ query: '(min-resolution: 2dppx)' });

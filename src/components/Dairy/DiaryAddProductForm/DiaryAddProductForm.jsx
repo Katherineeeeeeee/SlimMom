@@ -5,18 +5,17 @@ import { useState } from 'react';
 import { ErrorMessage } from '@hookform/error-message';
 
 import s from './DiaryAddProductForm.module.scss';
-import Button from '../../Shared/Button/Button';
 
+import Button from '../../Shared/Button/Button';
 import Modal from 'components/Modal';
 import ErrorMessageAddProduct from 'components/ErrorMessage/ErrorMessage';
-
-import { getProductOperations } from '../../../redux/product-search/search-operations';
-import { getSearchError } from 'redux/product-search/search-selectors';
-
-import { addWeight } from 'redux/dairy-calendar/dairy-calendar-slice';
 import DiaryChooseProductList from '../DiaryChooseProductList/DiaryChooseProductList';
 import { ReactComponent as Warning } from 'images/svg/warning.svg';
 import TextFieldDefault from 'components/Shared/TextFieldDefault/TextFieldDefault';
+
+import { getProductOperations } from '../../../redux/product-search/search-operations';
+import { getSearchError } from 'redux/product-search/search-selectors';
+import { addWeight } from 'redux/dairy-calendar/dairy-calendar-slice';
 
 const DiaryAddProductForm = ({ setModalOpen }) => {
   const dispatch = useDispatch();

@@ -1,30 +1,27 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm, Controller } from 'react-hook-form';
+import PropTypes from 'prop-types';
 
-import daily from 'redux/daily-rate/daily-rate-selectors';
-import { dailyRateInfo } from 'redux/daily-rate/daily-rate-operations';
-
-import TextField from '../Shared/TextField/TextField';
+import s from './DailyCaloriesForm.module.scss';
 
 import { field } from '../Shared/TextField/fields';
 import Button from '../Shared/Button/Button';
-
+import TextField from '../Shared/TextField/TextField';
 import Modal from '../../components/Modal/Modal';
 import DailyCalorieIntake from 'components/DailyCalorieIntake';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import Container from 'components/Shared/Container';
-import PropTypes from 'prop-types';
 import TextFieldDefault from 'components/Shared/TextFieldDefault/TextFieldDefault';
 
-import s from './DailyCaloriesForm.module.scss';
+import daily from 'redux/daily-rate/daily-rate-selectors';
+import { dailyRateInfo } from 'redux/daily-rate/daily-rate-operations';
 
 const DailyCaloriesForm = () => {
   const dispatch = useDispatch();
 
   const [modalOpen, setModalOpen] = useState(false);
 
-  // const [radioResult, setActiveCheckbox] = useState('');
   const [bloodType, setActiveCheckbox] = useState('');
 
   const dailyRateDate = useSelector(daily.dailyRate);

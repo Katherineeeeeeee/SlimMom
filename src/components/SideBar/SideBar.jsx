@@ -1,4 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { useState, useEffect } from 'react';
+import { nanoid } from '@reduxjs/toolkit';
+
+import styles from '../SideBar/SideBar.module.scss';
+
+import TextFieldDefault from 'components/Shared/TextFieldDefault/TextFieldDefault';
+import { field } from '../Shared/TextField/fields';
+
 import {
   getKcalLeft,
   getKcalConsumed,
@@ -9,19 +17,9 @@ import {
   getDailyRate2,
   getPercentsOfDailyRate2,
 } from 'redux/day/day-selectors';
-import { useState } from 'react';
-
-import { nanoid } from '@reduxjs/toolkit';
-
-import TextFieldDefault from 'components/Shared/TextFieldDefault/TextFieldDefault';
-import { field } from '../Shared/TextField/fields';
-
-import { getDay } from 'redux/dairy-calendar/dairy-calendar-selectors';
-import styles from '../SideBar/SideBar.module.scss';
-
 import { getNotAllowedProducts } from 'redux/auth/auth-selectors';
-import { useEffect } from 'react';
 import { getInfoByDay } from 'redux/day/day-operations';
+import { getDay } from 'redux/dairy-calendar/dairy-calendar-selectors';
 
 const SideBar = () => {
   const date = useSelector(getDay);

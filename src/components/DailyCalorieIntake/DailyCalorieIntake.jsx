@@ -1,13 +1,14 @@
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { nanoid } from '@reduxjs/toolkit';
+import PropTypes from 'prop-types';
+
+import s from './DailyCalorieIntake.module.scss';
+
+import { items } from './items';
+import Button from 'components/Shared/Button';
 
 import daily from 'redux/daily-rate/daily-rate-selectors';
-import Button from 'components/Shared/Button';
-import { items } from './items';
-
-import PropTypes from 'prop-types';
-import s from './DailyCalorieIntake.module.scss';
 
 const DailyCalorieIntake = () => {
   const notAllowedProducts = useSelector(daily.notAllowedProducts);

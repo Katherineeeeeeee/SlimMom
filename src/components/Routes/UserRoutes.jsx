@@ -1,7 +1,7 @@
-import Loader from 'components/Loader';
 import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
+import Loader from 'components/Loader';
 import PublicRoute from './PublicRoutes';
 import PrivateRoute from './PrivateRoutes';
 

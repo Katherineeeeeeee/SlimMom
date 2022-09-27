@@ -2,14 +2,14 @@ import { Link } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 import { useSelector } from 'react-redux';
 
-import { getLogin } from 'redux/auth/auth-selectors';
-
 import ld from '../../../images/logo/logo-desc.png';
 import ld2x from '../../../images/logo/logo-desc@2x.png';
 import lt from '../../../images/logo/logo-tab.png';
 import lt2x from '../../../images/logo/logo-tab@2x.png';
 import lm from '../../../images/logo/logo-mob.png';
 import lm2x from '../../../images/logo/logo-mob@2x.png';
+
+import { getLogin } from 'redux/auth/auth-selectors';
 
 const Logo = () => {
   const isDesctop = useMediaQuery({ minWidth: 1280 });

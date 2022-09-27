@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
-import { login } from 'redux/auth/auth-opetations';
 import { useSelector, useDispatch } from 'react-redux';
+import { useMediaQuery } from 'react-responsive';
+
+import s from './Login.module.scss';
 
 import Container from 'components/Shared/Container';
 import TextField from 'components/Shared/TextField';
@@ -9,15 +11,13 @@ import { field } from 'components/Shared/TextField/fields';
 import Button from 'components/Shared/Button';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import Modal from '../../components/Modal/Modal';
-import { getErrorLogin } from 'redux/auth/auth-selectors';
 
-import { useMediaQuery } from 'react-responsive';
 import bcgDesktop from '../../images/desktop/bcgD.png';
 import bcgDesktop2x from '../../images/desktop/bcgD@2x.png';
 
+import { getErrorLogin } from 'redux/auth/auth-selectors';
 import { clearNewUser } from 'redux/auth/auth-slice';
-
-import s from './Login.module.scss';
+import { login } from 'redux/auth/auth-opetations';
 
 const Login = () => {
   const isRetina = useMediaQuery({ query: '(min-resolution: 2dppx)' });

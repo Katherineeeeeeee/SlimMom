@@ -2,7 +2,7 @@ import { useMediaQuery } from 'react-responsive';
 import { useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 
-import { getLogin } from 'redux/auth/auth-selectors';
+import s from './Header.module.scss';
 
 import Logo from 'components/Shared/Logo';
 import UserInfo from 'components/UserInfo';
@@ -10,7 +10,7 @@ import Navigation from 'components/Navigation';
 
 import arrow from '../../images/header/arrow.svg';
 
-import s from './Header.module.scss';
+import { getLogin } from 'redux/auth/auth-selectors';
 
 const Header = () => {
   const isDesctop = useMediaQuery({ minWidth: 1280 });
@@ -52,7 +52,7 @@ const Header = () => {
             <UserInfo />
             {!isPathcalculate && (
               <Link to="/calculator-calories">
-                <img src={arrow} alt="arrow"/>
+                <img src={arrow} alt="arrow" />
               </Link>
             )}
           </div>

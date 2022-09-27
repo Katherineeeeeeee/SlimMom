@@ -1,9 +1,9 @@
 import { useMediaQuery } from 'react-responsive';
 import { NavLink } from 'react-router-dom';
 
-import Burger from './Burger/Burger';
-
 import s from './Navigation.module.scss';
+
+import Burger from './Burger/Burger';
 
 const Navigation = () => {
   const isDesctop = useMediaQuery({ minWidth: 1280 });
