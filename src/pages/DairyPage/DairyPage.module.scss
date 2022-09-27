@@ -1,0 +1,60 @@
+@use '../../styles/mixins';
+
+.wrapper {
+  @include mixins.mq(not-desktop) {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-between;
+  }
+
+  @include mixins.mq(desktop) {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1280px;
+  }
+}
+
+.overlay {
+  padding-top: 152px;
+  padding-bottom: 60px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  display: flex;
+  flex-direction: column;
+
+  @include mixins.mq(tablet-only) {
+    margin: 0 auto;
+  }
+
+  @include mixins.mq(desktop) {
+    padding-top: 140px;
+    padding-bottom: 55px;
+  }
+}
+
+.btn {
+  margin-top: 60px;
+  text-align: center;
+}
+
+.btnDairyPage {
+  margin-top: 60px;
+  padding-top: 10px;
+
+  width: 48px;
+  height: 48px;
+
+  font-size: 24px;
+  text-align: center;
+
+  border: none;
+  border-radius: 100%;
+  background-color: var(--accent-color);
+
+  color: var(--main-color);
+
+  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+}

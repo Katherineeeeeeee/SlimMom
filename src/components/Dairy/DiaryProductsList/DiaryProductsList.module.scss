@@ -1,0 +1,27 @@
+@use '../../../styles/mixins';
+
+.list {
+  margin-top: 30px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+
+  @include mixins.mq(tablet) {
+    width: 610px;
+    gap: 15px;
+    height: 245px;
+
+    overflow-y: scroll;
+  }
+
+  @include mixins.mq(desktop) {
+    height: 270px;
+    margin-top: 40px;
+  }
+}

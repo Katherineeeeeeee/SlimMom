@@ -1,0 +1,36 @@
+.link {
+  color: #9b9faa;
+  background-size: 200% 100%;
+  background-position: -100%;
+  display: inline-block;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+.active {
+  color: #212121;
+}
+
+.userInfoSide p {
+  cursor: pointer;
+}
+
+.link:before {
+  content: '';
+  background: #9b9faa;
+  display: block;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  transition: all 0.3s ease-in-out;
+}
+
+.link:hover {
+  background-position: 0;
+}
+
+.link:hover::before {
+  width: 100%;
+}

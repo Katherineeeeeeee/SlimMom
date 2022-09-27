@@ -1,0 +1,147 @@
+@use '../../styles/mixins';
+@use 'sass:math';
+
+@keyframes floating {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  45% {
+    transform: translate3d(0, -10%, 0);
+  }
+  55% {
+    transform: translate3d(0, -10%, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes floatingShadow {
+  0% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(0.85);
+  }
+  55% {
+    transform: scale(0.85);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.container {
+  text-align: center;
+}
+
+.title {
+  font-size: 32px;
+  margin-top: 32px;
+  color: var(--accent-color);
+}
+
+.txt {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  color: var(--second-text-color);
+}
+
+.booWrapper {
+  margin-top: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.boo {
+  width: 160px;
+  height: 184px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 4px solid var(--accent-color);
+  border-bottom: 0;
+  overflow: hidden;
+  border-radius: 80px 80px 0 0;
+  box-shadow: -16px 0 0 2px rgb(226 228 232 / 50%) inset;
+  animation: floating 3s ease-in-out infinite;
+
+  .face {
+    width: 15px;
+    height: 14px;
+    border-radius: 6px;
+    background-color: var(--accent-color);
+    position: absolute;
+    left: 50%;
+    bottom: 56px;
+    transform: translateX(-50%);
+
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      width: round(math.div(math.div(32px, 1.3333), 4));
+      height: round(math.div(math.div(32px, 1.3333), 4));
+      background-color: var(--accent-color);
+      border-radius: 50%;
+      position: absolute;
+      bottom: 32px + round(math.div(math.div(32px, 1.3333), 3));
+    }
+
+    &::before {
+      left: round(math.div(32px, 1.3333));
+    }
+
+    &::after {
+      right: round(math.div(32px, 1.3333));
+    }
+  }
+}
+.boo:after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: math.div(-32px, 1.7);
+  bottom: math.div(-32px, 3.85);
+  width: calc(100% + 32px);
+  height: 32px;
+  background-repeat: repeat-x;
+  background-size: 32px 32px;
+  background-position: left bottom;
+  background-image: linear-gradient(
+      -45deg,
+      var(--background-color),
+      math.div(32px, 2),
+      transparent 0
+    ),
+    linear-gradient(
+      45deg,
+      var(--background-color),
+      math.div(32px, 2),
+      transparent 0
+    ),
+    linear-gradient(
+      -45deg,
+      var(--accent-color),
+      math.div(32px, 1.7),
+      transparent 0
+    ),
+    linear-gradient(
+      45deg,
+      var(--accent-color),
+      math.div(32px, 1.7),
+      transparent 0
+    );
+}
+
+.shadow {
+  width: 128px;
+  height: 16px;
+  background-color: rgba(226, 228, 232, 0.75);
+  margin-top: 40px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 50%;
+  animation: floatingShadow 3s ease-in-out infinite;
+}

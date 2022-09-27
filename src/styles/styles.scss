@@ -1,0 +1,22 @@
+@use './mixins';
+@import 'fonts';
+@import 'reset';
+@import 'container';
+@import 'common';
+
+:root {
+  --main-color: #ffffff;
+  --background-color: #f0f1f3;
+  --accent-color: #fc842d;
+  --text-color: #212121;
+  --second-text-color: #9b9faa;
+  --border-color: #e0e0e0;
+}
+
+body {
+  font-family: Verdana, Geneva, sans-serif;
+
+  &.no-scroll {
+    overflow: hidden;
+  }
+}

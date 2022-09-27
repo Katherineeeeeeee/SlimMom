@@ -1,0 +1,64 @@
+.navDesct {
+  padding-bottom: 5px;
+  position: relative;
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 32px;
+    height: 0px;
+    left: -34px;
+    top: 5px;
+
+    border: 2px solid var(--border-color);
+    transform: rotate(90deg);
+  }
+}
+
+.navDesct a {
+  text-decoration: none;
+  font-family: 'GothamPro';
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+
+  &:last-child {
+    margin-left: 16px;
+  }
+}
+
+.link {
+  color: var(--second-text-color);
+  background-size: 200% 100%;
+  background-position: -100%;
+  display: inline-block;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+.active {
+  color: #212121;
+}
+
+.link:before {
+  content: '';
+  background: var(--second-text-color);
+  display: block;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  transition: all 0.3s ease-in-out;
+}
+
+.link:hover {
+  background-position: 0;
+}
+
+.link:hover::before {
+  width: 100%;
+}

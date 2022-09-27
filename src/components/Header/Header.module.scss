@@ -1,0 +1,150 @@
+@use '../../styles/_mixins.scss';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border-bottom: 2px solid var(--border-color);
+  padding: 20px;
+  max-width: 1280px;
+  margin: 0 auto;
+
+  @include mixins.mq(not-desktop) {
+    position: fixed;
+    background-color: var(--main-color);
+    z-index: 20;
+    top: 0;
+    left: 0;
+  }
+
+  @media screen and (min-width: 1280px) {
+    justify-content: start;
+    border: none;
+    align-items: end;
+    padding-top: 80px;
+
+    & .wrap {
+      padding-bottom: 3px;
+      margin-left: 42px;
+      position: relative;
+
+      &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: -7px;
+        left: -20px;
+        height: 32px;
+        width: 2px;
+        background-color: var(--border-color);
+      }
+    }
+  }
+}
+
+.header a {
+  font-family: 'GothamPro';
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.header a:nth-child(even) {
+  margin-left: 16px;
+}
+
+.headerNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background: #eff1f3;
+}
+
+.userInfo p {
+  display: inline-block;
+  color: var(--text-color);
+  font-family: 'GothamPro';
+  font-weight: 700;
+  padding: 12px;
+}
+
+.userInfo p:last-child {
+  color: var(--second-text-color);
+  margin-left: 32px;
+  position: relative;
+}
+
+.userInfo p:before {
+  content: '';
+  position: absolute;
+  width: 32px;
+  height: 0px;
+  top: 17px;
+  left: -30px;
+  border: 2px solid var(--border-color);
+  transform: rotate(90deg);
+}
+
+.userInfoTablet {
+  composes: userInfo;
+  width: 260px;
+  justify-content: end;
+  background-color: var(--main-color);
+  margin-right: 106px;
+}
+
+.headerNavDesc {
+  composes: headerNav;
+  border: none;
+
+  @media screen and (min-width: 1280px) {
+    align-items: start;
+    padding: 0;
+  }
+}
+
+.logoNavWrap {
+  display: flex;
+  align-items: flex-end;
+  gap: 40px;
+  padding-top: 60px;
+}
+
+.userInfoDesct {
+  composes: userInfoTablet;
+  display: flex;
+  align-items: flex-end;
+  margin: 0;
+  height: 130px;
+  width: 517px;
+  background: var(--background-color);
+}
+
+.headerIsLogin {
+  max-width: 1280px;
+  margin: 0 auto;
+
+  @include mixins.mq(not-desktop) {
+    position: fixed;
+    width: 100%;
+    background-color: var(--main-color);
+    z-index: 20;
+    top: 0;
+    left: 0;
+  }
+}

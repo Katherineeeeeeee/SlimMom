@@ -1,0 +1,87 @@
+@use '../../../styles/mixins';
+
+.item {
+  display: flex;
+
+  cursor: pointer;
+}
+
+.wrapper {
+  display: flex;
+  gap: 8px;
+
+  margin-left: 8px;
+
+  @include mixins.mq(tablet) {
+    gap: 45px;
+    margin-left: 20px;
+  }
+
+  @include mixins.mq(desktop) {
+    gap: 30px;
+    margin-left: 50px;
+  }
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 8px;
+
+  border-bottom: 1px solid var(--border-color);
+
+  overflow: hidden;
+
+  @include mixins.mq(tablet) {
+    width: 240px;
+    padding-bottom: 20px;
+  }
+}
+
+.weight {
+  display: flex;
+  align-items: center;
+
+  width: 51px;
+  padding-bottom: 8px;
+
+  border-bottom: 1px solid var(--border-color);
+
+  @include mixins.mq(tablet) {
+    width: 105px;
+    padding-bottom: 20px;
+
+    justify-content: right;
+  }
+}
+
+.kcal {
+  display: flex;
+  align-items: center;
+
+  width: 70px;
+  padding-bottom: 8px;
+
+  border-bottom: 1px solid var(--border-color);
+
+  @include mixins.mq(tablet) {
+    width: 105px;
+    padding-bottom: 20px;
+
+    justify-content: right;
+  }
+}
+
+.btnRemove {
+  margin-left: 10px;
+
+  border: none;
+  outline: none;
+  background: none;
+
+  @include mixins.mq(tablet) {
+    margin-left: 30px;
+    margin-right: 40px;
+  }
+}

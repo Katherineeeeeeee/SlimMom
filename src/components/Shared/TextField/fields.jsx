@@ -1,0 +1,62 @@
+export const field = {
+  name: {
+    name: 'name',
+    type: 'text',
+    placeholder: 'Імʼя*',
+    pattern: '.{3,}',
+    title: 'Назва має складатися не менше, ніж з 3 символів',
+    required: true,
+  },
+  email: {
+    name: 'email',
+    type: 'text',
+    placeholder: 'Електронна пошта*',
+    required: true,
+  },
+  password: {
+    name: 'password',
+    type: 'password',
+    placeholder: 'Пароль (від 8 символів)*',
+    required: true,
+    title: 'Пароль має бути не менше 8 символів',
+  },
+  height: {
+    name: 'height',
+    type: 'text',
+    placeholder: 'Зріст (100-250)*',
+    required: true,
+    title: 'Введіть дійсне ціле число від 100 до 250.',
+  },
+  age: {
+    name: 'age',
+    type: 'text',
+    placeholder: 'Вік (18-100)*',
+    required: true,
+    title: 'Введіть дійсне число від 18 до 100.',
+  },
+  weight: {
+    name: 'weight',
+    type: 'text',
+    placeholder: 'Поточна вага (20-250)*',
+    required: true,
+    title: 'Введіть дійсне ціле число від 20 до 250.',
+  },
+  desiredWeight: {
+    name: 'desiredWeight',
+    type: 'text',
+    placeholder: 'Бажана вага (20-500)*',
+    required: true,
+    title: 'Введіть дійсне ціле число від 20 до 500.',
+  },
+  bloodType: {
+    name: 'blodtype',
+    type: 'text',
+    placeholder: 'Група крові*',
+    disabled: true,
+  },
+  filter: {
+    type: 'text',
+    name: 'filter',
+    placeholder: 'Фільтрувати за назвою',
+  },
+};

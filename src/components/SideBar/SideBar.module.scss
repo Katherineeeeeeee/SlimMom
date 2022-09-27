@@ -1,0 +1,145 @@
+@use '../../styles/mixins';
+.container_sidebar {
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--background-color);
+
+  @include mixins.mq(tablet) {
+    padding: 80px 32px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
+    background-image: url(../../images/tablet/layer411.png);
+    background-position: top -72px right -264px;
+    background-repeat: no-repeat;
+  }
+
+  @include mixins.mq(desktop) {
+    background-image: url(../../images/desktop/layer2.png);
+    background-position: top -122px right -13px;
+    background-repeat: no-repeat;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    min-width: 517px;
+    min-height: 100vh;
+    padding-top: 150px;
+  }
+}
+
+.sum {
+  width: 280px;
+  margin-bottom: 30px;
+
+  @include mixins.mq(tablet) {
+    width: 290px;
+    margin-right: 97px;
+  }
+
+  @include mixins.mq(desktop) {
+    margin-right: 0;
+    margin-bottom: 60px;
+  }
+}
+
+.title_sidebar {
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.21;
+  letter-spacing: 0.04em;
+
+  @include mixins.mq(tablet) {
+    margin-bottom: 35px;
+  }
+}
+.list_sidebar {
+  width: 280px;
+}
+
+.item_sidebar {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  height: 28px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.21;
+  letter-spacing: 0.04em;
+  color: var(--second-text-color);
+}
+
+.data {
+  @include mixins.mq(desktop) {
+    margin-right: 40px;
+  }
+}
+
+.text_sidebar_food {
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  color: var(--second-text-color);
+}
+
+.food {
+  width: 280px;
+}
+.menuGroupList {
+  width: 280px;
+  height: 305px;
+  list-style-type: none;
+  overflow-y: auto;
+  overflow-x: hidden;
+  @include mixins.mq(tablet) {
+    width: 240px;
+    height: 305px;
+  }
+  @include mixins.mq(desktop) {
+    height: 315px;
+  }
+}
+.menuGroupItems {
+  width: 255px;
+  margin-bottom: 20px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.214;
+  letter-spacing: 0.04em;
+  color: var(--second-text-color);
+  @include mixins.mq(tablet) {
+    margin-bottom: 15px;
+    width: 235px;
+  }
+  @include mixins.mq(desktop) {
+    width: 230px;
+  }
+}
+
+input[name='filter'] {
+  color: var(--second-text-color);
+  background-color: var(--background-color);
+  border-bottom: 1px solid var(--second-text-color);
+  font-weight: 600;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgb(211, 207, 207);
+  border-radius: 10px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #264061;
+  border-radius: 10px;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #264061;
+}

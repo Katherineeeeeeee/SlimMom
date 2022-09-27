@@ -1,0 +1,43 @@
+.btn {
+  background-color: var(--accent-color);
+  padding: 13px 25px;
+  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+  border-radius: 30px;
+  border: 2px solid var(--accent-color);
+  color: var(--main-color);
+  min-width: 182px;
+}
+
+.btnLight {
+  composes: btn;
+  color: var(--accent-color);
+  background-color: var(--main-color);
+}
+
+.btnPlus {
+  width: 48px;
+  height: 48px;
+  border: none;
+  color: var(--main-color);
+  font-size: 24px;
+  border-radius: 100%;
+  background-color: var(--accent-color);
+  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+}
+
+.btnDairyPage {
+  margin-top: 60px;
+
+  width: 48px;
+  height: 48px;
+
+  font-size: 24px;
+
+  border: none;
+  border-radius: 100%;
+  background-color: var(--accent-color);
+
+  color: var(--main-color);
+
+  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+}

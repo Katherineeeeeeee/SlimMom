@@ -1,0 +1,83 @@
+@use '../../styles/mixins';
+
+.modalTitle {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  text-align: left;
+  width: 280px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.444;
+  color: var(--text-color);
+  @include mixins.mq(tablet) {
+    margin-top: 64px;
+    text-align: center;
+    width: 450px;
+    font-size: 26px;
+    line-height: 1.23;
+  }
+}
+.modalText {
+  margin-bottom: 20px;
+  width: 280px;
+  height: 62px;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1.208;
+  letter-spacing: 0.04em;
+  color: #264061;
+  text-align: center;
+  @include mixins.mq(tablet) {
+    width: 330px;
+  }
+}
+.textDescription {
+  font-size: 18px;
+}
+.menuGroup {
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 270px;
+  border-top: 1px solid var(--border-color);
+  @include mixins.mq(tablet) {
+    margin-bottom: 20px;
+    width: 340px;
+  }
+  @include mixins.mq(desktop) {
+    width: 350px;
+  }
+}
+.menuGroupTitle {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  width: 280px;
+  height: 17px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.214;
+  letter-spacing: 0.04em;
+  @include mixins.mq(tablet) {
+    margin-top: 12px;
+    width: 330px;
+  }
+}
+.menuGroupList {
+  margin-top: 12px;
+  width: 270px;
+  @include mixins.mq(tablet) {
+    width: 340px;
+  }
+  @include mixins.mq(desktop) {
+    width: 350px;
+  }
+}
+.menuGroupItems {
+  margin-bottom: 20px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.214;
+  letter-spacing: 0.04em;
+  color: var(--second-text-color);
+}
