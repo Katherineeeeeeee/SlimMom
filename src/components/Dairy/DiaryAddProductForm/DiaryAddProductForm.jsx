@@ -69,7 +69,7 @@ const DiaryAddProductForm = ({ setModalOpen }) => {
             render={({ field: { onChange, value } }) => (
               <TextFieldDefault
                 value={value}
-                placeholder={'Введіть назву продукту'}
+                placeholder={'Назва продукту (Свекла)'}
                 name={'query'}
                 control={control}
                 handleChange={onChange}
@@ -97,14 +97,14 @@ const DiaryAddProductForm = ({ setModalOpen }) => {
             render={({ field: { onChange, value } }) => (
               <TextFieldDefault
                 value={value}
-                placeholder={'Вага'}
+                placeholder={'Вага (гр)'}
                 name={'weight'}
                 pattern="[0-9]+"
                 control={control}
                 handleChange={onChange}
               />
             )}
-            rules={{ required: 'Введіть свою вагу' }}
+            rules={{ required: 'Введіть вагу продукту' }}
           />
           <ErrorMessage
             errors={errors}
